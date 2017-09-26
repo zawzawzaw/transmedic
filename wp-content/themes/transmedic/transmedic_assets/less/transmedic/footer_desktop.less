@@ -1,0 +1,234 @@
+#footer-desktop{
+  background: @white;
+
+  // padding-bottom: 70px;
+  
+  /// padding-top: 60px;
+  /// padding-bottom: 63px;
+  
+  padding-top: 24px;
+  padding-bottom: 22px;
+  
+}
+
+
+/*
+
+//    _     ___   ____  ___
+//   | |   / _ \ / ___|/ _ \
+//   | |  | | | | |  _| | | |
+//   | |__| |_| | |_| | |_| |
+//   |_____\___/ \____|\___/
+//
+
+
+#footer-desktop-logo-container{
+  padding-top: 4px;
+} // #footer-desktop-logo-container
+
+#footer-desktop-logo{
+  .logo-transmedic-footer;
+
+  display: block;
+
+  .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+
+  &:hover{
+    .opacity(0.7);
+    .transition-in(0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+  }
+
+  // TABLET LANDSCAPE
+  @media only screen and (max-width: 1024px) and (min-width: 992px) {
+    .logo-transmedic-footer-medium;
+  }
+
+} // #footer-desktop-logo
+
+
+
+
+
+//     ____ ___  ______   __
+//    / ___/ _ \|  _ \ \ / /
+//   | |  | | | | |_) \ V /
+//   | |__| |_| |  __/ | |
+//    \____\___/|_|    |_|
+//
+
+
+.footer-copy-container{
+  padding-top: 3px;
+  p{
+    font-size: 17px;
+
+    strong{
+      font-size: 17px;
+    }
+  }
+}
+
+#footer-address-container{
+
+} // #footer-address-container
+
+#footer-contact-container{
+
+} // #footer-contact-container
+
+
+//    _     ___ _   _ _  __
+//   | |   |_ _| \ | | |/ /
+//   | |    | ||  \| | ' /
+//   | |___ | || |\  | . \
+//   |_____|___|_| \_|_|\_\
+//
+
+#footer-link-container{
+  padding-top: 7px;
+
+  ul{
+    li{
+      display: block;
+      a{
+        .source-sans-pro-regular;
+        font-size: 16px;
+        line-height: 19px;
+
+        // display: block;
+        .display-inline-block;
+        position: relative;
+
+        color: @cyan;
+        .transition-in-single (color, 0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+
+        &:before{
+          content: '';
+          display: block;
+
+          position: absolute;
+          bottom: 1px;
+          left: 0px;
+          width: 100%;
+          border-bottom: 1px solid @cyan;
+          .transition-in-single (border-bottom, 0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+        }
+
+        &:hover{
+          color: @off-black;
+          .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.2s);
+
+          &:before{
+            border-bottom: 1px solid @off-black;
+            .transition-in-single (border-bottom, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.2s);
+          }
+        }
+      }
+    }
+  }
+} // #footer-link-container
+
+
+*/
+
+
+//     ____ ___  ______   ______  ___ ____ _   _ _____
+//    / ___/ _ \|  _ \ \ / /  _ \|_ _/ ___| | | |_   _|
+//   | |  | | | | |_) \ V /| |_) || | |  _| |_| | | |
+//   | |__| |_| |  __/ | | |  _ < | | |_| |  _  | | |
+//    \____\___/|_|    |_| |_| \_\___\____|_| |_| |_|
+//
+
+
+#footer-content-spacer{
+  height: 54px;
+}
+
+
+#footer-copyright{
+  p{
+    .source-sans-pro-light;
+    // font-size: 16px;
+    font-size: 19px;
+    line-height: 26px;
+    color: @off-black;
+  }
+} // #footer-copyright
+
+#footer-legal{
+  text-align: right;
+  
+
+  ul{
+    font-size: 0;
+
+    li{
+      .display-inline-block;
+      position: relative;
+
+      padding-right: 26px;
+
+      &:before{
+        content: "";
+        display: block;
+        position: absolute;
+
+        // top: 7px;
+        // height: 16px;
+        // border-right: 1px solid #666666;
+        
+        top: 6px;
+        right: 12px;
+        width: 0;
+        height: 19px;
+        border-right: 1px solid @off-black;
+      }
+
+      &:last-child{
+        padding-right: 0px;
+        &:before{
+          display: none;
+        }
+      }
+
+
+      a{
+        .source-sans-pro-light;
+        // font-size: 16px;
+        font-size: 19px;
+        line-height: 26px;
+        // color: #666666;
+        color: @off-black;
+
+        display: block;
+
+        .transition-in-single (color, 0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+
+        &:hover{
+          color: @cyan;
+          .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+        }
+      }
+    }
+  }
+} // #footer-legal
+
+
+@media all and (max-width: 991px) {
+  #footer-desktop{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #footer-copyright {
+    text-align: center;
+    margin-bottom: 0px;
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      color: @light-grey-2;
+    }
+  }
+  #footer-legal {
+    display: none;
+  }
+}

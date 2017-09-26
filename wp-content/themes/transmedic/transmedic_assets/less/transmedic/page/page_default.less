@@ -1,0 +1,244 @@
+.default-copy {
+  h4 {
+    color: @light-grey-2;
+    font-size: 22px;
+    letter-spacing: 0.05em;    
+    padding-bottom: 20px;  
+  }
+
+  h2 {
+    padding-bottom: 40px;
+  }    
+
+  @media all and (max-width: 991px) {
+    h4 {
+      .h4-style-mobile;
+    }
+    h2 {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+span.default-image-desc {
+  .source-sans-pro-light;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+//     ____  ___    _   ___   ____________
+//    / __ )/   |  / | / / | / / ____/ __ \
+//   / __  / /| | /  |/ /  |/ / __/ / /_/ /
+//  / /_/ / ___ |/ /|  / /|  / /___/ _, _/
+// /_____/_/  |_/_/ |_/_/ |_/_____/_/ |_|
+
+#page-default-banner-section {
+  background: #e3e6e4;      // color of banner image
+  position: relative;
+} // #page-default-banner-section
+
+#page-default-banner-image {
+  
+  .manic-image-container{
+    height: 580px;
+  }
+
+  &.short-version {
+    .manic-image-container {
+      height: 500px;
+    }
+  }
+
+  &.short-version-02 {
+    .manic-image-container {
+      height: 434px;
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    
+    .manic-image-container {
+      height: 450px;
+    }
+
+    &.short-version {
+      .manic-image-container {
+        height: 400px;
+      }
+    }
+    &.short-version-02 {
+      .manic-image-container {
+        height: 300px;
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    &.short-version {
+      .manic-image-container {
+        height: 200px;
+      }
+    }
+    &.short-version-02 {
+      .manic-image-container {
+        height: 300px;
+      }
+    }
+  }
+
+} // #page-default-banner-image
+
+#page-default-banner-copy-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  @media all and (max-width: 991px) {
+    display: none;
+  }
+
+} // #page-default-banner-copy-container
+
+#page-default-banner-copy {
+  width: 100%;
+  height: 580px;
+  display: table;
+
+  h1{
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 70px;
+    padding-left: 42px;
+  }
+
+  @media only screen and (max-width: 991px) {
+    h1{
+      .h1-style-mobile;
+      padding-bottom: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    height: auto;
+  }
+
+} // #page-default-banner-copy
+
+//     _   _________       _______    __________________  ___
+//    / | / / ____/ |     / / ___/   /  _/_  __/ ____/  |/  /
+//   /  |/ / __/  | | /| / /\__ \    / /  / / / __/ / /|_/ /
+//  / /|  / /___  | |/ |/ /___/ /  _/ /  / / / /___/ /  / /
+// /_/ |_/_____/  |__/|__//____/  /___/ /_/ /_____/_/  /_/
+
+
+#page-default-news-item-container {
+
+  .item-column{
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &.first-version{
+      padding-left: 0px;
+    }
+    &.last-version{
+      padding-right: 0px;      
+    }
+  }
+
+  // TABLET PORTRAIT
+  @media only screen and (max-width: 991px) {
+    .item-column{
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+
+      &.last-version {
+        .page-default-news-item {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+} // #page-home-news-item-container
+
+.page-default-news-item{
+
+  .item-title{
+    margin-bottom: 33px;
+
+    h4{
+      color: @light-grey-2;
+    }
+    
+    h3{
+      a{
+        .transition-in-single (color, 0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+
+        // &:hover{
+        &.selected{
+          color: @cyan;
+          .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+        }
+      }
+    }
+
+
+    h3{
+      padding-top: 6px;   
+      // @media all and (max-width: 1280px) {
+      //   height: 94px;
+      //   overflow-y: hidden;
+      // }      
+    }
+
+
+  }
+
+  .item-date{
+    text-align: right;
+    text-transform: none;
+    letter-spacing: 0px;
+    margin-left: -5px;
+  }
+
+  .item-copy{
+    margin-bottom: 19px;
+  }
+
+  .item-cta-container{
+
+  }
+
+  @media all and (max-width: 991px) {
+    
+    &:after {
+      content: "";
+      border-bottom: 1px solid @border-grey;
+      height: 1px;
+      width: 100%;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    .item-title {
+      h3 {
+        padding-top: 20px;
+      }
+    }
+
+    .item-copy{
+      margin-bottom: 40px;
+    }
+
+    .item-cta-container {
+      display: none;      
+    }
+
+    
+  }
+
+} // .page-home-news-item
+

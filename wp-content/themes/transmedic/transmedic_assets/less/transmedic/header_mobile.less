@@ -1,0 +1,86 @@
+#header-mobile{
+  position: fixed;
+  z-index: 200000;
+  top: 0;
+  left: 0;
+  width: 100%;  
+
+  .white-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: @header-mobile-height;
+    background: @white;
+    .box-shadow (1px, 1px, 16px, rgba(81,73,71,.25));
+
+    .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+  }
+}
+
+.header-mobile-spacer{
+  background: @white;
+  height: @header-mobile-height;
+  .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+
+}
+
+#header-mobile-content-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @header-mobile-height;
+
+  .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+}
+
+#header-mobile-logo-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#header-mobile-logo{
+  position: absolute;
+  top: 10px;
+  left: 20px;
+
+  display: block;
+  .logo-transmedic-header-mobile;
+
+  // .transition-in(0.4s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.3s);
+  
+  // -webkit-animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
+  // animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
+
+}
+
+//     ____  __  ______  ________________     ______________  _   __
+//    / __ )/ / / / __ \/ ____/ ____/ __ \   /  _/ ____/ __ \/ | / /
+//   / __  / / / / /_/ / / __/ __/ / /_/ /   / // /   / / / /  |/ /
+//  / /_/ / /_/ / _, _/ /_/ / /___/ _, _/  _/ // /___/ /_/ / /|  /
+// /_____/\____/_/ |_|\____/_____/_/ |_|  /___/\____/\____/_/ |_/
+
+
+#header-mobile-menu-opener-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  #header-mobile-menu-opener {
+    position: absolute;
+    top: 23px;
+    right: 20px;
+
+    span {
+      width: 18px;
+      height: 2px;
+      margin-bottom: 3px;
+      display: block;
+      background: @light-grey-2;
+    }
+  }
+}

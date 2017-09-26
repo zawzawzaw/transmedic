@@ -1,0 +1,140 @@
+#page-default-banner-section {
+  &.contact-version {
+    height: 431px;
+  }
+
+  @media all and (max-width: 991px) {
+    &.contact-version {
+      height: 300px;
+    }
+  }
+}
+
+#page-contact-offices-section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: @white;
+
+  @media only screen and (max-width: 991px) {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+  }
+}
+
+#page-contact-offices-title {
+  padding-bottom: 40px;
+  h2 {
+    // padding-left: 20px;
+    margin-left: -55px;
+  }
+  @media only screen and (max-width: 991px) {
+    h2 {
+      margin-left: 0px;
+    }
+  }
+}
+
+.page-contact-offices-content-item {
+  // padding-right: 180px;
+  // height: 285px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 45px;
+
+  &:after {
+    content: "";
+    border-bottom: 1px solid @border-grey;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    // left: -180px;
+  }
+
+  &.last-item {
+    margin-bottom: 0px;
+    height: auto;
+    &:after {
+      display: none;
+    }
+  }
+
+  // p, a {
+  //   font-size: 14px;
+  //   line-height: 20px;
+  // }
+
+  .page-contact-offices-content-item-title {
+    padding-bottom: 15px;
+    h6 {
+      text-transform: uppercase;
+      .source-sans-pro-semibold;
+      font-size: 19px;
+      line-height: 36px;
+    }
+  }
+
+  .page-contact-offices-content-item-address {
+    padding-bottom: 15px;
+  }
+
+  .page-contact-offices-content-item-more-contact {
+    padding-bottom: 15px;
+  }
+
+  @media all and (max-width: 991px) {
+    height: auto;
+    margin-bottom: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+  }
+
+}
+
+#page-contact-extra-section {
+  padding-top: 70px;
+  padding-bottom: 120px;
+
+  // h2 {
+  //   font-size: 21px;
+  //   line-height: 30px;
+  //   margin-left: -40px;
+  //   // padding-left: 25px;
+  //   // padding-right: 130px;
+  // }
+  h5 {
+    margin-left: -40px;
+  }
+
+  ul {
+    li {
+      margin-bottom: 25px;
+      span {
+        display: block;
+      }
+      span, a {      
+        // font-size: 14px;
+        // line-height: 14px;
+      }
+    }
+  }
+
+  p {
+    padding-bottom: 25px;
+  }
+
+  @media only screen and (max-width: 991px) {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+
+    h5 {
+      margin-left: 0px;
+      margin-bottom: @section-content-padding-mobile;
+    }
+
+    h2 {
+      padding-left: 0px;
+      padding-bottom: 20px;
+    }
+  }
+}

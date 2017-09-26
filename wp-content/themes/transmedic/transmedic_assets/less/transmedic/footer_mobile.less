@@ -1,0 +1,213 @@
+
+
+#mobile-footer{
+  background: @dark-grey;
+  color: @light-grey;
+}
+
+
+#mobile-footer-content{
+  padding-top: 36px;
+  padding-bottom: 50px;
+
+}
+
+//    _     ___   ____  ___
+//   | |   / _ \ / ___|/ _ \
+//   | |  | | | | |  _| | | |
+//   | |__| |_| | |_| | |_| |
+//   |_____\___/ \____|\___/
+//
+
+
+#mobile-footer-logo-container{
+  padding-top: 10px;
+  margin-bottom: 30px;
+
+}
+
+#mobile-footer-logo{
+  .temp-mobile-footer-logo;
+}
+
+
+
+//    _     ___ _   _ _  __
+//   | |   |_ _| \ | | |/ /
+//   | |    | ||  \| | ' /
+//   | |___ | || |\  | . \
+//   |_____|___|_| \_|_|\_\
+//
+
+#mobile-footer-link-container{
+  margin-bottom: 34px;
+
+  nav {
+    font-size: 0;
+    
+    > ul {
+      .display-inline-block;
+      width: 50%;
+
+      > li {
+        line-height: 25px;
+        // margin-bottom: 9px;
+        margin-bottom: 13px;
+
+        &:last-child{
+          margin-bottom: 0px !important;
+        }
+
+        > a {
+          .clan-pro-news;
+          //font-size: 11px;
+          font-size: 12px;
+          // line-height: 20px;
+          /// line-height: 14px;
+          line-height: 18px;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+
+
+          display: block;
+          color: @light-grey;
+
+          /*
+          @media only screen and (max-width: 320px) {
+            font-size: 10px;
+            line-height: 14px;
+          }
+          */
+          
+        }
+
+        &.selected{
+          > a {
+            color: @white;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+.mobile-footer-seperator{
+  position: relative;
+  border-bottom: 1px solid #707070;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+//     ____ ___  _   _ _____  _    ____ _____
+//    / ___/ _ \| \ | |_   _|/ \  / ___|_   _|
+//   | |  | | | |  \| | | | / _ \| |     | |
+//   | |__| |_| | |\  | | |/ ___ \ |___  | |
+//    \____\___/|_| \_| |_/_/   \_\____| |_|
+//
+
+#mobile-footer-contact-container{
+  padding-top: 16px;
+}
+
+#mobile-footer-contact{
+  h3{
+    .clan-pro-medium;
+    // font-size: 20px;
+    // line-height: 25px;
+    
+    font-size: 17px;
+    line-height: 25px;
+    color: #cccccc;
+
+    margin-bottom: 3px;
+  }
+  p{
+    // font-size: 14px;
+    // line-height: 25px;
+
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+
+  ul{
+    padding-top: 20px;
+
+    li{
+
+      font-size: 0;
+
+      span{
+        color: @red;
+        font-size: 13px;
+        line-height: 20px;
+
+        margin-right: 11px;
+      }
+
+      a{
+        font-size: 13px;
+        line-height: 20px;
+        color: @light-grey;
+      }
+    }
+  }
+
+}
+
+
+
+//     ____ ___  ______   ______  ___ ____ _   _ _____
+//    / ___/ _ \|  _ \ \ / /  _ \|_ _/ ___| | | |_   _|
+//   | |  | | | | |_) \ V /| |_) || | |  _| |_| | | |
+//   | |__| |_| |  __/ | | |  _ < | | |_| |  _  | | |
+//    \____\___/|_|    |_| |_| \_\___\____|_| |_| |_|
+//
+
+#mobile-footer-copyright{
+  color: @white;
+  background: @red;
+
+  padding-top: 14px;
+  padding-bottom: 11px;
+
+  p{
+    font-size: 9px;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .copyright-column-01{
+    text-align: left;
+  }
+  .copyright-column-02{
+    text-align: right;
+  }
+
+  @media only screen and (max-width: 320px) {
+
+    .col-xs-8,
+    .col-xs-4{
+      display: block;
+      width: 100%;
+    }
+
+    .copyright-column-02{
+      text-align: left;
+    }
+  }
+
+}

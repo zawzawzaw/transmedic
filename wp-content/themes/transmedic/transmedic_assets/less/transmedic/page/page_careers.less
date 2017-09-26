@@ -1,0 +1,447 @@
+@media all and (max-width: 991px) {
+  #page-default-banner-section {
+    &.careers-version {
+      background: @white;
+      #page-default-banner-copy-container {
+        display: block;
+        position: static;
+        padding-bottom: @section-padding-mobile + 5;
+      }
+    }
+  }
+}
+
+#page-default-banner-copy {
+  &.subtitle-version {
+    display: block;
+    padding-top: 70px;
+    h1 {
+      display: block;      
+      padding-bottom: 35px;
+    }
+    h4 {
+      padding-left: 40px;
+      font-size: 24px;
+      line-height: 35px;
+      letter-spacing: 0px;
+      text-transform: none;
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    &.subtitle-version {
+      padding-top: @section-padding-mobile - 10;
+      h1 {
+        padding-left: 0px;
+        padding-bottom: @section-content-padding-mobile;
+      }
+      h4 {
+        font-size: 18px;
+        line-height: 26px;
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+#page-careers-section {
+  padding: 90px 0px;
+
+  h2 {
+    padding-bottom: 40px;
+  }
+
+  .align-col {
+    padding: 0 60px;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  span {
+    text-align: center;
+    display: block;
+    &.quote {
+      .merriweather-bold-italic;
+      font-size: 22px;
+      line-height: 36px;
+      padding-bottom: 20px;
+      min-width: 538px;
+    }
+    &.author {
+      .source-sans-pro-regular;
+      font-size: 16px;
+      line-height: 21px;
+      letter-spacing: 0.075em;
+      color: @light-grey;
+      text-transform: uppercase;
+      padding-bottom: 40px;
+      min-width: 538px;
+    }
+  }
+
+  .cta-container {
+    text-align: center;
+    width: 100%;
+    min-width: 538px;
+  }
+
+  @media all and (max-width: 1024px) {
+    span {
+      &.quote {
+        min-width: 100%;
+      }
+      &.author {
+        min-width: 100%;
+      }
+    }
+    .cta-container {    
+      min-width: 100%;
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    padding: 40px 0px;
+
+    h2 {
+      padding-bottom: @section-content-padding-mobile;
+    }
+
+    .align-col {
+      padding: 0 10px;
+      display: block;
+    }
+
+    .quote-container {
+      margin-top: @section-padding-mobile + 5;
+      margin-bottom: @section-padding-mobile + 5;
+
+      &.last-version {
+        &:after {
+          display: none;
+        }
+      }
+
+      &:before {
+        content: "";
+        border-top: 1px solid @border-grey;
+        width: 100%;
+        display: block;
+        padding-top: @section-padding-mobile + 10;
+      }
+      &:after {
+        content: "";
+        border-bottom: 1px solid @border-grey;
+        width: 100%;
+        display: block;
+        padding-top: @section-padding-mobile + 10;
+      }
+    }
+
+    span {
+      &.quote {
+        min-width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 15px;
+      }
+      &.author {
+        min-width: 100%;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.05em;
+        padding-bottom: @section-content-padding-mobile + 5;
+        color: @light-grey-2;
+      }
+    }
+
+    .cta-container {
+      text-align: center;
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+
+}
+
+#page-careers-extra-section {
+  padding: 70px 40px;
+  background: @white;
+
+  .manic-image-container {
+    height: 628px;
+  }
+
+  @media all and (max-width: 991px) {
+    padding: 0px;
+
+    .manic-image-container {
+      height: 400px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    padding: 0px;
+
+    .manic-image-container {
+      height: 200px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+}
+
+#page-careers-extra-image-caption {
+  padding-top: 70px;
+  h2 {
+    width: 345px;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 36px;
+    text-transform: none;
+    letter-spacing: 0px;
+  }
+  @media all and (max-width: 991px) {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile + 10;
+    h2 {
+      width: 100%;
+      padding-bottom: @section-content-padding-mobile;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+}
+
+#page-careers-job-position-section {
+  padding-top: 70px;
+  padding-bottom: 168px;  
+
+  @media all and (max-width: 991px) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+#page-careers-job-position-title {
+  padding-bottom: 40px;
+}
+
+#page-careers-job-filters-container {
+  ul {
+    li {
+      padding-bottom: 30px;
+      h4 {
+        a {
+          color: @light-grey;
+          &:hover {
+            color: @cyan;
+          }
+          &.active-tab {
+            color: @cyan;
+          }
+        }
+      }      
+    }
+  }
+}
+
+#page-careers-job-filters-container-mobile {
+  background: @cyan;
+  text-align: center;
+  text-transform: uppercase;
+  color: @white;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: 20px;
+
+  .source-sans-pro-semibold;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+
+  .manic-dropdown  {      
+    &:before {
+      right: 10px;
+      top: 10px;
+    }
+    select {
+      height: 100%;
+    }
+    .goog-menu-button {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    
+    .goog-menu-vertical {
+      background: @grey-2;
+      width: 100%;
+      // position: static;
+      padding-bottom: 15px;
+      .goog-menuitem {
+        padding-top: 10px;
+        &:after {
+          content: "";
+          display: block;
+          margin-right: 20px;
+          margin-left: 20px;
+          border-bottom: 1px solid @border-grey;
+          padding-bottom: 10px;
+        }
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .goog-menu-button-dropdown {
+      top: 16px;
+      right: 18px;
+    }
+  }
+
+
+}
+
+.location-tab {
+  padding-bottom: 40px;
+  display: none;
+  &.active-tab {
+    display: block;
+
+  }
+}
+
+.job-list-item-container {
+  .job-list-item {
+    padding-bottom: 20px;
+    &:after {
+      content: "";
+      border-bottom: 1px solid @border-grey;      
+      width: 100%;
+      display: block;      
+      padding-bottom: 20px;
+    }
+
+    @media all and (max-width: 991px) {
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+  }
+  .job-list-item-title {
+    
+  }
+  .job-list-item-view-detail-cta-container {    
+    a.view-details-cta {
+      font-size: 13px;
+      // line-height: 70px;
+      color: @cyan;
+      position: relative;
+      &:after {
+        content: "";
+        border-bottom: 1px solid @border-grey;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-color: @cyan;
+      }
+      &:hover {
+        color: @light-grey;
+        &:after {
+          border-color: @light-grey;
+        }
+      }
+    }
+    @media all and (max-width: 991px) {
+      text-align: right;
+    }
+
+  }
+  .job-list-item-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: none;
+
+    h4.job-title {
+      padding-bottom: 30px;
+      color: @light-grey-2;
+      display: block;
+    }
+    ul {
+      padding-bottom: 40px;
+      li {
+        position: relative;
+        padding-left: 10px;
+        &:before {
+          content: ".";
+          position: absolute;
+          left: 0px;
+          top: -8px;
+          .source-sans-pro-regular;
+          font-size: 25px;
+        }
+        h4 {
+          text-transform: none;
+          letter-spacing: 0px;
+        }
+      }
+    }
+    p {
+      display: block;
+    }
+    a {
+      display: inline-block;
+      color: @cyan;
+      position: relative;
+      &:after {
+        content: "";
+        border-bottom: 1px solid @border-grey;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-color: @cyan;
+      }
+      &:hover {
+        color: @light-grey;
+        &:after {
+          border-color: @light-grey;
+        }
+      }
+    }
+
+    @media all and (max-width: 991px) {
+      padding-top: @section-content-padding-mobile;
+      padding-bottom: @section-content-padding-mobile;
+
+      h4.job-title {
+        padding-bottom: @section-content-padding-mobile;
+      }
+
+      ul {
+        padding-bottom: @section-padding-mobile;
+        li {
+          padding-bottom: 10px;
+          h4 {
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.01em;
+          }
+        }
+      }
+    }
+  }
+}

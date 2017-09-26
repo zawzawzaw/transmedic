@@ -1,0 +1,146 @@
+//     ____  ___    _   ___   ____________
+//    / __ )/   |  / | / / | / / ____/ __ \
+//   / __  / /| | /  |/ /  |/ / __/ / /_/ /
+//  / /_/ / ___ |/ /|  / /|  / /___/ _, _/
+// /_____/_/  |_/_/ |_/_/ |_/_____/_/ |_|
+
+#page-default-banner-section {  
+
+  &.about-version {
+    height: 500px;
+    background: none;
+
+    #page-default-banner-copy-container {
+      position: static;
+    }
+
+    #page-default-banner-copy {       
+      height: auto;
+      padding-right: 50px;
+    }
+    
+    #banner-copy-left-col {
+      padding-top: @section-padding;
+    }
+
+    #banner-copy-right-col {
+      padding-top: 240px;
+      padding-left: 40px;
+
+      h3 {
+        margin-bottom: 15px;
+      }
+    }
+
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  #page-default-banner-section {  
+
+    &.about-version {
+      height: auto;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      #banner-copy-left-col {
+        padding-top: 0;
+      }
+      #banner-copy-right-col {
+        padding-top: @section-content-padding-mobile;
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+
+//  _       ____  _____  ______   _       ________   ____  ____
+// | |     / / / / /   |/_  __/  | |     / / ____/  / __ \/ __ \
+// | | /| / / /_/ / /| | / /     | | /| / / __/    / / / / / / /
+// | |/ |/ / __  / ___ |/ /      | |/ |/ / /___   / /_/ / /_/ /
+// |__/|__/_/ /_/_/  |_/_/       |__/|__/_____/  /_____/\____/
+
+#page-about-what-we-do-section {
+  padding-top: @section-padding;
+  padding-bottom: @section-padding;
+  background: @white;
+}
+
+#page-about-what-we-do-title {
+  padding-bottom: 40px;
+}
+
+.page-about-what-we-do-content-item {
+  padding-bottom: 100px;
+
+  .img-col {    
+    .manic-image-container {
+      height: 431px;
+    }
+  }
+  .txt-col {
+    h3 {
+      padding-bottom: 40px;
+    }
+    p {
+      padding-bottom: 25px;
+    }
+  }
+
+  .right-col {
+    padding-left: 65px;
+  }
+
+}
+
+@media only screen and (max-width: 991px) {
+  #page-about-what-we-do-section {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+    background: @white;
+  }
+  .page-about-what-we-do-content-item {
+    padding-bottom: @section-content-padding-mobile;
+
+    .txt-col {
+      h3 {
+        padding-bottom: 40px / 2;
+      }
+      p {
+        padding-bottom: 25px / 2;
+      }
+    }
+
+    .right-col {
+      padding-top: @section-content-padding-mobile;
+      padding-left: 0px;
+    }
+  }
+
+}
+
+//     _______  ____________  ___
+//    / ____/ |/ /_  __/ __ \/   |
+//   / __/  |   / / / / /_/ / /| |
+//  / /___ /   | / / / _, _/ ___ |
+// /_____//_/|_|/_/ /_/ |_/_/  |_|
+
+
+#page-about-extra-section {
+  padding-top: 70px;
+  padding-bottom: 120px;
+
+  p {
+    padding-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #page-about-extra-section {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+  }
+}

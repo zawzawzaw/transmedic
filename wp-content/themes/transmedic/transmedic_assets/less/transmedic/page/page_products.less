@@ -1,0 +1,394 @@
+#page-products-brands-section {
+  // padding-top: 70px;
+  padding-top: 63px;
+  padding-bottom: 95px;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+} // #page-home-whatwedo-section
+
+#page-products-brands-tabs-container {
+  position: relative;
+  padding-top: 63px;  
+}
+
+#page-products-brands-tabs-icons {
+  // text-align: right;
+  position: absolute;
+  right: 0;
+  top: 130px;
+  ul {
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+  #icon-view-btn {
+    width: 20px;
+    height: 20px;
+    display: inline-block;    
+    &.active {
+      .square {
+        background: @cyan;
+      }
+    }
+    .square {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      vertical-align: top;
+      background: @light-grey;
+      float: left;
+      .transition-in(.3s);
+      &:nth-of-type(1) {
+        margin-right: 4px;
+        margin-bottom: 4px;
+      }
+      &:nth-of-type(2) {
+        margin-bottom: 4px;
+      }
+      &:nth-of-type(3) {
+        margin-right: 4px;
+      }
+    }
+    &:hover {
+      .square {
+        background: @cyan;
+      }
+    }
+  }
+
+  #list-view-btn {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    &.active {
+      .bar {
+        background: @cyan;
+      }
+    }
+    .bar {
+      width: 100%;
+      height: 4px;
+      display: block;
+      margin-bottom: 4px;
+      background: @light-grey;
+      .transition-in(.3s);
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+    &:hover {
+      .bar {
+        background: @cyan;
+      }
+    }
+  }
+}
+
+.products-brands-tabs {
+  display: none;
+  .transition(.3s);
+  &.active-tab {
+    display: block;    
+  }  
+}
+
+//     __  _______  ____  ______    ______
+//    /  |/  / __ \/ __ )/  _/ /   / ____/
+//   / /|_/ / / / / __  |/ // /   / __/
+//  / /  / / /_/ / /_/ // // /___/ /___
+// /_/  /_/\____/_____/___/_____/_____/
+
+
+@media all and (max-width: 768px) {
+  #page-products-brands-section {
+    padding-top: @section-padding-mobile;
+    padding-bottom: @section-padding-mobile;
+  }
+
+  #page-products-brands-tabs-container {
+    padding-top: @section-padding-mobile;
+  }
+
+  #page-products-brands-tabs-icons {
+    top: 60px;
+  }
+}
+
+//     ______________  _   __   _    _____________       __
+//    /  _/ ____/ __ \/ | / /  | |  / /  _/ ____/ |     / /
+//    / // /   / / / /  |/ /   | | / // // __/  | | /| / /
+//  _/ // /___/ /_/ / /|  /    | |/ // // /___  | |/ |/ /
+// /___/\____/\____/_/ |_/     |___/___/_____/  |__/|__/
+
+
+#page-products-brands-icon-view-tab {
+  // margin-top: -25px;
+}
+
+.page-products-brands-icon-view-tab-item {
+  &:before {
+    content: "";
+    display: block;
+    border-top: 1px solid @border-grey;
+    padding-top: 68px;
+  }
+  &:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid @border-grey;
+    padding-top: 63px;
+    // margin-bottom: 68px;
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+
+  .item-title {
+    &.add-space-version {
+      margin-bottom: 20px;
+    }    
+  }
+
+  ul.item-icons-list {
+    &.align-middle {
+      li {
+        vertical-align: middle;
+      }
+    }
+    li {
+      display: inline-block;
+      margin-right: 80px;
+      vertical-align: middle;
+
+      @media all and (max-width: 1366px) {
+        margin-right: 70px;
+      }
+      @media all and (max-width: 1280px) {
+        margin-right: 50px;
+      }
+      @media all and (max-width: 1024px) {
+        margin-right: 15px;
+      }
+
+      .item-icon {      
+        .icon-image('../images/logo/surgical-logo-1.svg', 173, 69);
+        
+        &.surgical-icon-1 {
+          .icon-image('../images/logo/surgical-logo-1.svg', 173, 69);
+        }
+        &.surgical-icon-2 {
+          .icon-image('../images/logo/surgical-logo-2.png', 289, 50);
+        }
+
+        &.orthopaedics-icon-1 {
+          .icon-image('../images/logo/orthopaedics-logo-1.png', 163, 39);
+        }
+        &.orthopaedics-icon-2 {
+          .icon-image('../images/logo/orthopaedics-logo-2.png', 108, 72);
+        }
+        &.orthopaedics-icon-3 {
+          .icon-image('../images/logo/orthopaedics-logo-3.png', 296, 93);
+        }
+        &.orthopaedics-icon-4 {
+          .icon-image('../images/logo/orthopaedics-logo-4.png', 88, 106);
+        }
+
+        &.in-vitro-diagnostics-icon-1 {
+          .icon-image('../images/logo/in-vitro-logo-1.png', 252, 60);
+        }
+        &.in-vitro-diagnostics-icon-2 {
+          .icon-image('../images/logo/in-vitro-logo-2.png', 109, 73);
+        }
+        &.in-vitro-diagnostics-icon-3 {
+          .icon-image('../images/logo/in-vitro-logo-3.png', 202, 49);
+        }
+
+        &.specialty-pharmaceuticals-medicine-icon-1 {
+          .icon-image('../images/logo/pharmaceuticals-logo-1.png', 166, 26);
+        }
+        &.specialty-pharmaceuticals-medicine-icon-2 {
+          .icon-image('../images/logo/pharmaceuticals-logo-2.png', 252, 50);
+        }
+        &.specialty-pharmaceuticals-medicine-icon-3 {
+          .icon-image('../images/logo/pharmaceuticals-logo-3.png', 224, 52);
+        }
+        &.specialty-pharmaceuticals-medicine-icon-4 {
+          .icon-image('../images/logo/pharmaceuticals-logo-4.png', 106, 106);
+        }
+        &.specialty-pharmaceuticals-medicine-icon-5 {
+          .icon-image('../images/logo/pharmaceuticals-logo-5.png', 95, 103);
+        }
+
+        &.turnkey-icon-1 {
+          .icon-image('../images/logo/turnkey-logo-1.png', 231, 100); 
+        }
+        &.turnkey-icon-2 {
+          .icon-image('../images/logo/turnkey-logo-2.png', 163, 39); 
+        }
+        &.turnkey-icon-3 {
+          .icon-image('../images/logo/turnkey-logo-3.png', 82, 59); 
+        }
+        
+        &.therapeutics-icon-1 {
+          .icon-image('../images/logo/therapeutics-logo-1.png', 216, 53); 
+        }
+        &.therapeutics-icon-2 {
+          .icon-image('../images/logo/therapeutics-logo-2.png', 153, 50); 
+        }
+        &.therapeutics-icon-3 {
+          .icon-image('../images/logo/therapeutics-logo-3.png', 202, 49); 
+        }
+        &.therapeutics-icon-4 {
+          .icon-image('../images/logo/therapeutics-logo-4.png', 248, 56); 
+        }
+
+        &.interventional-therapy-icon-1 {
+          .icon-image('../images/logo/interventional-logo-1.png', 185, 35); 
+        }
+        &.interventional-therapy-icon-2 {
+          .icon-image('../images/logo/interventional-logo-2.png', 184, 104); 
+        }
+        &.interventional-therapy-icon-3 {
+          .icon-image('../images/logo/interventional-logo-3.png', 265, 53); 
+        }
+        &.interventional-therapy-icon-4 {
+          .icon-image('../images/logo/interventional-logo-4.png', 106, 106); 
+        }
+      }
+    }
+  }
+
+  .item-copy {
+    margin-top: 38px;
+    p {
+      a {
+        color: @cyan;
+        &:hover {
+          color: @light-grey;
+        }
+      }
+    }
+  }
+}
+
+//     __  _______  ____  ______    ______   ______________  _   __   _    _____________       __
+//    /  |/  / __ \/ __ )/  _/ /   / ____/  /  _/ ____/ __ \/ | / /  | |  / /  _/ ____/ |     / /
+//   / /|_/ / / / / __  |/ // /   / __/     / // /   / / / /  |/ /   | | / // // __/  | | /| / /
+//  / /  / / /_/ / /_/ // // /___/ /___   _/ // /___/ /_/ / /|  /    | |/ // // /___  | |/ |/ /
+// /_/  /_/\____/_____/___/_____/_____/  /___/\____/\____/_/ |_/     |___/___/_____/  |__/|__/
+
+
+@media all and (max-width: 768px) {
+  .page-products-brands-icon-view-tab-item {
+    .item-title {
+      margin-bottom: 25px;
+    }
+    ul.item-icons-list {
+      li {
+        display: block;
+        margin-bottom: 25px;
+        .item-icon {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+
+//     __    _______________   _    _____________       __
+//    / /   /  _/ ___/_  __/  | |  / /  _/ ____/ |     / /
+//   / /    / / \__ \ / /     | | / // // __/  | | /| / /
+//  / /____/ / ___/ // /      | |/ // // /___  | |/ |/ /
+// /_____/___//____//_/       |___/___/_____/  |__/|__/
+
+
+#page-products-brands-list-view-tab {
+  // margin-top: -25px;
+}
+
+#page-products-brands-list-view-title {
+  // margin-bottom: 60px;
+
+  &:before {
+    content: "";
+    display: block;
+    border-top: 1px solid @border-grey;
+    padding-top: 68px;
+  }
+
+  p {
+    b {
+      .h4-style;
+      color: @light-grey; 
+      margin-bottom: 20px;
+      display: block;
+    }
+  }
+}
+
+.page-products-brands-list-view-item {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 60px;
+
+  .item-title {
+    margin-bottom: 20px;  
+  }
+
+  .item-list {
+    li {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 15px;
+      &:before {
+        content: ".";
+        position: absolute;
+        left: 0px;
+        top: -5px;
+        .body-font-bold;
+      }
+    }
+  }   
+
+  .item-email {
+    .body-font-bold-mobile;
+    a {
+      color: @cyan;
+      &:hover {
+        color: @light-grey;
+      }
+    }
+  }
+}
+
+//     __    _______________   _    _____________       __   __  _______  ____  ______    ______
+//    / /   /  _/ ___/_  __/  | |  / /  _/ ____/ |     / /  /  |/  / __ \/ __ )/  _/ /   / ____/
+//   / /    / / \__ \ / /     | | / // // __/  | | /| / /  / /|_/ / / / / __  |/ // /   / __/
+//  / /____/ / ___/ // /      | |/ // // /___  | |/ |/ /  / /  / / /_/ / /_/ // // /___/ /___
+// /_____/___//____//_/       |___/___/_____/  |__/|__/  /_/  /_/\____/_____/___/_____/_____/
+
+@media all and (max-width: 768px) {
+  .page-products-brands-list-view-item {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  #page-products-brands-list-view-title {
+    margin-bottom: 25px;
+    &:before {
+      padding-top: 25px;
+    }
+  }
+}
