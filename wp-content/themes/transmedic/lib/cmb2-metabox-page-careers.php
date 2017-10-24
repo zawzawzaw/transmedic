@@ -42,35 +42,42 @@ function careers_page_register_content_meta_box() {
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => __( 'Section Title', 'cmb2' ),
-    'desc' => __( 'Section title', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_title',
     'type' => 'text'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => __( 'Section Text', 'cmb2' ),
-    'desc' => __( 'Section text', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_text',
-    'type' => 'textarea'    
+    'type' => 'wysiwyg'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => __( 'Section Quote', 'cmb2' ),
-    'desc' => __( 'Section quote', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_quote',
     'type' => 'textarea'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => __( 'Section Author', 'cmb2' ),
-    'desc' => __( 'Section author', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_author',
     'type' => 'text'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
+    'name' => __( 'Section Author Position', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'sec_author_position',
+    'type' => 'text'    
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
     'name' => __( 'Section Article Link', 'cmb2' ),
-    'desc' => __( 'Section link to article', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_article_link',
     'type' => 'text_url'    
   ) );
@@ -98,21 +105,35 @@ function careers_page_register_extra_content_meta_box() {
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Extra Section Image', 'cmb2' ),
-    'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 1154 x 628 (130 kb)', 'cmb2' ),
     'id'   => $prefix . 'extra_sec_image',
     'type' => 'file',
   ) );
 
   $cmb->add_field( array(
+    'name' => esc_html__( 'Extra Section Image Tablet', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 1152 x 707 (170 kb)', 'cmb2' ),
+    'id'   => $prefix . 'extra_sec_image_tablet',
+    'type' => 'file',
+  ) );
+
+  $cmb->add_field( array(
+    'name' => esc_html__( 'Extra Section Image Mobile', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 640 x 348 (40 kb)', 'cmb2' ),
+    'id'   => $prefix . 'extra_sec_image_mobile',
+    'type' => 'file',
+  ) );
+
+  $cmb->add_field( array(
     'name' => esc_html__( 'Extra Section Title', 'cmb2' ),
-    'desc' => esc_html__( 'Extra section title', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
     'id'   => $prefix . 'extra_sec_title',
     'type' => 'text',
   ) );
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Extra Section Text', 'cmb2' ),
-    'desc' => esc_html__( 'Extra section text', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
     'id'   => $prefix . 'extra_sec_text',
     'type' => 'textarea',
   ) );
@@ -140,7 +161,7 @@ function careers_page_register_jobs_content_meta_box() {
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Job Section Title', 'cmb2' ),
-    'desc' => esc_html__( 'Job section title', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
     'id'   => $prefix . 'job_sec_title',
     'type' => 'text',
   ) );

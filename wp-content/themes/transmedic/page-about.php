@@ -8,6 +8,9 @@ $banner_caption = get_post_meta($post->ID, 'page_banner_caption', true);
 $banner_image = wp_get_attachment_image_src( get_post_meta( $post->ID, 'page_banner_image_id', true ), 'full' );
 
 
+$extra_banner_H3 = get_post_meta($post->ID, 'about_page_extra_banner_H3', true);
+$extra_banner_caption = get_post_meta($post->ID, 'about_page_extra_banner_caption', true);
+
 if($post->post_parent !== 0) {
   $post_data = get_post($post->post_parent);
   $parent_slug = $post_data->post_name;
@@ -22,7 +25,7 @@ $current_slug = get_post( $post )->post_name;
 
 
       <div class="header-desktop-spacer"></div>
-      <div class="header-mobile-spacer hidden-lg"></div>
+      <div class="header-mobile-spacer"></div>
       
       <!-- 
           ____  ___    _   ___   ____________
@@ -35,27 +38,67 @@ $current_slug = get_post( $post )->post_name;
 
       <article id="page-default-banner-section" class="about-version">
 
-        <div id="page-default-banner-copy-container">
+        <div id="page-default-banner-copy-container-about">
           <div class="container-fluid has-breakpoint">
-            <div class="row">              
-              
-              <div class="col-md-6">
+
+            <div class="row">                            
+              <div class="col-md-3">
                 <div id="banner-copy-left-col">
-                  <div id="page-default-banner-copy">
-                    <!-- <h2>In order for our <br class="hidden-md hidden-xs hidden-sm"> organisation to be great, <br class="hidden-md hidden-xs hidden-sm"> our culture and our people <br class="hidden-md hidden-xs hidden-sm"> must also be great.</h2>                   -->
-                    <h2><?php echo $banner_H2; ?></h2>
-                  </div> <!-- page-home-banner-copy -->
-                </div>
-              </div> <!-- col-md-6 -->
-              
-              <div class="col-md-6">
-                <div id="banner-copy-right-col">
                   <div id="page-default-banner-copy">
                     <h3><?php echo $banner_H3; ?></h3>
                     <p><?php echo $banner_caption; ?></p>
+                  </div> <!-- page-home-banner-copy -->
+
+                  <hr class="visible-sm visible-xs">
+
+                  <div id="page-default-banner-copy">
+                    <h3><?php echo $extra_banner_H3; ?></h3>
+                    <p><?php echo $extra_banner_caption; ?></p>
+                  </div> <!-- page-home-banner-copy -->
+
+                  <hr class="visible-sm visible-xs">
+
+                </div>
+              </div> <!-- col-md-3 -->
+              <div class="col-md-1"></div>
+              <div class="col-md-8">
+                <div id="banner-copy-right-col">
+                  <div id="page-default-banner-copy">
+                    <h2><?php echo $banner_H2; ?></h2>
+                  </div>
+
+                  <div id="page-default-banner-profile-images">
+
+                    <?php
+                    $about_page_extra_banner_leader_profiles = get_post_meta( $post->ID, 'about_page_extra_banner_leader_profiles', true ); 
+
+                    foreach ( (array) $about_page_extra_banner_leader_profiles as $key => $entry ):
+                      $img_url = $entry['about_page_extra_banner_profile_image'];                       
+                      $img_tablet_url = $entry['about_page_extra_banner_profile_image_tablet'];                       
+                      $img_mobile_url = $entry['about_page_extra_banner_profile_image_mobile'];                       
+                      $profile_name = $entry['about_page_extra_banner_profile_name'];                       
+                      $profile_position = $entry['about_page_extra_banner_profile_position'];
+                    ?>
+
+                    <div class="page-default-banner-profile-images-item">
+                      <div class="manic-image-container" data-vertical-align="top">
+                        <img src="" data-image-desktop="<?php echo $img_url; ?>"
+                                    data-image-tablet="<?php echo $img_tablet_url; ?>"
+                                    data-image-mobile="<?php echo $img_mobile_url; ?>" alt="">                        
+                      </div>
+                      <div class="text-container">
+                        <h6><?php echo $profile_name; ?></h6>
+                        <p><?php echo $profile_position; ?></p>
+                      </div>
+                    </div>
+
+                    <?php 
+                    endforeach; 
+                    ?>
+                    
                   </div>
                 </div>
-              </div> <!-- col-md-6 -->
+              </div> <!-- col-md-8 -->
 
             </div>
           </div>
@@ -77,6 +120,8 @@ $current_slug = get_post( $post )->post_name;
       $about_page_wwd_sec_title = get_post_meta($post->ID, 'about_page_wwd_sec_title', true);            
       ?>
 
+      <div class="scroll-target" data-value="medical"></div>
+
       <article id="page-about-what-we-do-section">
         
         <div class="container-fluid has-breakpoint">
@@ -95,14 +140,26 @@ $current_slug = get_post( $post )->post_name;
 
             foreach ( (array) $page_about_what_we_do_entries as $key => $entry ):              
               $img_url = $entry['about_page_wwd_sec_image'];
+              $img_url_tablet = $entry['about_page_wwd_sec_image_tablet'];
+              $img_url_mobile = $entry['about_page_wwd_sec_image_mobile'];
               $img_title = $entry['about_page_wwd_sec_image_title'];
               $img_text = $entry['about_page_wwd_sec_image_text'];       
             ?>              
               <?php if( $i !== 0 && $i % 2 && $i != count($page_about_what_we_do_entries) ): ?>
 
-                <div class="scroll-target" data-value="<?php echo strtolower(explode(' ',trim($img_title))[0]); ?>"></div>          
-                <div class="page-about-what-we-do-content-item">
+                <div class="scroll-target mobile-offset-version" data-value="<?php echo strtolower(explode(' ',trim($img_title))[0]); ?>"></div>          
+                <div class="page-about-what-we-do-content-item 2nd">
                   <div class="row">
+
+                    <div class="col-md-6 visible-xs visible-sm">
+                      <div class="img-col right-col">
+                        <div class="manic-image-container">
+                          <img data-image-desktop="<?php echo $img_url; ?>"
+                          data-image-tablet="<?php echo $img_url_tablet; ?>"
+                          data-image-mobile="<?php echo $img_url_mobile; ?>" src="" alt="">
+                        </div>
+                      </div> <!-- img-col -->
+                    </div>
                     
                     <div class="col-md-6">
                       <div class="txt-col left-col">
@@ -112,12 +169,12 @@ $current_slug = get_post( $post )->post_name;
                     </div>
                     
                     
-                    <div class="col-md-6">
+                    <div class="col-md-6 hidden-xs hidden-sm">
                       <div class="img-col right-col">
                         <div class="manic-image-container">
                           <img data-image-desktop="<?php echo $img_url; ?>"
-                          data-image-tablet="<?php echo $img_url; ?>"
-                          data-image-mobile="<?php echo $img_url; ?>" src="" alt="">
+                          data-image-tablet="<?php echo $img_url_tablet; ?>"
+                          data-image-mobile="<?php echo $img_url_mobile; ?>" src="" alt="">
                         </div>
                       </div> <!-- img-col -->
                     </div>
@@ -127,7 +184,7 @@ $current_slug = get_post( $post )->post_name;
 
               <?php else: ?>
 
-                <div class="scroll-target" data-value="<?php echo strtolower(explode(' ',trim($img_title))[0]); ?>"></div>          
+                <div class="scroll-target mobile-offset-version" data-value="<?php echo strtolower(explode(' ',trim($img_title))[0]); ?>"></div>          
                 <div class="page-about-what-we-do-content-item">
                   <div class="row">
                     
@@ -135,8 +192,8 @@ $current_slug = get_post( $post )->post_name;
                       <div class="img-col left-col">
                         <div class="manic-image-container">
                           <img data-image-desktop="<?php echo $img_url; ?>" 
-                               data-image-tablet="<?php echo $img_url; ?>" 
-                               data-image-mobile="<?php echo $img_url; ?>" src="" alt="">
+                               data-image-tablet="<?php echo $img_url_tablet; ?>" 
+                               data-image-mobile="<?php echo $img_url_mobile; ?>" src="" alt="">
                         </div>
                       </div> <!-- img-col -->
                     </div>

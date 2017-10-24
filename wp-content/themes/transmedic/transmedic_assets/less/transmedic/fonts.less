@@ -1,3 +1,82 @@
+// @font-face {
+//   font-family: 'ClanOT-Book';
+//   src: url('../../fonts/ClanOT-Book.eot') format('embedded-opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'ClanOT-Book';
+//   src:  url('../fonts/ClanOT-Book.otf')  format('opentype'),
+//         url('../fonts/ClanOT-Book.ttf')  format('truetype'), url('ClanOT-Book.svg#ClanOT-Book') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'ClanOT-Medium';
+//   src: url('../fonts/ClanOT-Medium.eot') format('embedded-opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'ClanOT-Medium';
+//   src:  url('../fonts/ClanOT-Medium.otf')  format('opentype'),
+//         url('../fonts/ClanOT-Medium.ttf')  format('truetype'), 
+//         url('../fonts/ClanOT-Medium.svg#ClanOT-Medium') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+
+// @font-face {
+//   font-family: 'ClanOT-Thin';
+//   src: url('../fonts/ClanOT-Thin.eot') format('embedded-opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'ClanOT-Thin';
+//   src:  url('../fonts/ClanOT-Thin.otf')  format('opentype'),
+//         url('../fonts/ClanOT-Thin.ttf')  format('truetype'), 
+//         url('../fonts/ClanOT-Thin.svg#ClanOT-Thin') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+//    ________    ___    _   ______  ______
+//   / ____/ /   /   |  / | / / __ \/_  __/
+//  / /   / /   / /| | /  |/ / / / / / /
+// / /___/ /___/ ___ |/ /|  / /_/ / / /
+// \____/_____/_/  |_/_/ |_/\____/ /_/
+
+.clanot-book {
+  font-family: FFClanWebProBook, Palatino, Georgia, serif;
+  // font-family: 'ClanOT-Book', Palatino, Georgia, serif;
+  // font-family: 'FF Clan OT Book', Palatino, Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.clanot-medium {
+  font-family: FFClanWebProMedium, Palatino, Georgia, serif;
+  // font-family: 'ClanOT-Medium', Palatino, Georgia, serif;
+  // font-family: 'FF Clan OT Medium', Palatino, Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.clanot-thin {
+  font-family: FFClanWebProThin, Palatino, Georgia, serif;
+  // font-family: 'ClanOT-Thin', Palatino, Georgia, serif;
+  // font-family: 'FF Clan OT Thin', Palatino, Georgia, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
 //    __  __ _____ ____  ____  _____        _______    _  _____ _   _ _____ ____
 //   |  \/  | ____|  _ \|  _ \|_ _\ \      / / ____|  / \|_   _| | | | ____|  _ \
 //   | |\/| |  _| | |_) | |_) || | \ \ /\ / /|  _|   / _ \ | | | |_| |  _| | |_) |
@@ -5,23 +84,23 @@
 //   |_|  |_|_____|_| \_\_| \_\___|  \_/\_/  |_____/_/   \_\_| |_| |_|_____|_| \_\
 //
 
-.merriweather-regular{
-  font-family: 'Merriweather', Palatino, Georgia, serif;
-  font-style: normal;
-  font-weight: 400;
-}
+// .merriweather-regular{
+//   font-family: 'Merriweather', Palatino, Georgia, serif;
+//   font-style: normal;
+//   font-weight: 400;
+// }
 
-.merriweather-bold{
-  font-family: 'Merriweather', Palatino, Georgia, serif;
-  font-style: normal;
-  font-weight: 700;
-}
+// .merriweather-bold{
+//   font-family: 'Merriweather', Palatino, Georgia, serif;
+//   font-style: normal;
+//   font-weight: 700;
+// }
 
-.merriweather-bold-italic{
-  font-family: 'Merriweather', Palatino, Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-}
+// .merriweather-bold-italic{
+//   font-family: 'Merriweather', Palatino, Georgia, serif;
+//   font-style: italic;
+//   font-weight: 700;
+// }
 
 
 
@@ -43,11 +122,13 @@
   font-style: normal;
   font-weight: 300;
 }
-.source-sans-pro-light-italic{
-  font-family: 'Source Sans Pro', 'Arial', sans-serif;
-  font-style: italic;
-  font-weight: 300;
-}
+
+
+// .source-sans-pro-light-italic{
+//   font-family: 'Source Sans Pro', 'Arial', sans-serif;
+//   font-style: italic;
+//   font-weight: 300;
+// }
 
 .source-sans-pro-semibold{
   font-family: 'Source Sans Pro', 'Arial', sans-serif;
@@ -56,13 +137,11 @@
 }
 
 
-.source-sans-pro-bold{
-  font-family: 'Source Sans Pro', 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-}
-
-
+// .source-sans-pro-bold{
+//   font-family: 'Source Sans Pro', 'Arial', sans-serif;
+//   font-style: normal;
+//   font-weight: 700;
+// }
 
 
 
@@ -84,39 +163,65 @@
 //
 
 .body-font(@multiplier: 1){
-  .source-sans-pro-light;
-  font-size: 19px * @multiplier;
-  line-height: 26px * @multiplier;
+  .clanot-book;
+  font-size: 14px * @multiplier;
+  line-height: 24px * @multiplier;
 }
 
 .body-font-bold(@multiplier: 1){
-  .source-sans-pro-regular;
+  .clanot-medium;
   font-size: 19px * @multiplier;
   line-height: 26px * @multiplier;
 }
 
 .body-font-italic(@multiplier: 1){
-  .source-sans-pro-light-italic;
+  .clanot-book;
   font-size: 19px * @multiplier;
   line-height: 26px * @multiplier;
 }
 
+
+
 .body-font-mobile(@multiplier: 1){ // done
-  .source-sans-pro-light;
-  font-size: 16px * @multiplier;
-  line-height: 24px * @multiplier;
+  .clanot-book;
+  // font-size: 16px * @multiplier;
+  // line-height: 24px * @multiplier;
+  
+  font-size: 14px * @multiplier;
+  line-height: 20px * @multiplier;
 }
 
 .body-font-bold-mobile(@multiplier: 1){
-  .source-sans-pro-regular;
-  font-size: 16px * @multiplier;
-  line-height: 24px * @multiplier;
+  .clanot-book;
+  // .clanot-medium;
+  // font-size: 16px * @multiplier;
+  // line-height: 24px * @multiplier;
+  // 
+  // 
+
+  font-size: 14px * @multiplier;
+  line-height: 20px * @multiplier;
+}
+
+.body-font-bold-mobile-02(@multiplier: 1){
+  // .clanot-book;
+  .clanot-medium;
+  // font-size: 16px * @multiplier;
+  // line-height: 24px * @multiplier;
+  // 
+  // 
+
+  font-size: 14px * @multiplier;
+  line-height: 20px * @multiplier;
 }
 
 .body-font-italic-mobile(@multiplier: 1){
-  .source-sans-pro-light-italic;
-  font-size: 16px * @multiplier;
-  line-height: 24px * @multiplier;
+  .clanot-book;
+  // font-size: 16px * @multiplier;
+  // line-height: 24px * @multiplier;
+
+  font-size: 14px * @multiplier;
+  line-height: 20px * @multiplier;
 }
 
 
@@ -126,26 +231,31 @@
 
 
 .h1-style(@multiplier: 1){
-  .merriweather-bold;
-  font-size: 50px * @multiplier;
-  line-height: 65px * @multiplier;
+  .clanot-book;
+  font-size: 36px * @multiplier;
+  line-height: 48px * @multiplier;
 }
 
 .h2-style(@multiplier: 1){
-  .merriweather-bold;
-  font-size: 40px * @multiplier;
-  line-height: 52px * @multiplier;
+  .clanot-book;
+  font-size: 30px * @multiplier;
+  line-height: 40px * @multiplier;
 }
-
-.h3-style(@multiplier: 1){
-  .merriweather-bold;
-  font-size: 28px * @multiplier;
+.h2-style-bold(@multiplier: 1){
+  .clanot-medium;
+  font-size: 30px * @multiplier;
   line-height: 40px * @multiplier;
 }
 
+.h3-style(@multiplier: 1){
+  .clanot-medium;
+  font-size: 24px * @multiplier;
+  line-height: 32px * @multiplier;
+}
+
 .h4-style(@multiplier: 1){
-  .source-sans-pro-regular;
-  font-size: 16px * @multiplier;
+  .clanot-medium;
+  font-size: 12px * @multiplier;
   line-height: 21px * @multiplier;
 
   letter-spacing: 0.075em;
@@ -153,17 +263,17 @@
 }
 
 .h5-style(@multiplier: 1){
-  .merriweather-bold;
-  font-size: 21px * @multiplier;
-  line-height: 28px * @multiplier;
+  .clanot-book;
+  font-size: 24px * @multiplier;
+  line-height: 32px * @multiplier;
 }
 
 .h6-style(@multiplier: 1){
-  .source-sans-pro-regular;
+  .clanot-medium;
   // font-size: 14px * @multiplier;
   // line-height: 20px * @multiplier;
-  font-size: 19px * @multiplier;
-  line-height: 26px * @multiplier;
+  font-size: 18px * @multiplier;
+  line-height: 36px * @multiplier;
 }
 
 //     __  _______  ____  ______    ______
@@ -174,45 +284,79 @@
 
 
 .h1-style-mobile(@multiplier: 1){
-  .merriweather-bold;
-  font-size: 22px * @multiplier;
-  line-height: 30px * @multiplier;
+  .clanot-book;
+  // font-size: 22px * @multiplier;
+  // line-height: 30px * @multiplier;
+  font-size: 18px * @multiplier;
+  line-height: 24px * @multiplier;
 }
 
 .h2-style-mobile(@multiplier: 1){ // done
-  .merriweather-bold;
-  font-size: 22px * @multiplier;
-  line-height: 30px * @multiplier;
+  .clanot-book;
+  // font-size: 22px * @multiplier;
+  // line-height: 30px * @multiplier;
+  font-size: 18px * @multiplier;
+  line-height: 24px * @multiplier;
 }
 
 .h3-style-mobile(@multiplier: 1){ // done
-  .merriweather-bold;
-  font-size: 18px * @multiplier;
-  line-height: 26px * @multiplier;
+  .clanot-medium;
+  // font-size: 18px * @multiplier;
+  // line-height: 26px * @multiplier;
+
+  font-size: 16px * @multiplier;
+  line-height: 22px * @multiplier;
 }
 
 .h4-style-mobile(@multiplier: 1){
-  .source-sans-pro-regular;
-  font-size: 14px * @multiplier;
-  line-height: 14px * @multiplier;
+  .clanot-medium;
+  //font-size: 14px * @multiplier;
+  //line-height: 14px * @multiplier;
+  //
+  //letter-spacing: 0.05em;
+  //text-transform: uppercase;
 
-  letter-spacing: 0.05em;
+  font-size: 12px * @multiplier;
+  line-height: 14px * @multiplier;
+  letter-spacing: 0.075em;
   text-transform: uppercase;
+
+  
 }
 
 .h5-style-mobile(@multiplier: 1){ // done
-  .merriweather-bold;
+  .clanot-book;
   font-size: 18px * @multiplier;
   line-height: 26px * @multiplier;
 }
 
 .h6-style-mobile(@multiplier: 1){
-  .source-sans-pro-regular;
+  .clanot-medium;
   // font-size: 14px * @multiplier;
   // line-height: 20px * @multiplier;
   font-size: 14px * @multiplier;
   line-height: 20px * @multiplier;
 }
+
+
+
+
+
+
+
+
+// mac font fix
+// makes fonts look thinner
+
+body.is-mac {
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+  
+
+
+
+
 
 
 //    _____  _    ____ ____
@@ -225,7 +369,7 @@
 body{
   .body-font;
   color: @off-black;
-  background: @light-pink-2;
+  // background: @light-pink-2;
 }
 
 
@@ -392,10 +536,10 @@ h6{
 
 p{
   strong{
-    .body-font-bold;
+    .body-font;
   }
   b{
-    .body-font-bold;
+    .body-font;
   }
   i{
     .body-font-italic;
@@ -569,6 +713,10 @@ p{
     p + p{
       padding-top: 20px;
     }
+
+    h4 + h2{
+      padding-top: 3px;
+    }
   }
 
 
@@ -680,10 +828,34 @@ p{
     }
   }
 
+
+  .cta-container{
+    padding-top: 19px;
+
+    // TABLET PORTRAIT
+    @media only screen and (max-width: 991px) {
+      padding-top: 15px;
+    }
+
+  }
+
   
 
 }
 
+
+
+
+
+body.actual-mobile-version{
+  .default-copy{
+    li a{
+      &:hover{
+        color: @off-black;
+      }
+    }
+  }
+}
 
 
 

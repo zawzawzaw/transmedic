@@ -5,11 +5,10 @@
 
       <div id="page-home-nav-trigger"></div>
 
-
       <div class="header-desktop-spacer"></div>
+      <div class="header-mobile-spacer"></div>
       
       
-              
       <?php
       $post_tag = 'news-slider';
       $section_query = new WP_Query( array( 'post_type' => 'post', 'tag' => $post_tag ) );
@@ -18,49 +17,63 @@
       <article id="page-news-featured-section">
         <div class="container-fluid has-breakpoint">
 
-          <div id="page-news-featured-carousel" class="transmedic-slick-slider">
-            <?php while ($section_query->have_posts()) : $section_query->the_post(); ?>
-              <?php 
-              $post_categories = get_the_category();
-              foreach ($post_categories as $key => $value) {
-                $post_category = $value;
-              }
-              ?>
-              <div class="page-news-featured-carousel-item">
+          <div class="row">
+            <div class="col-md-12">
+
+              <div id="page-news-featured-section-content">
+
+                <?php while ($section_query->have_posts()) : $section_query->the_post(); ?>
+                <?php 
+                $post_categories = get_the_category();
+                // foreach ($post_categories as $key => $value) {
+                //   $post_category = $value;
+                // }
+                ?>                      
+
                 <div class="row">
-                  <div class="col-md-7 visible-xs visible-sm">
-                    <div class="manic-image-container">
-                      <img src="" 
-                        data-image-desktop="<?php the_post_thumbnail_url(); ?>"
-                        data-image-tablet="<?php the_post_thumbnail_url(); ?>"
-                        data-image-mobile="<?php the_post_thumbnail_url(); ?>" alt="">
-                    </div>
-                    <span class="default-image-desc">Cancer cells completing cell division.</span>
-                  </div>
-                  <div class="col-md-5 left-carousel-column">
-                    <div class="carousel-caption-container hover-sync-item">
+                  <div class="col-md-5">
+
+                    <div class="carousel-caption-container">
                       <div class="default-copy">
-                        <h4><?php echo $post_category->name; ?> / <?php the_date('d M Y'); ?></h4>
+                        <h4><?php echo (isset($post_categories) && !empty($post_categories)) ? $post_categories[0]->name : ""; ?></h4>
                         <h2><a href="<?php the_permalink(); ?>" class="hover-sync"><?php the_title(); ?></a></h2>
-                        <?php the_excerpt(); ?>
-                        <a href="<?php the_permalink(); ?>" class="plain-arrow-cta hover-sync">Read More</a>
+                        <p class="minimize-text" data-length="160" data-tablet-length="125" data-mobile-length="133"><?php echo get_the_excerpt(); ?></p>
+
+                        <div class="cta-container">
+                          <a href="<?php the_permalink(); ?>" class="read-more-cta hover-sync">Read More</a>
+                        </div>
                       </div>
-                    </div>
+                    </div> <!-- carousel-caption-container -->
+
                   </div>
-                  <div class="col-md-7 right-carousel-column hidden-xs hidden-sm">
-                    <div class="manic-image-container has-show-all">
-                      <img src="" 
-                        data-image-desktop="<?php the_post_thumbnail_url(); ?>"
-                        data-image-tablet="<?php the_post_thumbnail_url(); ?>"
-                        data-image-mobile="<?php the_post_thumbnail_url(); ?>" alt="">
-                    </div>
-                    <span class="default-image-desc"><?php the_post_thumbnail_caption(); ?></span>
+                  <div class="col-md-7">
+                    
+                    <div id="page-news-featured-carousel-container">
+                      <div id="page-news-featured-carousel" class="transmedic-slick-slider">
+                        
+                          <div class="page-news-featured-carousel-item">
+                            <div class="manic-image-container">
+                              <img src="" 
+                                data-image-desktop="<?php the_post_thumbnail_url(); ?>"
+                                data-image-tablet="<?php the_post_thumbnail_url(); ?>"
+                                data-image-mobile="<?php the_post_thumbnail_url(); ?>" alt="">
+                            </div>
+                            <span class="default-image-desc"><?php the_post_thumbnail_caption(); ?></span>
+                          </div>    
+
+                      </div> <!-- page-new-featured-carousel -->
+                    </div> <!-- page-news-featured-carousel-container -->  
+
                   </div>
-                </div>
-              </div>          
-            <?php endwhile; 
-            wp_reset_query(); ?>
-          </div>
+                </div> <!-- row -->      
+
+                <?php endwhile; 
+                wp_reset_query(); ?>         
+
+              </div> <!-- page-news-featured-section-content -->
+
+            </div> 
+          </div> <!-- row -->
 
         </div>
       </article> <!-- page-news-featured-section -->            
@@ -135,7 +148,7 @@
                 <h4 class="item-date">{{ date }}</h4>
               </div>
             </div>
-            <h3><a href="{{ link }}" class="hover-sync minimize-text" data-length="60" data-tablet-length="25" data-mobile-length="33">{{ title }}</a></h3>
+            <h5><a href="{{ link }}" class="hover-sync minimize-text" data-length="60" data-tablet-length="25" data-mobile-length="33">{{ title }}</a></h5>
           </div>                      
         </div> <!-- page-default-news-item -->
 

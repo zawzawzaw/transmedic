@@ -19,10 +19,10 @@ transmedic.page.New = function(options, element) {
   // if class has parent
   //goog.events.EventTarget.call(this, options, element);
   //this.options = $.extend(this.options, transmedic.page.New.DEFAULT, options);
-
+  this.expandable_text();  
   this.create_feature_carousel();
   this.create_filters();
-  this.create_mobile_filters();
+  this.create_mobile_filters();  
 
   this.append_html = "";  
   this.current_page = 1;
@@ -33,189 +33,9 @@ transmedic.page.New = function(options, element) {
 
   this.news_template = Handlebars.compile($("#news-template").html());
 
-  this.load_more_news = $("#page-news-load-more-cta-container a");
+  this.load_more_news = $("#page-news-load-more-cta-container a");  
 
-  // this.all_news_json = {
-  //   "news" : [
-  //     {
-  //       "tag": "success",
-  //       "category": "success stories",
-  //       "date": "12 Dec 2016",
-  //       "title": "Celebrating the success of Robotic Surgery in CGH 2016",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "education",
-  //       "category": "education & events",
-  //       "date": "8 Dec 2016",
-  //       "title": "The 1st Cell Saver Elite in Manado",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "27 Nov 2016",
-  //       "title": "One of our latest products is the 4th generation da Vinci Xi surgical system",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "education",
-  //       "category": "education & events",
-  //       "date": "10 Nov 2016",
-  //       "title": "The Power of Teamwork: Making Success Happen",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "31 Oct 2016",
-  //       "title": "Introducing i-STAT ® Total ß –hCG: The first and only whole blood..",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "success",
-  //       "category": "success stories",
-  //       "date": "23 Oct 2016",
-  //       "title": "St. Luke’s-Global City performs first robotic lung resection in PH",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "17 Oct 2016",
-  //       "title": "K2M Expands Presence in Asia With Six Product Launches in Singapore...",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "life",
-  //       "category": "life at transmedic",
-  //       "date": "30 Sep 2016",
-  //       "title": "Transmedic Singapore D&D 2016",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "18 Sep 2016",
-  //       "title": "Introducing the First Integrated 3D Prostate Cartographer – TRINITY®",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "education",
-  //       "category": "education & events",
-  //       "date": "9 Sep 2016",
-  //       "title": "Achieving Better Outcomes with Expertise and Technology",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "success",
-  //       "category": "success stories",
-  //       "date": "31 Aug 2016",
-  //       "title": "Cancer Survivor’s Success Story – Jonas (Medulloblastoma)",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "success",
-  //       "category": "success stories",
-  //       "date": "28 Aug 2016",
-  //       "title": "HeartMate 3 successfully implanted in first Singapore patient",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "HeartMate 3 successfully implanted in first Singapore patient",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "Cancer Survivor’s Success Story – Jonas (Medulloblastoma)",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "Achieving Better Outcomes with Expertise and Technology",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "Introducing the First Integrated 3D Prostate Cartographer – TRINITY®",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "K2M Expands Presence in Asia With Six Product Launches in Singapore...",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "St. Luke’s-Global City performs first robotic lung resection in PH",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "Introducing i-STAT ® Total ß –hCG: The first and only whole blood..",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "The Power of Teamwork: Making Success Happen",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "One of our latest products is the 4th generation da Vinci Xi surgical system",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "featured",
-  //       "category": "featured",
-  //       "date": "28 Aug 2016",
-  //       "title": "The 1st Cell Saver Elite in Manado",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "Celebrating the success of Robotic Surgery in CGH 2016",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "HeartMate 3 successfully implanted in first Singapore patient",
-  //       "link": "article.php"
-  //     },
-  //     {
-  //       "tag": "latest",
-  //       "category": "latest products",
-  //       "date": "28 Aug 2016",
-  //       "title": "Cancer Survivor’s Success Story – Jonas (Medulloblastoma)",
-  //       "link": "article.php"
-  //     }
-  //   ]
-  // };
-
-  $.getJSON('http://clients.manic.com.sg/transmedic/post-json', function(data) {
+  $.getJSON(home_url+'/post-json', function(data) {
 
     this.all_news_json = data;
 
@@ -223,7 +43,7 @@ transmedic.page.New = function(options, element) {
     this.total_news_page = this.news_count/this.news_per_page;
     this.total_news_page = Math.ceil(this.total_news_page);
 
-    if(window.location.hash && window.location.hash !== 'all') {
+    if(window.location.hash && window.location.hash !== '#all') {
       this.current_category = window.location.hash;
       this.current_category = this.current_category.slice(1);
       this.get_filter_news();
@@ -234,6 +54,8 @@ transmedic.page.New = function(options, element) {
       $('html, body').animate({
         scrollTop: $("#page-news-filter-section").offset().top - 50
       }, 800);
+
+      this.load_more_news.hide();
 
     } else {
       this.get_all_news();
@@ -349,6 +171,12 @@ transmedic.page.New.prototype.append_to_news_container = function(i) {
       }
       this.counter_i++;
 
+      // hide load more 
+
+      if(!this.all_news_json.news[i+1]) {
+        this.load_more_news.hide();
+      }
+
     }
   } else {
     this.load_more_news.hide();
@@ -383,6 +211,9 @@ transmedic.page.New.prototype.get_all_news = function() {
 
 transmedic.page.New.prototype.get_more_news = function() {
 
+  console.log(this.current_page);
+  console.log(this.news_per_page);
+
   var starting_index = this.current_page * this.news_per_page;  
 
   if(this.current_page == this.total_news_page - 1) {
@@ -415,7 +246,7 @@ transmedic.page.New.prototype.get_filter_news = function() {
   this.counter_a = 0;
 
   if(this.current_category=="all") {
-    this.current_page = 0; // reset
+    this.current_page = 1; // reset
     var starting_index = 0;
     var ending_index = starting_index + this.news_per_page;
   } else {

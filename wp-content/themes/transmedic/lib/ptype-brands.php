@@ -67,21 +67,28 @@ function register_brands_meta_box() {
 
   $cmb->add_group_field( $group_field_id, array(
     'name'       => __( 'Brands Logo', 'cmb2' ),
-    'desc'       => __( 'Brands Logo', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
     'id'         => $prefix . 'logo',
     'type'       => 'file',   
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name'       => __( 'Brands Name', 'cmb2' ),
-    'desc'       => __( 'Brands name', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
     'id'         => $prefix . 'name',
     'type'       => 'text',   
   ) );
 
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Brands Link', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
+    'id'         => $prefix . 'link',
+    'type'       => 'text_url',   
+  ) );
+
   $cmb->add_field( array(
     'name' => __( 'Brands Copy', 'cmb2' ),
-    'desc' => __( 'Brands copy', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'copy',
     'type' => 'wysiwyg',
   ) );

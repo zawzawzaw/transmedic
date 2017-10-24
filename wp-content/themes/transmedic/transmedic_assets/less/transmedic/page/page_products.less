@@ -1,13 +1,50 @@
 #page-products-brands-section {
   // padding-top: 70px;
+  background: @light-pink-2;
   padding-top: 63px;
   padding-bottom: 95px;
 
-  h2 {
-    margin-bottom: 30px;
-  }
+  
 
 } // #page-home-whatwedo-section
+
+#page-products-brands-title{
+  h2 {
+    .h2-style-bold;
+    margin-bottom: 30px;
+    color: @off-black;
+  }
+
+  p{
+    &:nth-of-type(1) {
+      font-size: 20px;
+      line-height: 30px;
+      color: @off-black;  
+    }
+    &:nth-of-type(2) {
+      margin-top: 10px;
+      a {
+        color: @dark-green;
+        &:hover {
+          color: @light-grey; //#707070
+        }
+      }
+    }
+  }
+
+  // TABLET PORTRAIT
+  @media only screen and (max-width: 991px) {
+    h2 {
+      .h2-style-mobile;
+      // margin-bottom: 30px;
+      margin-bottom: 18px;
+    }
+    p{
+      .body-font-mobile;
+    }
+  }
+
+}
 
 #page-products-brands-tabs-container {
   position: relative;
@@ -19,6 +56,13 @@
   position: absolute;
   right: 0;
   top: 130px;
+
+  // TABLET LANDSCAPE
+  @media only screen and (max-width: 1024px) and (min-width: 992px) {
+    top: 136px;
+  }
+
+
   ul {
     li {
       display: inline-block;
@@ -35,7 +79,7 @@
     display: inline-block;    
     &.active {
       .square {
-        background: @cyan;
+        background: @dark-green;
       }
     }
     .square {
@@ -59,7 +103,7 @@
     }
     &:hover {
       .square {
-        background: @cyan;
+        background: @dark-green;
       }
     }
   }
@@ -70,7 +114,7 @@
     display: inline-block;
     &.active {
       .bar {
-        background: @cyan;
+        background: @dark-green;
       }
     }
     .bar {
@@ -86,11 +130,40 @@
     }
     &:hover {
       .bar {
-        background: @cyan;
+        background: @dark-green;
       }
     }
   }
 }
+
+
+
+
+body.actual-mobile-version{
+  
+  #page-products-brands-tabs-icons {
+
+    #icon-view-btn {
+      &:hover {
+        .square {
+          background: @light-grey;
+        }
+      }
+    }
+    #list-view-btn{
+      &:hover {
+        .bar {
+          background: @light-grey;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
 
 .products-brands-tabs {
   display: none;
@@ -107,18 +180,26 @@
 // /_/  /_/\____/_____/___/_____/_____/
 
 
-@media all and (max-width: 768px) {
+// @media all and (max-width: 768px) {
+
+// TABLET PORTRAIT
+@media only screen and (max-width: 991px) {
   #page-products-brands-section {
     padding-top: @section-padding-mobile;
-    padding-bottom: @section-padding-mobile;
+    /// padding-top: @section-padding-mobile;
+    /// padding-bottom: @section-padding-mobile;
+    // padding-bottom: 47px;
+    padding-bottom: 47px;
   }
 
   #page-products-brands-tabs-container {
-    padding-top: @section-padding-mobile;
+    // padding-top: @section-padding-mobile;
+    padding-top: 47px;
   }
 
   #page-products-brands-tabs-icons {
-    top: 60px;
+    // top: 60px;
+    top: 93px;
   }
 }
 
@@ -133,6 +214,18 @@
   // margin-top: -25px;
 }
 
+#page-products-brands-list-view-items{
+  // TABLET LANDSCAPE
+  @media only screen and (max-width: 1024px) and (min-width: 992px) {
+    padding-right: 50px;
+  }
+  // TABLET PORTRAIT
+  @media only screen and (max-width: 991px) {
+    padding-right: 0px;
+  }
+
+}
+
 .page-products-brands-icon-view-tab-item {
   &:before {
     content: "";
@@ -143,7 +236,7 @@
   &:after {
     content: "";
     display: block;
-    border-bottom: 1px solid @border-grey;
+    // border-bottom: 1px solid @border-grey;     // extra
     padding-top: 63px;
     // margin-bottom: 68px;
   }
@@ -153,7 +246,19 @@
     }
   }
 
+  // TABLET PORTRAIT
+  @media only screen and (max-width: 991px) {
+    &:before {
+      padding-top: 47px;
+    }
+    &:after{
+      padding-top: 45px;
+    }
+  }
+
   .item-title {
+    color: @dark-green;
+
     &.add-space-version {
       margin-bottom: 20px;
     }    
@@ -167,8 +272,8 @@
     }
     li {
       display: inline-block;
-      margin-right: 80px;
-      vertical-align: middle;
+      margin-right: 79px;
+      vertical-align: middle;      
 
       @media all and (max-width: 1366px) {
         margin-right: 70px;
@@ -179,6 +284,12 @@
       @media all and (max-width: 1024px) {
         margin-right: 15px;
       }
+
+      // TABLET PORTRAIT
+      @media only screen and (max-width: 991px) {
+        padding-top: 13px;
+      }
+
 
       .item-icon {      
         .icon-image('../images/logo/surgical-logo-1.svg', 173, 69);
@@ -201,6 +312,16 @@
         }
         &.orthopaedics-icon-4 {
           .icon-image('../images/logo/orthopaedics-logo-4.png', 88, 106);
+        }
+
+        &.in-vitro-icon-1 {
+          .icon-image('../images/logo/in-vitro-logo-1.png', 252, 60);
+        }
+        &.in-vitro-icon-2 {
+          .icon-image('../images/logo/in-vitro-logo-2.png', 109, 73);
+        }
+        &.in-vitro-icon-3 {
+          .icon-image('../images/logo/in-vitro-logo-3.png', 202, 49);
         }
 
         &.in-vitro-diagnostics-icon-1 {
@@ -229,6 +350,22 @@
           .icon-image('../images/logo/pharmaceuticals-logo-5.png', 95, 103);
         }
 
+        &.pharmaceuticals-icon-1 {
+          .icon-image('../images/logo/pharmaceuticals-logo-1.png', 166, 26);
+        }
+        &.pharmaceuticals-icon-2 {
+          .icon-image('../images/logo/pharmaceuticals-logo-2.png', 252, 50);
+        }
+        &.pharmaceuticals-icon-3 {
+          .icon-image('../images/logo/pharmaceuticals-logo-3.png', 224, 52);
+        }
+        &.pharmaceuticals-icon-4 {
+          .icon-image('../images/logo/pharmaceuticals-logo-4.png', 106, 106);
+        }
+        &.pharmaceuticals-icon-5 {
+          .icon-image('../images/logo/pharmaceuticals-logo-5.png', 95, 103);
+        }
+
         &.turnkey-icon-1 {
           .icon-image('../images/logo/turnkey-logo-1.png', 231, 100); 
         }
@@ -238,6 +375,34 @@
         &.turnkey-icon-3 {
           .icon-image('../images/logo/turnkey-logo-3.png', 82, 59); 
         }
+
+        &.turnkey-icon-4 {
+          .icon-image('../images/logo/turnkey-logo-4.png', 288, 93); 
+        }
+        &.turnkey-icon-5 {
+          .icon-image('../images/logo/turnkey-logo-5.png', 244, 93); 
+        }
+
+        &.turnkey-solutions-icon-1 {
+          .icon-image('../images/logo/turnkey-logo-1.png', 231, 100); 
+        }
+        &.turnkey-solutions-icon-2 {
+          .icon-image('../images/logo/turnkey-logo-2.png', 163, 39); 
+        }
+        &.turnkey-solutions-icon-3 {
+          .icon-image('../images/logo/turnkey-logo-3.png', 82, 59); 
+        }
+
+        &.turnkey-solutions-icon-4 {
+          .icon-image('../images/logo/turnkey-logo-4.png', 288, 93); 
+        }
+        &.turnkey-solutions-icon-5 {
+          .icon-image('../images/logo/turnkey-logo-5.png', 244, 93); 
+        }
+
+
+
+
         
         &.therapeutics-icon-1 {
           .icon-image('../images/logo/therapeutics-logo-1.png', 216, 53); 
@@ -246,10 +411,24 @@
           .icon-image('../images/logo/therapeutics-logo-2.png', 153, 50); 
         }
         &.therapeutics-icon-3 {
-          .icon-image('../images/logo/therapeutics-logo-3.png', 202, 49); 
+          // .icon-image('../images/logo/therapeutics-logo-3.png', 202, 49); 
+          .icon-image('../images/logo/in-vitro-logo-3.png', 202, 49);
         }
         &.therapeutics-icon-4 {
           .icon-image('../images/logo/therapeutics-logo-4.png', 248, 56); 
+        }
+
+        &.interventional-icon-1 {
+          .icon-image('../images/logo/interventional-logo-1.png', 185, 35); 
+        }
+        &.interventional-icon-2 {
+          .icon-image('../images/logo/interventional-logo-2.png', 184, 104); 
+        }
+        &.interventional-icon-3 {
+          .icon-image('../images/logo/interventional-logo-3.png', 265, 53); 
+        }
+        &.interventional-icon-4 {
+          .icon-image('../images/logo/interventional-logo-4.png', 106, 106); 
         }
 
         &.interventional-therapy-icon-1 {
@@ -272,7 +451,7 @@
     margin-top: 38px;
     p {
       a {
-        color: @cyan;
+        color: @dark-green;
         &:hover {
           color: @light-grey;
         }
@@ -281,6 +460,22 @@
   }
 }
 
+
+
+body.actual-mobile-version{
+  .page-products-brands-icon-view-tab-item{
+    .item-copy p a{
+      &:hover {
+        color: @dark-green;
+      }
+    }
+  }
+}
+
+
+
+
+
 //     __  _______  ____  ______    ______   ______________  _   __   _    _____________       __
 //    /  |/  / __ \/ __ )/  _/ /   / ____/  /  _/ ____/ __ \/ | / /  | |  / /  _/ ____/ |     / /
 //   / /|_/ / / / / __  |/ // /   / __/     / // /   / / / /  |/ /   | | / // // __/  | | /| / /
@@ -288,18 +483,42 @@
 // /_/  /_/\____/_____/___/_____/_____/  /___/\____/\____/_/ |_/     |___/___/_____/  |__/|__/
 
 
-@media all and (max-width: 768px) {
+// @media all and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
+
   .page-products-brands-icon-view-tab-item {
     .item-title {
       margin-bottom: 25px;
     }
     ul.item-icons-list {
+      text-align: center;
+
+      padding-left: 10%;
+      padding-right: 10%;
+
       li {
-        display: block;
+        // display: block;
         margin-bottom: 25px;
+
+
         .item-icon {
           margin: 0 auto;
         }
+      }
+    }
+  }
+}
+
+// MOBILE
+@media only screen and (max-width: 767px) {
+  .page-products-brands-icon-view-tab-item {
+    
+    ul.item-icons-list {
+      padding-left: 0px;
+      padding-right: 0px;
+
+      li{
+        margin-bottom: 10px;
       }
     }
   }
@@ -344,13 +563,17 @@
   margin-bottom: 60px;
 
   .item-title {
-    margin-bottom: 20px;  
+    margin-bottom: 20px;
+    color: @dark-green;
   }
 
   .item-list {
+    @media only screen and (max-width: 991px) {
+      margin-top: -10px;
+    }
     li {
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       padding-left: 15px;
       &:before {
         content: ".";
@@ -358,14 +581,37 @@
         left: 0px;
         top: -5px;
         .body-font-bold;
+
+
+      }
+
+      a {
+        &:hover {
+          color: @dark-green;
+        }
+      }
+
+      @media only screen and (max-width: 991px) {
+        // margin-bottom: 0px;
+        margin-bottom: 10px;
+
+        &:before {
+          top: -9px;
+        }
       }
     }
   }   
 
   .item-email {
-    .body-font-bold-mobile;
+    // .body-font-bold-mobile;
+    margin-top: 20px;
+    @media only screen and (max-width: 991px) {
+      // margin-top: 25px;
+      padding-left: 15px;
+      margin-top: 10px;
+    }
     a {
-      color: @cyan;
+      color: @dark-green;
       &:hover {
         color: @light-grey;
       }
@@ -373,20 +619,40 @@
   }
 }
 
+body.actual-mobile-version{
+  .page-products-brands-list-view-item {
+    .item-email a{
+      &:hover {
+        color: @dark-green;
+      }
+    }
+  }
+}
+
+
 //     __    _______________   _    _____________       __   __  _______  ____  ______    ______
 //    / /   /  _/ ___/_  __/  | |  / /  _/ ____/ |     / /  /  |/  / __ \/ __ )/  _/ /   / ____/
 //   / /    / / \__ \ / /     | | / // // __/  | | /| / /  / /|_/ / / / / __  |/ // /   / __/
 //  / /____/ / ___/ // /      | |/ // // /___  | |/ |/ /  / /  / / /_/ / /_/ // // /___/ /___
 // /_____/___//____//_/       |___/___/_____/  |__/|__/  /_/  /_/\____/_____/___/_____/_____/
 
-@media all and (max-width: 768px) {
+// @media all and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .page-products-brands-list-view-item {
     width: 100%;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
+    /// margin-bottom: 50px;
+
+    margin-bottom: 43px;
+
+    &:last-child{
+      margin-bottom: 0px;
+    }
   }
 
   #page-products-brands-list-view-title {
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
+    margin-bottom: 22px;
     &:before {
       padding-top: 25px;
     }

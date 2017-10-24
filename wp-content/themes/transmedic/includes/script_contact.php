@@ -4,12 +4,11 @@
   <!-- INSERT FONTS HERE -->
 
   <!-- Google Font -->
-  <!-- Merriweather Bold -->
-  <!-- Source Sans Pro Light, Light Italic, Regular, Semibold -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:700,700i,400|Source+Sans+Pro:300,300i,400,600,700" rel="stylesheet">
+  <!-- Source Sans Pro Light, Regular, Semibold -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
 
 
-  <?php $is_debug = true; ?>
+  <?php $is_debug = false; ?>
 
   <?php if ($is_debug == true): ?>
 
@@ -24,7 +23,7 @@
 
 
     <!-- INSERT CSS HERE -->
-    <!-- <link rel="stylesheet" type="text/css" href="transmedic_assets/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo CSS; ?>/style.css">
 
     <!-- INSERT JS HERE -->
     <script type="text/javascript" src="<?php echo JS; ?>/manic-polyfill.js"></script>
@@ -87,11 +86,13 @@
 
       var PAGE_LIBRARY        = "<?php echo JS; ?>/minified/libraries-default.min.js";
       var PAGE_JS             = "<?php echo JS; ?>/minified/page-default.min.js";
-      // var PAGE_CSS            = "transmedic_assets/css/style.css";
+      var PAGE_CSS            = "<?php echo CSS; ?>/style.css";
+      var FONT_CSS            = "<?php echo CSS; ?>/MyFontsWebfontsKit.css";
       
       window.head_js = head;
       
-      // window.head_js.load(PAGE_CSS);
+      window.head_js.load(FONT_CSS);
+      window.head_js.load(PAGE_CSS);
       window.head_js.load(PAGE_LIBRARY, function() {
         window.head_js.load(PAGE_JS, function() {
           window.page = new transmedic.page.Default({});

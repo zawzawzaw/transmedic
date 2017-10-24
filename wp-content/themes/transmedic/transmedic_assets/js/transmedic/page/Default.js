@@ -13,7 +13,7 @@ goog.require('manic.ui.Dropdown');
 
 
 goog.require('transmedic.component.HeaderDesktop');
-// goog.require('transmedic.component.HeaderMobile');
+goog.require('transmedic.component.HeaderMobile');
 
 goog.require('transmedic.component.HoverSync');
 
@@ -71,6 +71,9 @@ transmedic.page.Default = function(options, element) {
   this.page_wrapper = $('#page-wrapper');
   this.page_wrapper_content = $('#page-wrapper-content');
 
+
+  this.desktop_footer_element = $('#footer-desktop');
+
   // min height variables
   this.is_page_min_height = false;
   if( this.body.hasClass('min-height-version') == true ){
@@ -113,7 +116,8 @@ transmedic.page.Default.prototype.init = function() {
 
   this.create_dropdown();
   
-  // this.create_header_mobile();
+  this.create_header_mobile();
+
   // 
   // 
 
@@ -179,6 +183,7 @@ transmedic.page.Default.prototype.create_header_desktop = function(){
 
 transmedic.page.Default.prototype.create_header_mobile = function(){
 
+
   if ($('#header-mobile').length != 0 && $('#header-mobile-expand').length != 0) {
 
     this.header_mobile = new transmedic.component.HeaderMobile({}, $('#header-mobile'));
@@ -219,7 +224,8 @@ transmedic.page.Default.prototype.expandable_text = function() {
   var minimized_elements = $('.minimize-text');
     
   minimized_elements.each(function(){
-      // var t = $(this).text();                          // this is just TEXT !!!!!
+      // var t = $(this).text();
+      // console.log(this.html());                          // this is just TEXT !!!!!
       var t = $(this).html();
       var maxLength = $(this).data('length');
 
@@ -235,7 +241,7 @@ transmedic.page.Default.prototype.expandable_text = function() {
         maxLength = $(this).data('mobile-length');
       }
 
-      console.log(maxLength)
+      // console.log(maxLength)
 
       if(t.length < maxLength) return;
 
@@ -315,7 +321,9 @@ transmedic.page.Default.prototype.update_page_layout = function(){
   }
 
   if (this.is_page_min_height == true && manic.IS_MOBILE == false) {
-    var target_height = this.page_wrapper.height() - this.desktop_footer_element.outerHeight();
+    // var target_height = this.page_wrapper.height() - this.desktop_footer_element.outerHeight();
+    
+    var target_height = this.window_height - this.desktop_footer_element.outerHeight();
 
     this.page_wrapper_content.css({
       'min-height': target_height + 'px'
@@ -324,9 +332,10 @@ transmedic.page.Default.prototype.update_page_layout = function(){
 
 
   if (this.is_page_min_height_mobile == true && manic.IS_MOBILE == true) {
-    var target_height = this.page_wrapper.height() - this.mobile_header_element.outerHeight();
-
-    console.log(target_height);
+    // var target_height = this.page_wrapper.height() - this.mobile_header_element.outerHeight();
+    var target_height = this.window_height - this.mobile_header_element.outerHeight() - this.desktop_footer_element.outerHeight();
+    
+    // console.log(target_height);
 
     this.page_wrapper_content.css({
       'min-height': target_height + 'px'

@@ -18,20 +18,16 @@ transmedic.component.HeaderMobile = function(options, element) {
 
   this.is_expanded = false;
 
-  this.expand_container = $('#mobile-header-expand-container');
-  this.menu_btn = this.element.find('#mobile-header-menu-btn');
+  this.expand_container = $('#header-mobile-expand');
+  this.menu_btn = this.element.find('#header-mobile-menu-opener');
   
 
   this.window_scroll = 0;
   this.window_element = $(window);
 
-  this.body_element = $('body');
+  this.body_element = $('body');  
 
-  /**
-   * @type {manic.ui.AutoCompleteSearch}
-   */
-  this.auto_complete_search = null;
-
+  
 
 
   //    ___ _   _ ___ _____
@@ -53,9 +49,7 @@ transmedic.component.HeaderMobile = function(options, element) {
 
 
   this.create_nav();
-  this.create_autocomplete();
-
-
+  
 
 
 
@@ -116,8 +110,6 @@ transmedic.component.HeaderMobile.prototype.open_menu = function(){
     this.body_element.addClass('mobile-menu-open-version');
     this.window_element.scrollTop(0);
 
-
-
     this.dispatchEvent(new goog.events.Event(transmedic.component.HeaderMobile.ON_OPEN_MENU));
 
   }
@@ -149,6 +141,7 @@ transmedic.component.HeaderMobile.prototype.update_layout = function() {
 
 transmedic.component.HeaderMobile.prototype.create_nav = function() {
 
+  /*
   this.expand_container.find('#mobile-header-menu nav > ul > li.has-sub-menu > a').click(function(event){
     event.preventDefault();
 
@@ -201,16 +194,19 @@ transmedic.component.HeaderMobile.prototype.create_nav = function() {
       
 
   });
+  */
 
 
 };
 
-transmedic.component.HeaderMobile.prototype.create_autocomplete = function() {
-  this.auto_complete_search = new manic.ui.AutoCompleteSearch({
-    'data_container': '#search-data-container',
-    'selector': '.search-data-item',
-    'unique_name': 'ac-renderer-mobile-header-search'
-  }, $('#mobile-header-search'));
-};
+
+
+// transmedic.component.HeaderMobile.prototype.create_autocomplete = function() {
+//   this.auto_complete_search = new manic.ui.AutoCompleteSearch({
+//     'data_container': '#search-data-container',
+//     'selector': '.search-data-item',
+//     'unique_name': 'ac-renderer-mobile-header-search'
+//   }, $('#mobile-header-search'));
+// };
 
 

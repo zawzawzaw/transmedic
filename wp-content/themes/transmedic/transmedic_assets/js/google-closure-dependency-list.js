@@ -44,9 +44,9 @@ goog.addDependency('../../../../../js/transmedic/component/HeaderDesktop.js', ['
 goog.addDependency('../../../../../js/transmedic/component/HeaderMobile.js', ['transmedic.component.HeaderMobile'], ['goog.events.Event', 'goog.events.EventTarget']);
 goog.addDependency('../../../../../js/transmedic/component/HoverSync.js', ['transmedic.component.HoverSync'], ['goog.events.Event', 'goog.events.EventTarget']);
 goog.addDependency('../../../../../js/transmedic/component/JobListItem.js', ['transmedic.component.JobListItem'], ['goog.events.Event', 'goog.events.EventTarget']);
-goog.addDependency('../../../../../js/transmedic/page/Default.js', ['transmedic.page.Default'], ['goog.events.Event', 'goog.events.EventTarget', 'manic.page.Page', 'manic.ui.BoxItem', 'transmedic.component.HeaderDesktop', 'transmedic.component.HoverSync']);
-goog.addDependency('../../../../../js/transmedic/page/Home.js', ['transmedic.page.Home'], ['goog.events.Event', 'goog.events.EventTarget', 'manic.ui.HoverItem', 'transmedic.page.Default']);
-goog.addDependency('../../../../../js/transmedic/page/Product.js', ['transmedic.page.Product'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);
-goog.addDependency('../../../../../js/transmedic/page/New.js', ['transmedic.page.New'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);
 goog.addDependency('../../../../../js/transmedic/page/Article.js', ['transmedic.page.Article'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);
-goog.addDependency('../../../../../js/transmedic/page/Career.js', ['transmedic.page.Career'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);
+goog.addDependency('../../../../../js/transmedic/page/Career.js', ['transmedic.page.Career'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.component.JobListItem', 'transmedic.page.Default']);
+goog.addDependency('../../../../../js/transmedic/page/Default.js', ['transmedic.page.Default'], ['goog.events.Event', 'goog.events.EventTarget', 'manic.page.Page', 'manic.ui.BoxItem', 'manic.ui.Dropdown', 'transmedic.component.HeaderDesktop', 'transmedic.component.HeaderMobile', 'transmedic.component.HoverSync']);
+goog.addDependency('../../../../../js/transmedic/page/Home.js', ['transmedic.page.Home'], ['goog.events.Event', 'goog.events.EventTarget', 'manic.ui.AnimatedSVG', 'manic.ui.HoverItem', 'transmedic.page.Default']);
+goog.addDependency('../../../../../js/transmedic/page/New.js', ['transmedic.page.New'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);
+goog.addDependency('../../../../../js/transmedic/page/Product.js', ['transmedic.page.Product'], ['goog.events.Event', 'goog.events.EventTarget', 'transmedic.page.Default']);

@@ -13,8 +13,6 @@ import subprocess
 subprocess.Popen([
   'python', python_build_file,
   '--root_with_prefix=../../js/manic ../../../../../js/manic/',
-  '--root_with_prefix=../../js/manic/canvas ../../../../../js/manic/canvas/',
-  '--root_with_prefix=../../js/manic/framework ../../../../../js/manic/framework/',
   '--root_with_prefix=../../js/manic/google ../../../../../js/manic/google/',
   '--root_with_prefix=../../js/manic/page ../../../../../js/manic/page/',
   '--root_with_prefix=../../js/manic/ui ../../../../../js/manic/ui/',

@@ -13,8 +13,8 @@ $current_slug = get_post( $post )->post_name;
 
       <div id="page-home-nav-trigger"></div>
 
-
       <div class="header-desktop-spacer"></div>
+      <div class="header-mobile-spacer"></div>
       
       <article id="page-products-brands-section">
         <div class="container-fluid has-breakpoint">
@@ -23,10 +23,12 @@ $current_slug = get_post( $post )->post_name;
             <div class="col-md-12">
               <?php $products_page_ob_sec_title = get_post_meta($post->ID, 'products_page_ob_sec_title', true); ?>
               <?php $products_page_ob_sec_text = get_post_meta($post->ID, 'products_page_ob_sec_text', true); ?>
+              <?php $products_page_ob_sec_contact = get_post_meta($post->ID, 'products_page_ob_sec_contact', true); ?>
 
               <div id="page-products-brands-title">
                 <h2><?php echo $products_page_ob_sec_title; ?></h2>
-                <p><b><?php echo $products_page_ob_sec_text; ?></b></p>
+                <p><?php echo $products_page_ob_sec_text; ?></p>
+                <p><?php echo $products_page_ob_sec_contact; ?></p>
               </div> <!-- page-home-whatwedo-title -->
 
             </div>
@@ -67,12 +69,12 @@ $current_slug = get_post( $post )->post_name;
                       $lower_case_brand_title = preg_replace('/\s+/', ' ',$lower_case_brand_title);              
                       $lower_case_brand_title = str_replace(' ', '-', strtolower($lower_case_brand_title));
 
-                      $ptype_brands_copy = get_post_meta( $post->ID, 'ptype_brands_copy', true ); 
+                      // $ptype_brands_copy = get_post_meta( $post->ID, 'ptype_brands_copy', true ); 
                     ?>
                     <div class="scroll-target" data-value="<?php echo $lower_case_brand_title; ?>"></div>                
                     <div class="page-products-brands-icon-view-tab-item">
 
-                        <h5 class="item-title add-space-version"><?php echo $brand_title; ?></h5>
+                        <h3 class="item-title add-space-version"><?php echo $brand_title; ?></h3>
 
                         <ul class="item-icons-list">
                           <?php
@@ -81,18 +83,18 @@ $current_slug = get_post( $post )->post_name;
                           $i = 0;
 
                           foreach ( (array) $ptype_brands_logo_entries as $key => $entry ):              
-                            // $entry['ptype_brands_name'];
+                            $image_link = $entry['ptype_brands_link'];
                             $image_url = $entry['ptype_brands_logo'];
                           ?>                            
-                            <li><div style="background-image: url('<?php echo $image_url; ?>');" class="<?php echo $lower_case_brand_title; ?>-icon-<?php echo $i+1 ?> item-icon"></div></li>                      
+                            <li><a href="<?php echo $image_link; ?>" target="_blank"><div style="background-image: url('<?php echo $image_url; ?>');" class="<?php echo $lower_case_brand_title; ?>-icon-<?php echo $i+1 ?> item-icon"></div></a></li>                      
                           <?php
                             $i++;
                           endforeach; ?>
                         </ul>
 
-                        <div class="item-copy">
+                        <!-- <div class="item-copy">
                           <p><?php echo $ptype_brands_copy; ?></p>
-                        </div>
+                        </div> -->
 
                     </div> <!-- page-products-brands-icon-view-tab-item -->
                   <?php                                          
@@ -121,21 +123,23 @@ $current_slug = get_post( $post )->post_name;
                       $ptype_brands_copy = get_post_meta( $post->ID, 'ptype_brands_copy', true ); 
                     ?>
                     <div class="page-products-brands-list-view-item">
-                      <h5 class="item-title"><?php echo $brand_title; ?></h5>
+                      <h3 class="item-title"><?php echo $brand_title; ?></h3>
                       <ul class="item-list">
                         <?php
                         $ptype_brands_logo_entries = get_post_meta( $post->ID, 'ptype_brands_logo', true ); 
 
                         $i = 0;
 
-                        foreach ( (array) $ptype_brands_logo_entries as $key => $entry ):                                        
+                        foreach ( (array) $ptype_brands_logo_entries as $key => $entry ):    
+                          $brand_link = $entry['ptype_brands_link'];                                    
+                          $brand_name = $entry['ptype_brands_name'];                                    
                         ?>
-                        <li><p><b><?php echo $entry['ptype_brands_name']; ?></b></p></li>
+                        <li><p><b><a href="<?php echo $brand_link; ?>" target="_blank"><?php echo $brand_name; ?></a></b></p></li>
                         <?php
                           $i++;
                         endforeach; ?>                        
                       </ul>
-                      <p class="item-email">Email: <a href="mailto:enquiry@transmedic.com">enquiry@transmedic.com</a></p>
+                      <!-- <p class="item-email">Email: <a href="mailto:enquiry@transmedic.com">enquiry@transmedic.com</a></p> -->
                     </div>                                      
                     <?php                                          
                       endwhile;

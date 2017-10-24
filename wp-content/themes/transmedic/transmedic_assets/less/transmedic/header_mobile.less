@@ -5,6 +5,8 @@
   left: 0;
   width: 100%;  
 
+  display: none;
+
   .white-bg{
     position: absolute;
     top: 0;
@@ -19,11 +21,36 @@
 }
 
 .header-mobile-spacer{
+  display: none;
   background: @white;
   height: @header-mobile-height;
   .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+}
+
+
+// TABLET PORTRAIT
+@media only screen and (max-width: 991px) {
+  #header-mobile{
+    display: block !important;
+  }
+  .header-mobile-spacer{
+    display: block !important;
+  }
+}
+
+body.actual-mobile-version{
+  #header-mobile{
+    display: block !important;
+  }
+  .header-mobile-spacer{
+    display: block !important;
+  }
+}
+
+.header-mobile-spacer{
 
 }
+
 
 #header-mobile-content-container{
   position: absolute;
@@ -44,11 +71,21 @@
 
 #header-mobile-logo{
   position: absolute;
-  top: 10px;
+  // top: 10px;
+  top: 5px;
   left: 20px;
 
-  display: block;
-  .logo-transmedic-header-mobile;
+  
+  // .logo-transmedic-header-mobile;
+  
+  /// .clanot-medium;
+  /// font-size: 24px;
+  /// line-height: 40px;
+  /// color: @black;
+  /// text-transform: lowercase;
+  /// display: block;
+  
+  .logo-v2-transmedic-header-small;
 
   // .transition-in(0.4s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.3s);
   
@@ -75,12 +112,233 @@
     top: 23px;
     right: 20px;
 
+    &:after{
+      content: '';
+      display: block;
+
+      .menu-icon-close;
+      .opacity(0);
+      .transition-in(0.3s);
+
+      position: absolute;
+      top: -2px;
+      left: 0px;
+
+    }
+
     span {
       width: 18px;
       height: 2px;
       margin-bottom: 3px;
       display: block;
       background: @light-grey-2;
+
+      .opacity(1);
+      .transition-in(0.3s);
     }
   }
 }
+body.mobile-menu-open-version{
+
+  #header-mobile-menu-opener-container #header-mobile-menu-opener {
+
+    &:after{
+      .opacity(1);
+    }
+
+    span{
+      .opacity(0);
+    }
+  }
+
+}
+
+
+
+
+
+
+//    __  __ _____ _   _ _   _    ___  ____  _____ _   _
+//   |  \/  | ____| \ | | | | |  / _ \|  _ \| ____| \ | |
+//   | |\/| |  _| |  \| | | | | | | | | |_) |  _| |  \| |
+//   | |  | | |___| |\  | |_| | | |_| |  __/| |___| |\  |
+//   |_|  |_|_____|_| \_|\___/   \___/|_|   |_____|_| \_|
+//
+
+
+body.mobile-menu-open-version{
+  #page-wrapper{
+    display: none;
+  }
+  #header-mobile-expand{
+    display: block;
+  }
+  #footer-desktop{
+    display: none !important;
+  }
+}
+
+
+//    _______  ______   _    _   _ ____
+//   | ____\ \/ /  _ \ / \  | \ | |  _ \
+//   |  _|  \  /| |_) / _ \ |  \| | | | |
+//   | |___ /  \|  __/ ___ \| |\  | |_| |
+//   |_____/_/\_\_| /_/   \_\_| \_|____/
+//
+
+#header-mobile-expand{
+  display: none;
+}
+
+#header-menu-mobile{
+  padding-top: 10px;
+
+  nav{
+    ul{
+      li{
+        display: block;
+
+        padding-top: 8px;
+        // padding-bottom: 8px;
+        padding-bottom: 6px;
+
+        border-bottom: 1px solid @border-grey;
+
+        &:last-child{
+          border-bottom: none;
+        }
+
+
+        a{
+          .h4-style-mobile;
+          text-align: center;
+          color: @light-grey !important;
+
+          display: block;
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          &.custom-highlight{
+            color: @dark-green !important;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
+
+//    ____  _____    _    ____ _   _
+//   / ___|| ____|  / \  / ___| | | |
+//   \___ \|  _|   / _ \| |   | |_| |
+//    ___) | |___ / ___ \ |___|  _  |
+//   |____/|_____/_/   \_\____|_| |_|
+//
+
+#header-search-mobile{
+  background: @off-white-2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+#header-search-mobile-form{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  // reset
+  input{
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    outline: none;
+    border: none;
+    .round(0px);
+  }
+
+  // remove fill color from google autofill 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  }
+
+  input[type=text]{
+    .h4-style-mobile;
+    text-align: center;
+    color: @off-black;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1px;
+
+    // .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+    .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+
+    &::-webkit-input-placeholder{
+      .opacity(1);
+      color: @off-black;
+    }
+    &:-moz-placeholder{
+      .opacity(1);
+      color: @off-black;
+    }
+    &::-moz-placeholder{
+      .opacity(1);
+      color: @off-black;
+    }
+    &:-ms-input-placeholder{
+      .opacity(1);
+      color: @off-black;
+    }
+
+  }
+
+
+  input[type=submit]{
+    .fa;
+
+    // font-size: 12px;
+    // line-height: 26px;
+
+    font-size: 14px;
+    line-height: 30px;
+
+    color: @light-grey-2;
+
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    
+
+    background: transparent;
+    width: 30px;
+    height: 30px;
+
+    // .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+    .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
+  }
+
+
+
+} // #header-search-mobile-form

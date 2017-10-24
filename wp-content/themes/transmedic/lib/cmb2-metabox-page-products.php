@@ -25,15 +25,22 @@ function products_page_register_our_brands_meta_box() {
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Section Title', 'cmb2' ),
-    'desc' => esc_html__( 'Our brands section title', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
     'id'   => $prefix . 'ob_sec_title',
     'type' => 'text',
   ) );
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Section Text', 'cmb2' ),
-    'desc' => esc_html__( 'Our brands section text', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
     'id'   => $prefix . 'ob_sec_text',
     'type' => 'textarea',
+  ) );
+
+  $cmb->add_field( array(
+    'name' => esc_html__( 'Section Contact', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
+    'id'   => $prefix . 'ob_sec_contact',
+    'type' => 'wysiwyg',
   ) );
 }

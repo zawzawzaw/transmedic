@@ -1,10 +1,11 @@
-
 #header-desktop{
   position: fixed;
   z-index: 200000;
   top: 0;
   left: 0;
   width: 100%;
+
+  display: block;
 
   .white-bg{
     position: absolute;
@@ -13,10 +14,13 @@
     width: 100%;
     height: @header-desktop-height;
     background: @white;
+    .box-shadow (0, -10px, 40px, @black);
 
     .transition-in(0.7s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
   }
 }
+
+
 body.home-expand-header-version{
   #header-desktop{
     .white-bg{
@@ -25,11 +29,27 @@ body.home-expand-header-version{
     }
   }
 }
+
+
+// TABLET PORTRAIT
+@media only screen and (max-width: 991px) {
+  #header-desktop{
+    display: none !important;
+  }
+  .header-desktop-spacer{
+    display: none !important;
+  }
+}
 body.actual-mobile-version{
   #header-desktop{
     display: none !important;
   }
+  .header-desktop-spacer{
+    display: none !important;
+  }
 }
+
+
 
 
 
@@ -43,11 +63,6 @@ body.home-expand-header-version{
   .header-desktop-spacer{
     height: 145px;
     .transition-in(0.5s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.2s);
-  }
-}
-body.actual-mobile-version{
-  .header-desktop-spacer{
-    display: none !important;
   }
 }
 
@@ -90,9 +105,9 @@ body.home-expand-header-version{
 //
 
 .header-desktop-font{
-  .source-sans-pro-bold;
+  .clanot-medium;
   font-size: 12px;
-  line-height: 26px;
+  line-height: 14px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -205,22 +220,35 @@ body.home-expand-header-version{
 #header-desktop-logo-container{
   position: absolute;
   top: 0;
-  left: 0;
+  left: -110px;
   width: 100%;
 }
 
 #header-desktop-logo{
   position: absolute;
-  top: 15px;
+  // top: 15px;
+  /// top: 10px;
+  top: 5px;
   left: 171px;
 
-  display: block;
-  .logo-transmedic-header-small;
+  // .logo-transmedic-header-small;
+  
+  /// display: block;
+  /// .clanot-medium;
+  /// font-size: 24px;
+  /// line-height: 40px;
+  /// color: @black;
+  /// text-transform: lowercase;
+  
+  .logo-v2-transmedic-header-small;
+
+
+
 
   // .transition-in(0.4s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.3s);
   
-  -webkit-animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
-  animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
+  // -webkit-animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
+  // animation: logo_animate_out 0.7s both cubic-bezier(0.7,0,0.3,1) 0.1s;
 
 }
 body.home-expand-header-version{
@@ -233,8 +261,8 @@ body.home-expand-header-version{
     // .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.4s);
     
     
-    -webkit-animation: logo_animate_in 0.7s both cubic-bezier(0.7,0,0.3,1) 0.2s;
-    animation: logo_animate_in 0.7s both cubic-bezier(0.7,0,0.3,1) 0.2s;
+    // -webkit-animation: logo_animate_in 0.7s both cubic-bezier(0.7,0,0.3,1) 0.2s;
+    // animation: logo_animate_in 0.7s both cubic-bezier(0.7,0,0.3,1) 0.2s;
 
   }
 }
@@ -268,10 +296,14 @@ body.home-expand-header-version{
 
 #header-desktop-menu{
   position: absolute;
-  top: 27px;
+  top: 24px;
   left: 300px;
   right: 386px;
   height: 26px;
+
+  @media only screen and (max-width: 1280px) {
+    right: 326px;
+  }
 
   nav{
     ul{
@@ -283,21 +315,31 @@ body.home-expand-header-version{
         // padding-right: 35px;
         // padding-left: 35px;
 
+        &.current-menu-item {
+          a {
+            color: @dark-green;
+            .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
+          }
+        }
+
 
         a{
           display: block;
 
           .header-desktop-font;
 
-          color: @off-black;
+          -webkit-font-smoothing : auto;
+          -moz-osx-font-smoothing: auto;
+
+          color: @light-grey;
           .transition-in-single (color, 0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
 
           &:hover{
-            color: @cyan;
+            color: @dark-green;
             .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
           }
           &.selected{
-            color: @cyan;
+            color: @dark-green;
             .transition-in-single (color, 0.2s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.0s);
           }
 
@@ -306,6 +348,17 @@ body.home-expand-header-version{
     }
   }
 }
+
+
+body.actual-mobile-version{
+  #header-desktop-menu nav ul li a{
+    &:hover{
+      color: @light-grey;
+    }
+  }
+}
+
+
 
 body.home-expand-header-version{
   #header-desktop-menu{
@@ -329,8 +382,10 @@ body.home-expand-header-version{
   height: 30px;
 
   width: 30px;
-  top: 26px;
+  top: 16px;
   right: 291px;
+
+
 
   // .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.4s);
   .transition-in(0.3s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.1s);
@@ -365,9 +420,15 @@ body.home-expand-header-version{
 // body.home-expand-header-version{
   #header-desktop-search-container.expand-version{
     width: 190px;
-    top: 25px;
+    top: 15px;
     // right: 113px;
     right: 130px;
+
+
+    // small laptop
+    @media only screen and (max-width: 1280px) {
+      right: 110px;
+    }
     
     // .transition-in(0.5s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.2s);
     /// .transition-in(0.5s, cubic-bezier(0.645, 0.045, 0.355, 1), 0.4s);
@@ -465,7 +526,7 @@ body.home-expand-header-version{
     font-size: 12px;
     line-height: 26px;
 
-    color: @off-black;
+    color: @light-grey-2;
 
     position: absolute;
     top: 1px;

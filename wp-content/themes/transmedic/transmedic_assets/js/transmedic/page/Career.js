@@ -36,23 +36,30 @@ goog.inherits(transmedic.page.Career, transmedic.page.Default);
  * @const {object}
  */
 transmedic.page.Career.DEFAULT = {
-  'option_01': '',
-  'option_02': ''
+  
 };
 
-/**
- * CLASSNAME Event Constant
- * @const
- * @type {string}
- */
-transmedic.page.Career.EVENT_01 = '';
+
+//    ___ _   _ ___ _____
+//   |_ _| \ | |_ _|_   _|
+//    | ||  \| || |  | |
+//    | || |\  || |  | |
+//   |___|_| \_|___| |_|
+//
+
 
 /**
- * CLASSNAME Event Constant
- * @const
- * @type {string}
+ * @override
+ * @inheritDoc
  */
-transmedic.page.Career.EVENT_02 = '';
+transmedic.page.Career.prototype.init = function() {
+  transmedic.page.Career.superClass_.init.call(this);
+
+  this.create_pinned_scene();
+  this.create_pinned_mobile_scene();
+
+};
+
 
 
 //    ____  ____  _____     ___  _____ _____
@@ -80,10 +87,60 @@ transmedic.page.Career.prototype.create_location_tab = function() {
   
   location_tab_item.click(this.on_location_tab_item_click.bind(this));
 };
-transmedic.page.Career.prototype.private_method_03 = function() {};
-transmedic.page.Career.prototype.private_method_04 = function() {};
-transmedic.page.Career.prototype.private_method_05 = function() {};
-transmedic.page.Career.prototype.private_method_06 = function() {};
+
+
+transmedic.page.Career.prototype.create_pinned_scene = function() {
+
+
+  if ($('#page-careers-job-filters-pin-container').length != 0) {
+
+    this.sidebar_pinned_scene = new ScrollMagic.Scene({
+      'triggerHook': 0.0,
+      'offset': -60,   // height of desktop header
+      'triggerElement': "#page-careers-job-filters-pin-trigger"
+    });
+    this.sidebar_pinned_scene.setPin('#page-careers-job-filters-pin-container');
+
+    // this.sidebar_pinned_scene.addIndicators();
+    this.sidebar_pinned_scene.addTo(this.controller);
+
+  }
+  
+
+
+};
+
+
+transmedic.page.Career.prototype.create_pinned_mobile_scene = function() {
+
+
+  if ($('#page-careers-job-filters-pin-container-mobile').length != 0) {
+
+    if (manic.IS_ACTUAL_MOBILE == true) {
+
+      this.sidebar_pinned_scene = new ScrollMagic.Scene({
+        'triggerHook': 0.0,
+        'offset': -56,                 // height of the mobile header
+        'triggerElement': "#page-careers-job-filters-pin-trigger-mobile"
+      });
+      
+      this.sidebar_pinned_scene.setPin('#page-careers-job-filters-pin-container-mobile');
+
+      // this.sidebar_pinned_scene.addIndicators();
+      this.sidebar_pinned_scene.addTo(this.controller);
+      
+    }
+
+
+  }
+
+  
+
+  
+  
+
+};
+
 
 
 //    ____  _   _ ____  _     ___ ____
@@ -93,13 +150,6 @@ transmedic.page.Career.prototype.private_method_06 = function() {};
 //   |_|    \___/|____/|_____|___\____|
 //
 
-
-transmedic.page.Career.prototype.public_method_01 = function() {};
-transmedic.page.Career.prototype.public_method_02 = function() {};
-transmedic.page.Career.prototype.public_method_03 = function() {};
-transmedic.page.Career.prototype.public_method_04 = function() {};
-transmedic.page.Career.prototype.public_method_05 = function() {};
-transmedic.page.Career.prototype.public_method_06 = function() {};
 
 
 //    _______     _______ _   _ _____ ____
@@ -139,34 +189,3 @@ transmedic.page.Career.prototype.on_location_filter_change = function(event) {
 
 };
 
-/**
- * @param {object} event
- */
-transmedic.page.Career.prototype.on_event_handler_02 = function(event) {
-};
-
-/**
- * @param {object} event
- */
-transmedic.page.Career.prototype.on_event_handler_03 = function(event) {
-};
-
-/**
- * @param {object} event
- */
-transmedic.page.Career.prototype.on_event_handler_04 = function(event) {
-};
-
-
-
-
-
-
-transmedic.page.Career.prototype.sample_method_calls = function() {
-
-  // sample override
-  transmedic.page.Career.superClass_.method_02.call(this);
-
-  // sample event
-  this.dispatchEvent(new goog.events.Event(transmedic.page.Career.EVENT_01));
-};

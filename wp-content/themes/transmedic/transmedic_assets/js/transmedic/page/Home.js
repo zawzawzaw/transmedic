@@ -20,7 +20,7 @@ transmedic.page.Home = function(options, element) {
   transmedic.page.Default.call(this, options, element);
   this.options = $.extend(this.options, transmedic.page.Home.DEFAULT, options);
 
-  
+  this.expandable_text();
 
   this.has_home_latest_section = false;
 
@@ -85,12 +85,7 @@ goog.inherits(transmedic.page.Home, transmedic.page.Default);
 transmedic.page.Home.DEFAULT = {
 };
 
-/**
- * Home Event Constant
- * @const
- * @type {string}
- */
-transmedic.page.Home.EVENT_01 = '';
+
 
 
 //    ___ _   _ ___ _____
@@ -254,7 +249,7 @@ transmedic.page.Home.prototype.create_what_we_do_section_mobile = function() {
 };
 
 
-transmedic.page.Home.prototype.private_method_02 = function() {};
+
 
 
 //    ____  _   _ ____  _     ___ ____
@@ -321,23 +316,6 @@ transmedic.page.Home.prototype.animate_map_odometer = function() {
 
 
 
-
-/**
- * @param {object} event
- */
-transmedic.page.Home.prototype.on_event_handler_02 = function(event) {
-};
-
-
-
-transmedic.page.Home.prototype.sample_method_calls = function() {
-
-  // sample override
-  transmedic.page.Home.superClass_.method_02.call(this);
-
-  // sample event
-  this.dispatchEvent(new goog.events.Event(transmedic.page.Home.EVENT_01));
-};
 
 
 

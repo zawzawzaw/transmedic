@@ -70,15 +70,20 @@ button{
 
 
 
+
 .scroll-target{
   position: relative;
-  top: -1 * @header-desktop-height;
+  top: -1 * @header-desktop-height - 40px;
 }
 
 // TABLET PORTRAIT
 @media only screen and (max-width: 991px) {
   .scroll-target{
     top: -1 * @header-mobile-height;
+
+    &.mobile-offset-version{
+      top: ( -1 * @header-mobile-height ) - 25px;
+    }
   }  
 }
 
@@ -299,7 +304,8 @@ video::-webkit-media-controls-start-playback-button {
       &.slick-active {
         button {
           &:before {
-            background-color: @cyan;
+            // background-color: @cyan;
+            background-color: @light-green;
             opacity: 1;
           }
         }
@@ -332,9 +338,9 @@ video::-webkit-media-controls-start-playback-button {
   border-left: 1px solid @border-grey;
   width: 1px;
   height: 100%;
-  min-height: 400px;
+  min-height: 250px;
   position: absolute;
-  left: -50px;
+  left: -31px;
 }
 
 .inline-block-center {
@@ -352,7 +358,15 @@ video::-webkit-media-controls-start-playback-button {
   @media all and (max-width: 991px) {
     display: block;
   }
-} 
+}
+
+.v-align-col {
+  @media all and (min-width: 992px) {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }  
+}
 
 
 @section-padding: 70px;

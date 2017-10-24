@@ -58,51 +58,7 @@ transmedic.component.HoverSync.DEFAULT = {
   'selector': '.hover-sync'
 };
 
-/**
- * HoverSync Event Constant
- * @const
- * @type {string}
- */
-transmedic.component.HoverSync.EVENT_01 = '';
 
-/**
- * HoverSync Event Constant
- * @const
- * @type {string}
- */
-transmedic.component.HoverSync.EVENT_02 = '';
-
-
-//    ____  ____  _____     ___  _____ _____
-//   |  _ \|  _ \|_ _\ \   / / \|_   _| ____|
-//   | |_) | |_) || | \ \ / / _ \ | | |  _|
-//   |  __/|  _ < | |  \ V / ___ \| | | |___
-//   |_|   |_| \_\___|  \_/_/   \_\_| |_____|
-//
-
-
-transmedic.component.HoverSync.prototype.private_method_01 = function() {};
-transmedic.component.HoverSync.prototype.private_method_02 = function() {};
-transmedic.component.HoverSync.prototype.private_method_03 = function() {};
-transmedic.component.HoverSync.prototype.private_method_04 = function() {};
-transmedic.component.HoverSync.prototype.private_method_05 = function() {};
-transmedic.component.HoverSync.prototype.private_method_06 = function() {};
-
-
-//    ____  _   _ ____  _     ___ ____
-//   |  _ \| | | | __ )| |   |_ _/ ___|
-//   | |_) | | | |  _ \| |    | | |
-//   |  __/| |_| | |_) | |___ | | |___
-//   |_|    \___/|____/|_____|___\____|
-//
-
-
-transmedic.component.HoverSync.prototype.public_method_01 = function() {};
-transmedic.component.HoverSync.prototype.public_method_02 = function() {};
-transmedic.component.HoverSync.prototype.public_method_03 = function() {};
-transmedic.component.HoverSync.prototype.public_method_04 = function() {};
-transmedic.component.HoverSync.prototype.public_method_05 = function() {};
-transmedic.component.HoverSync.prototype.public_method_06 = function() {};
 
 
 //    _______     _______ _   _ _____ ____
@@ -128,28 +84,5 @@ transmedic.component.HoverSync.prototype.on_item_mouseout = function(event) {
   this.item_elements.removeClass('selected');
 };
 
-/**
- * @param {object} event
- */
-transmedic.component.HoverSync.prototype.on_event_handler_03 = function(event) {
-};
-
-/**
- * @param {object} event
- */
-transmedic.component.HoverSync.prototype.on_event_handler_04 = function(event) {
-};
 
 
-
-
-
-
-transmedic.component.HoverSync.prototype.sample_method_calls = function() {
-
-  // sample override
-  transmedic.component.HoverSync.superClass_.method_02.call(this);
-
-  // sample event
-  this.dispatchEvent(new goog.events.Event(transmedic.component.HoverSync.EVENT_01));
-};

@@ -69,7 +69,10 @@ manic.page.Page = function(options) {
   this.scrolltarget_name_array = [];
 
   
-  
+  // this.window.scrollTop(0);
+  // this.window.scroll(function(event){
+  //   console.log('scroll position: ' + this.window.scrollTop());
+  // }.bind(this));
 
   
   /**
@@ -297,6 +300,8 @@ manic.page.Page.prototype.scroll_to = function(num_param) {
   var target_duration = Math.abs( (target_y - current_scroll) / 1800 );
   
   TweenMax.to(this.window, target_duration, {scrollTo:{y:target_y,autoKill: true}, ease:Quad.easeInOut});
+  // TweenMax.to(this.window, target_duration, {scrollTo:{y:target_y,autoKill: true}, delay:1, ease:Quad.easeInOut});
+
 };
 
 
@@ -784,11 +789,17 @@ manic.page.Page.prototype.check_device = function() {
  * @param  {object} target
  */
 manic.page.Page.prototype.controller_scroll_to = function(target) {
+
+  console.log('controller_scroll_to');
+  console.log(target);
+
   TweenMax.to(window, 0.5, {
     scrollTo : {
       y : target, // scroll position of the target along y axis
-      autoKill : true // allows user to kill scroll action smoothly
+      // autoKill : true // allows user to kill scroll action smoothly
+      autoKill : false // removed due to safari 10 https://greensock.com/forums/topic/15108-ios-10-scrolltoplugin/
     },
+    // delay: 1,
     ease : Sine.easeInOut
     //ease : Cubic.easeInOut
   });
@@ -860,8 +871,9 @@ manic.page.Page.prototype.on_window_hash_change = function(event) {
 
     str_array = this.window_hash.split('/');
 
-    // console.log('str_array: ');
-    // console.log(str_array);
+    console.log('str_array: ');
+    console.log(str_array);
+
 
     if(str_array.length == 1){
 

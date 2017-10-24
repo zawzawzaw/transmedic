@@ -1068,6 +1068,10 @@
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+  .sans-container-fluid-tablet-no-padding {
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+  }
 }
 .col-tablet-landscape-0,
 .col-tablet-landscape-1,

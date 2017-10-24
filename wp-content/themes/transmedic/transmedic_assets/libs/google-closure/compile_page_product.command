@@ -1,10 +1,10 @@
 java -jar "compiler.jar" \
   --js=../../js/manic/**.js \
-  --js=../../js/rippledot/**.js \
+  --js=../../js/transmedic/**.js \
   --js=closure-library/**.js \
   --only_closure_dependencies \
   --compilation_level WHITESPACE_ONLY \
-  --closure_entry_point=rippledot.page.Home \
+  --closure_entry_point=transmedic.page.Product \
   --externs=closure-externs/jquery-1.9.js \
   --externs=closure-externs/html5.js \
   --externs=closure-externs/window.js \

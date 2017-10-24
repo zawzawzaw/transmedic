@@ -18,7 +18,8 @@ define("LIBS", THEMEROOT."/transmedic_assets/libs");
 function register_my_menus(){
   register_nav_menus(array(
     'main-menu' => __('Main Menu', 'transmedic'),
-    'footer-menu' => __('Footer Menu', 'transmedic')
+    'footer-menu' => __('Footer Menu', 'transmedic'),
+    'mobile-menu' => __('Mobile Menu', 'transmedic')
   ));
 }
 
@@ -228,6 +229,7 @@ include (TEMPLATEPATH . "/lib/cmb2-metabox-page-careers.php");
 include (TEMPLATEPATH . "/lib/cmb2-metabox-page-products.php");
 include (TEMPLATEPATH . "/lib/cmb2-metabox-page-contact.php");
 include (TEMPLATEPATH . "/lib/cmb2-metabox-page-single.php");
+include (TEMPLATEPATH . "/lib/cmb2-metabox-page-careers-details.php");
 // include (TEMPLATEPATH . "/example-functions.php");
 
 // // Include new post types and metabox for home and other pages
@@ -292,6 +294,19 @@ function hide_admin_bar_from_front_end(){
 }
 add_filter( 'show_admin_bar', 'hide_admin_bar_from_front_end' );
 
+function ptag_tinymce_config( $init ) {
+   // Don't remove line breaks
+   $init['remove_linebreaks'] = false; 
+   // Convert newline characters to BR tags
+   $init['convert_newlines_to_brs'] = true; 
+   // Do not remove redundant BR tags
+   $init['remove_redundant_brs'] = false;
+
+   // Pass $init back to WordPress
+   return $init;
+}
+add_filter('tiny_mce_before_init', 'ptag_tinymce_config');
+
 // function my_wpcf7_form_elements($html) {
 //   function ov3rfly_replace_include_blank($name, $text, &$html) {
 //     $matches = false;
@@ -336,4 +351,199 @@ function my_tinymce_config( $init ) {
    return $init;
 }
 add_filter('tiny_mce_before_init', 'my_tinymce_config');
+
+
+//     ___    ____  ____  _____   ________   ____  ___   ____________   ___  ________________  ________  __  ___________________
+//    /   |  / __ \/ __ \/  _/ | / / ____/  / __ \/   | / ____/ ____/  /   |/_  __/_  __/ __ \/  _/ __ )/ / / /_  __/ ____/ ___/
+//   / /| | / / / / / / // //  |/ / / __   / /_/ / /| |/ / __/ __/    / /| | / /   / / / /_/ // // __  / / / / / / / __/  \__ \
+//  / ___ |/ /_/ / /_/ // // /|  / /_/ /  / ____/ ___ / /_/ / /___   / ___ |/ /   / / / _, _// // /_/ / /_/ / / / / /___ ___/ /
+// /_/  |_/_____/_____/___/_/ |_/\____/  /_/   /_/  |_\____/_____/  /_/  |_/_/   /_/ /_/ |_/___/_____/\____/ /_/ /_____//____/
+
+
+add_action( 'admin_init', 'posts_order_wpse_91866' );
+
+function posts_order_wpse_91866() 
+{
+    add_post_type_support( 'post', 'page-attributes' );
+}
+
+//     ___    ____  ____     __________  __    __  ____  ____   __   _____   __   ___    __    __       ____  ____  ________________
+//    /   |  / __ \/ __ \   / ____/ __ \/ /   / / / /  |/  / | / /  /  _/ | / /  /   |  / /   / /      / __ \/ __ \/ ___/_  __/ ___/
+//   / /| | / / / / / / /  / /   / / / / /   / / / / /|_/ /  |/ /   / //  |/ /  / /| | / /   / /      / /_/ / / / /\__ \ / /  \__ \
+//  / ___ |/ /_/ / /_/ /  / /___/ /_/ / /___/ /_/ / /  / / /|  /  _/ // /|  /  / ___ |/ /___/ /___   / ____/ /_/ /___/ // /  ___/ /
+// /_/  |_/_____/_____/   \____/\____/_____/\____/_/  /_/_/ |_/  /___/_/ |_/  /_/  |_/_____/_____/  /_/    \____//____//_/  /____/
+
+// ADD NEW COLUMN
+function post_order_columns_head($defaults) {
+    $defaults['post_order'] = 'Post Order';
+    unset($defaults['comments']);
+    return $defaults;
+}
+ 
+// SHOW THE FEATURED IMAGE
+function post_order_columns_content($column_name, $post_ID) {
+    if ($column_name == 'post_order') {
+        echo get_post_field('menu_order', $post_ID);
+    }
+}
+
+add_filter('manage_posts_columns', 'post_order_columns_head');
+add_action('manage_posts_custom_column', 'post_order_columns_content', 10, 2);
+
+//     __  __________  ______   __________  ______________  ____
+//    / / / /  _/ __ \/ ____/  / ____/ __ \/  _/_  __/ __ \/ __ \
+//   / /_/ // // / / / __/    / __/ / / / // /  / / / / / / /_/ /
+//  / __  // // /_/ / /___   / /___/ /_/ // /  / / / /_/ / _, _/
+// /_/ /_/___/_____/_____/  /_____/_____/___/ /_/  \____/_/ |_|
+
+function reset_editor()
+{
+     global $_wp_post_type_features;
+
+     $post_type="page";
+     $feature = "editor";
+     if ( !isset($_wp_post_type_features[$post_type]) )
+     {
+
+     }
+     elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
+     unset($_wp_post_type_features[$post_type][$feature]);
+
+     $post_type="post";
+     $feature = "editor";
+     if ( !isset($_wp_post_type_features[$post_type]) )
+     {
+
+     }
+     elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
+     unset($_wp_post_type_features[$post_type][$feature]);
+}
+
+add_action("init","reset_editor");
+
+//    ________  _____    _   ______________   _________   ___________    _   _____    __  _________
+//   / ____/ / / /   |  / | / / ____/ ____/  /_  __/   | / ____/ ___/   / | / /   |  /  |/  / ____/
+//  / /   / /_/ / /| | /  |/ / / __/ __/      / / / /| |/ / __ \__ \   /  |/ / /| | / /|_/ / __/
+// / /___/ __  / ___ |/ /|  / /_/ / /___     / / / ___ / /_/ /___/ /  / /|  / ___ |/ /  / / /___
+// \____/_/ /_/_/  |_/_/ |_/\____/_____/    /_/ /_/  |_\____//____/  /_/ |_/_/  |_/_/  /_/_____/
+
+add_action( 'init', 'wp_post_tags');
+function wp_post_tags()
+{
+    global $wp_taxonomies;
+
+    // The list of labels we can modify comes from
+    //  http://codex.wordpress.org/Function_Reference/register_taxonomy
+    //  http://core.trac.wordpress.org/browser/branches/3.0/wp-includes/taxonomy.php#L350
+    $wp_taxonomies['post_tag']->labels = (object)array(
+        'name' => 'Location Tags',
+        'menu_name' => 'Location Tags',
+        'singular_name' => 'Location Tag',
+        'search_items' => 'Search Location Tags',
+        'popular_items' => 'Popular Location Tags',
+        'all_items' => 'All Location Tags',
+        'parent_item' => null, // Tags aren't hierarchical
+        'parent_item_colon' => null,
+        'edit_item' => 'Edit Location Tag',
+        'update_item' => 'Update Location Tag',
+        'add_new_item' => 'Add new Location Tag',
+        'new_item_name' => 'New Location Tag Name',
+        'separate_items_with_commas' => 'Separata location tags with commas',
+        'add_or_remove_items' => 'Add or remove location tags',
+        'choose_from_most_used' => 'Choose from the most used location tags',
+    );
+
+    $wp_taxonomies['post_tag']->label = 'Location Tags';
+}
+
+//     ___    __    __    ____ _       __   _____ ____  ___    _   __   _________   ___________
+//    /   |  / /   / /   / __ \ |     / /  / ___// __ \/   |  / | / /  /_  __/   | / ____/ ___/
+//   / /| | / /   / /   / / / / | /| / /   \__ \/ /_/ / /| | /  |/ /    / / / /| |/ / __ \__ \
+//  / ___ |/ /___/ /___/ /_/ /| |/ |/ /   ___/ / ____/ ___ |/ /|  /    / / / ___ / /_/ /___/ /
+// /_/  |_/_____/_____/\____/ |__/|__/   /____/_/   /_/  |_/_/ |_/    /_/ /_/  |_\____//____/
+
+function override_mce_options($initArray) 
+{
+  $opts = '*[*]';
+  $initArray['valid_elements'] = $opts;
+  $initArray['extended_valid_elements'] = $opts;
+  return $initArray;
+ }
+ add_filter('tiny_mce_before_init', 'override_mce_options'); 
+
+//    ________  _________________  __  ___   ________________
+//   / ____/ / / / ___/_  __/ __ \/  |/  /  / ____/ ___/ ___/
+//  / /   / / / /\__ \ / / / / / / /|_/ /  / /    \__ \\__ \
+// / /___/ /_/ /___/ // / / /_/ / /  / /  / /___ ___/ /__/ /
+// \____/\____//____//_/  \____/_/  /_/   \____//____/____/
+
+
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts() {
+  echo '<style>
+    #home_page_what_we_do_repeat .cmb-add-group-row {
+      display: none;
+    }
+
+    #home_page_what_we_do_repeat .cmb-remove-group-row-button {
+      display: none;
+    }
+    #home_page_what_we_do_repeat .cmb-remove-group-row {
+      display: none;
+    }
+
+    #home_page_map_sec_item_repeat .cmb-add-group-row {
+      display: none;
+    }
+
+    #home_page_map_sec_item_repeat .cmb-remove-group-row {
+      display: none;
+    }
+
+    #home_page_map_sec_item_repeat .cmb-remove-group-row-button {
+      display: none;
+    }
+  </style>';
+}
+
+
+//     __  __________________       _________   ___________
+//    /  |/  / ____/_  __/   |     /_  __/   | / ____/ ___/
+//   / /|_/ / __/   / / / /| |      / / / /| |/ / __ \__ \
+//  / /  / / /___  / / / ___ |     / / / ___ / /_/ /___/ /
+// /_/  /_/_____/ /_/ /_/  |_|    /_/ /_/  |_\____//____/
+
+//Adding the Open Graph in the Language Attributes
+function add_opengraph_doctype( $output ) {
+        return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+    }
+add_filter('language_attributes', 'add_opengraph_doctype');
+ 
+//Lets add Open Graph Meta Info
+ 
+function insert_fb_in_head() {
+    global $post;
+    if ( !is_singular()) //if it is not a post or a page
+        return;
+
+    echo '<meta property="fb:app_id" content="121760891830821"/>';
+    echo '<meta property="og:title" content="' . get_the_title() . '"/>';
+    echo '<meta property="og:type" content="article"/>';
+    echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+    echo '<meta property="og:site_name" content="Transmedic"/>';
+    echo '<meta property="og:description" content="Transmedic"/>';
+
+    if(!has_post_thumbnail( $post->ID )) {
+        $default_image=THEMEROOT."/images_cms/home/home-banner-machine-mobile.jpg";
+        echo '<meta property="og:image" content="' . $default_image . '"/>';
+    }
+    else{
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+        echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    }
+    echo "
+";
+}
+add_action( 'wp_head', 'insert_fb_in_head', 5 );
 ?>

@@ -21,11 +21,23 @@
         <div class="col-md-6">
 
           <div id="footer-legal">
-            <ul>
+            <!-- <ul>
               <li><a href="javascript:void(0);">Staff Login</a></li>
-              <!-- <li><a href="javascript:void(0);">Terms of Use</a></li>
-              <li><a href="javascript:void(0);">Privacy Policy</a></li> -->
-            </ul>
+
+              <li><a href="javascript:void(0);">Terms of Use</a></li>
+              <li><a href="javascript:void(0);">Privacy Policy</a></li>
+            </ul> -->
+            <?php
+              $defaults = array(
+                'echo' => true,
+                'container' => false,
+                'theme_location'  => 'footer-menu',
+                'menu_class'      => 'footer-menu'
+              );
+
+
+              wp_nav_menu($defaults);
+            ?>
           </div> <!-- footer-legal -->
 
         </div>
@@ -35,6 +47,11 @@
   </footer> <!-- footer-desktop -->
 
   <?php $template_name = basename(get_page_template()); ?>
+
+  <script>
+    var home_url = '<?php echo home_url(); ?>';
+    var theme_root = '<?php echo THEMEROOT; ?>';
+  </script>
   
   <?php if ( is_front_page() ): ?>
     <?php include "includes/script_home.php"; ?>
