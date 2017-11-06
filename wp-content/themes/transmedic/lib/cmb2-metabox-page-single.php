@@ -117,19 +117,19 @@ function single_page_register_single_post_meta_box() {
     'type' => 'textarea',
   ) );
 
-  // $cmb->add_field( array(
-  //   'name' => esc_html__( 'Post Extra Content Title', 'cmb2' ),
-  //   'desc' => esc_html__( '', 'cmb2' ),
-  //   'id'   => $prefix . 'post_extra_title',
-  //   'type' => 'text',
-  // ) );
+  $cmb->add_field( array(
+    'name' => esc_html__( 'Post Extra Content Title', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
+    'id'   => $prefix . 'post_extra_title',
+    'type' => 'text',
+  ) );
 
-  // $cmb->add_field( array(
-  //   'name' => esc_html__( 'Post Extra Content Text', 'cmb2' ),
-  //   'desc' => esc_html__( '', 'cmb2' ),
-  //   'id'   => $prefix . 'post_extra_text',
-  //   'type' => 'wysiwyg',
-  // ) );
+  $cmb->add_field( array(
+    'name' => esc_html__( 'Post Extra Content Text', 'cmb2' ),
+    'desc' => esc_html__( '', 'cmb2' ),
+    'id'   => $prefix . 'post_extra_text',
+    'type' => 'wysiwyg',
+  ) );
 
   $cmb->add_field( array(
     'name' => esc_html__( 'Source Article Title', 'cmb2' ),

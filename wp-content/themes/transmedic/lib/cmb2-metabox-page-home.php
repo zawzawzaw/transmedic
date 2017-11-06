@@ -118,6 +118,61 @@ function home_page_register_latest_news_meta_box() {
     'type' => 'text',
   ) );
 
+  $group_field_id = $cmb->add_field( array(
+    'id'          => $prefix . 'lt_sec_entries',
+    'type'        => 'group',
+    // 'description' => esc_html__( 'What we do', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => esc_html__( 'Entry {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => esc_html__( 'Add Another Entry', 'cmb2' ),
+      'remove_button' => esc_html__( 'Remove Entry', 'cmb2' ),
+      'sortable'      => true, // beta
+      'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Image', 'cmb2' ),
+    'desc'       => __( 'Recommended dimensions 1154 × 451 (35 kb)', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_image',
+    'type'       => 'file',   
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Image Tablet', 'cmb2' ),
+    'desc'       => __( 'Recommended dimensions 1152 x 707 (35 kb)', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_image_tablet',
+    'type'       => 'file',   
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Image Mobile', 'cmb2' ),
+    'desc'       => __( 'Recommended dimensions 640 x 390 (35 kb)', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_image_mobile',
+    'type'       => 'file',   
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Title', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_title',
+    'type'       => 'text',   
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Text', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_text',
+    'type'       => 'textarea',   
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name'       => __( 'Section Link', 'cmb2' ),
+    'desc'       => __( '', 'cmb2' ),
+    'id'         => $prefix . 'lt_sec_link',
+    'type'       => 'text',   
+  ) );
+
 }
 
 

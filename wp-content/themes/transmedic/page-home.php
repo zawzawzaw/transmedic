@@ -172,7 +172,7 @@ $current_slug = get_post( $post )->post_name;
 
             <div id="page-home-latest-title">
               <?php 
-              $page_home_lt_sec_title = get_post_meta($post->ID, 'home_page_lt_sec_title', true);            
+              $page_home_lt_sec_title = get_post_meta($post->ID, 'home_page_lt_sec_title', true);                          
               ?>
               <h2><?php echo $page_home_lt_sec_title; ?></h2>
             </div> <!-- page-home-latest-title -->
@@ -185,46 +185,46 @@ $current_slug = get_post( $post )->post_name;
 
             <div id="page-home-latest-item-container">
               <?php 
-                $section_query = new WP_Query('post_type=post&tag=latest-technologies&orderby=menu_order&order=ASC');
+              $page_home_lt_sec_entries = get_post_meta( $post->ID, 'home_page_lt_sec_entries', true );                   
+                // $section_query = new WP_Query('post_type=post&tag=latest-technologies&orderby=menu_order&order=ASC');
 
 
-                while ($section_query->have_posts()) : $section_query->the_post();
+              foreach ( (array) $page_home_lt_sec_entries as $key => $entry ):
 
-                  $post_title = get_the_title();
-                  $post_categories = get_the_category();
-                  $post_link = get_the_permalink();
+                  $img_url = $entry['home_page_lt_sec_image'];  
+                  $img_url_tablet = $entry['home_page_lt_sec_image_tablet'];  
+                  $img_url_mobile = $entry['home_page_lt_sec_image_mobile'];  
+                  $img_url_mobile = $entry['home_page_lt_sec_image_mobile'];  
+                  $home_page_lt_sec_title = $entry['home_page_lt_sec_title'];
+                  $home_page_lt_sec_text = $entry['home_page_lt_sec_text'];
 
-                  $page_home_latest_tech_images = get_post_meta( $post->ID, 'single_post_page_post_content_image', true );
+                  $home_page_lt_sec_link = $entry['home_page_lt_sec_link'];
+
+                  // $page_home_latest_tech_images = get_post_meta( $post->ID, 'single_post_page_post_content_image', true );
               ?>
 
               <div class="page-home-lastest-item">
                 <div class="row">
                   <div class="col-md-8 v-align-col">
                     <div class="manic-image-container">
-                      <?php foreach ( (array) $page_home_latest_tech_images as $key => $entry ):
-                        $img_url = $entry['single_post_page_post_content_image'];                       
-                        $img_tablet_url = $entry['single_post_page_post_content_image_tablet'];                       
-                        $img_mobile_url = $entry['single_post_page_post_content_image_mobile'];                       
-                      ?>
                       <img src="" data-image-desktop="<?php echo $img_url; ?>"
                                   data-image-tablet="<?php echo $img_tablet_url; ?>"
                                   data-image-mobile="<?php echo $img_mobile_url; ?>" alt="">
-                      <?php endforeach; ?>
                     </div>
                   </div><!--
                   --><div class="col-md-4 v-align-col">
                     <div class="text-container">
-                      <h3><?php echo $post_categories[0]->name; ?></h3>
-                      <p><?php echo $post_title; ?></p>                      
+                      <h3><?php echo $home_page_lt_sec_title; ?></h3>
+                      <p><?php echo $home_page_lt_sec_text; ?></p>                      
                     </div>
                     <div class="cta-container">
-                      <a href="<?php echo $post_link; ?>" class="read-more-cta">Read more</a>
+                      <a href="<?php echo $home_page_lt_sec_link; ?>" class="read-more-cta">Read more</a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <?php endwhile; wp_reset_query(); ?>
+              <?php endforeach; ?>
 
             </div> <!-- page-home-latest-item-container -->
 
