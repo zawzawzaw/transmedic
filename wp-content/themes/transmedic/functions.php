@@ -24,6 +24,19 @@ function register_my_menus(){
 }
 
 add_action('init', 'register_my_menus');
+  
+// https://www.microdot.io/simpler-wp-nav-menu-markup/
+class Microdot_Walker_Nav_Menu extends Walker_Nav_Menu {
+    
+    public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+        $output .= '</li><span>&nbsp;</span>';
+    }
+}
+
+function my_deregister_scripts(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
 
 /********************************************************************************************************/
 /* LOAD ASSETS */
@@ -409,14 +422,14 @@ function reset_editor()
      elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
      unset($_wp_post_type_features[$post_type][$feature]);
 
-     $post_type="post";
-     $feature = "editor";
-     if ( !isset($_wp_post_type_features[$post_type]) )
-     {
+     // $post_type="post";
+     // $feature = "editor";
+     // if ( !isset($_wp_post_type_features[$post_type]) )
+     // {
 
-     }
-     elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
-     unset($_wp_post_type_features[$post_type][$feature]);
+     // }
+     // elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
+     // unset($_wp_post_type_features[$post_type][$feature]);
 }
 
 add_action("init","reset_editor");
@@ -546,4 +559,88 @@ function insert_fb_in_head() {
 ";
 }
 add_action( 'wp_head', 'insert_fb_in_head', 5 );
+
+
+//    ________  _________________  __  ___       _______ ____  _   __   _______   ______  ____  ____  _____   ________
+//   / ____/ / / / ___/_  __/ __ \/  |/  /      / / ___// __ \/ | / /  / ____/ | / / __ \/ __ \/ __ \/  _/ | / /_  __/
+//  / /   / / / /\__ \ / / / / / / /|_/ /  __  / /\__ \/ / / /  |/ /  / __/ /  |/ / / / / /_/ / / / // //  |/ / / /
+// / /___/ /_/ /___/ // / / /_/ / /  / /  / /_/ /___/ / /_/ / /|  /  / /___/ /|  / /_/ / ____/ /_/ // // /|  / / /
+// \____/\____//____//_/  \____/_/  /_/   \____//____/\____/_/ |_/  /_____/_/ |_/_____/_/    \____/___/_/ |_/ /_/
+
+
+// This is here to make sure WordPress recognizes our
+// new endpoint. You can remove it or comment it out once
+// your endpoint is recognized.
+flush_rewrite_rules();
+
+function post_json_endpoint() {
+    add_rewrite_endpoint('post-json', EP_ROOT);
+}
+add_action( 'init', 'post_json_endpoint' );
+
+function include_print_template( $template ) {
+    get_query_var('post-json');
+    if (false === get_query_var('post-json', false)) {
+        return $template;
+    }
+
+    // Don't worry about this yet, we'll write this function in step #3
+    $posts = microdot_get_random_posts_json_array();
+
+    wp_send_json( $posts );
+}
+add_filter('template_include', 'include_print_template');
+
+function microdot_get_random_posts_json_array() {
+
+
+    $args = array(
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'posts_per_page' => -1, // all
+      // 'orderby' => 'date',
+      // 'order' => 'DESC'
+    );
+     
+    $query = new WP_Query( $args );
+     
+    $posts = array();
+    $news = array();
+     
+    while( $query->have_posts() ) : $query->the_post();
+
+      $posttags = get_the_tags();
+
+      if(isset($posttags) && !empty($posttags)) {
+        foreach ($posttags as $key => $posttag) {
+          $tag_names[] = $posttag->name;  
+        }
+      } else {
+        $tag_names = [];
+      }
+
+      if(in_array("Main News Index", $tag_names) || in_array("news", $tag_names)):
+
+        $post_categories = get_the_category();
+        $post_categories_name_arr = explode(' ',trim($post_categories[0]->name));  
+
+        $posts[] = array(
+          'tag' => mb_strtolower($post_categories_name_arr[0]),
+          'category' => html_entity_decode($post_categories[0]->name),
+          'date' => get_the_date('d M Y'),
+          'title' => html_entity_decode(get_the_title()),
+          'link' => get_permalink()
+        );
+
+      endif;  
+     
+    endwhile;
+     
+    wp_reset_query();
+
+    $news['news'] = $posts;
+     
+    return $news;
+
+}
 ?>

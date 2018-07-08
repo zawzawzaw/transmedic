@@ -40,46 +40,92 @@ function careers_page_register_content_meta_box() {
     ),
   ) );
 
-  $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Title', 'cmb2' ),
+  $cmb->add_field( array(
+    'name' => __( 'Section 1 Title', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_title',
     'type' => 'text'    
   ) );
 
-  $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Text', 'cmb2' ),
+  $cmb->add_field( array(
+    'name' => __( 'Section 1 Text', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
     'id'   => $prefix . 'sec_text',
     'type' => 'wysiwyg'    
   ) );
 
-  $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Quote', 'cmb2' ),
+  $cmb->add_field( array(
+    'name' => __( 'Section 1 Text 2', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sec_quote',
+    'id'   => $prefix . 'sec_text_2',
+    'type' => 'wysiwyg'    
+  ) );
+
+  $group_field_id = $cmb->add_field( array(
+    'id'          => $prefix . 'section_2_quotes',
+    'type'        => 'group',
+    // 'description' => esc_html__( 'What we do', 'cmb2' ),
+    'options'     => array(
+      'group_title'   => esc_html__( 'Quote {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'    => esc_html__( 'Add Another Quote', 'cmb2' ),
+      'remove_button' => esc_html__( 'Remove Quote', 'cmb2' ),
+      'sortable'      => true, // beta
+      'closed'     => true, // true to have the groups closed by default
+    ),
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name' => __( 'Section 2 Quote', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'sec_2_quote',
     'type' => 'textarea'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Author', 'cmb2' ),
+    'name' => __( 'Section 2 Author', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sec_author',
+    'id'   => $prefix . 'sec_2_author',
     'type' => 'text'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Author Position', 'cmb2' ),
+    'name' => __( 'Section 2 Author Position', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sec_author_position',
+    'id'   => $prefix . 'sec_2_author_position',
     'type' => 'text'    
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
-    'name' => __( 'Section Article Link', 'cmb2' ),
+    'name' => __( 'Section 2 Article Link', 'cmb2' ),
     'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sec_article_link',
+    'id'   => $prefix . 'sec_2_article_link',
     'type' => 'text_url'    
+  ) );
+
+  $cmb->add_group_field( $group_field_id, array(
+    'name' => __( 'Section 2 Author Gender', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'sec_2_author_gender',
+    'type' => 'select',
+    'default'          => 'male',
+    'options'          => array(
+      'male' => __( 'Male', 'cmb2' ),
+      'female'   => __( 'Female', 'cmb2' )
+    ),
+  ) );
+
+  $cmb->add_field( array(
+    'name' => __( 'Section 2 Title', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'sec_2_title',
+    'type' => 'text'    
+  ) );
+
+  $cmb->add_field( array(
+    'name' => __( 'Section 2 Text', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'sec_2_text',
+    'type' => 'wysiwyg'    
   ) );
 
 }

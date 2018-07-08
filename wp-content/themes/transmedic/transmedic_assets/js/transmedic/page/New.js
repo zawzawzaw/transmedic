@@ -107,6 +107,18 @@ transmedic.page.New.EVENT_02 = '';
 
 
 transmedic.page.New.prototype.create_feature_carousel = function() {
+  $("#page-news-featured-section-content").slick({
+    'speed': 350,
+    'dots': true,
+    'arrows': false,
+    'infinite': false,
+    'slidesToShow': 1,
+    'slidesToScroll': 1,
+    'pauseOnHover': false,
+    'autoplay': false,
+    'autoplaySpeed': 4000
+  });
+  
   $("#page-news-featured-carousel").slick({
     'speed': 350,
     'dots': true,
@@ -154,18 +166,23 @@ transmedic.page.New.prototype.append_to_news_container = function(i) {
       var a = i + 1;
       this.counter_a = this.counter_i + 1;
 
-      // console.log(this.counter_i);
+      // console.log('counter_i:'+this.counter_i);
+      // console.log('counter_a:'+this.counter_a);
       // console.log(this.total_news_page);
 
       if(this.counter_i==0) {
-        this.append_html += '<div class="row">'+news_html;
-      }
-      else if(this.counter_i == this.news_per_page - 1) {
-        this.append_html += news_html+'</div>';
+        // console.log('i=0');
+        this.append_html += '<div class="row '+this.counter_a+'">'+news_html;
       }
       else if (this.counter_a % 3 === 0) {
-        this.append_html += news_html+'</div><div class="row">';
+        // console.log('a%3');
+        this.append_html += news_html+'</div><div class="row '+this.counter_a+'">';
       }
+      else if(this.counter_i == this.news_per_page - 1) {
+        // console.log('i=12-1');
+        // console.log(this.current_category);
+        this.append_html += news_html+'</div>';
+      } 
       else {
         this.append_html += news_html;
       }
@@ -211,8 +228,8 @@ transmedic.page.New.prototype.get_all_news = function() {
 
 transmedic.page.New.prototype.get_more_news = function() {
 
-  console.log(this.current_page);
-  console.log(this.news_per_page);
+  // console.log(this.current_page);
+  // console.log(this.news_per_page);
 
   var starting_index = this.current_page * this.news_per_page;  
 
@@ -222,8 +239,8 @@ transmedic.page.New.prototype.get_more_news = function() {
     var ending_index = starting_index + this.news_per_page;  
   }  
 
-  this.counter_i = 0;
-  this.counter_a = 0;
+  // this.counter_i = 0;
+  // this.counter_a = 0;
 
   for (var i = starting_index; i < ending_index; i++) {
     this.append_to_news_container(i);

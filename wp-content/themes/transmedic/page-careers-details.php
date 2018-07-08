@@ -107,44 +107,103 @@ $current_slug = get_post( $post )->post_name;
                   <div id="sidebar-title" class="default-copy">
                     <h5><?php echo $careers_details_page_sidebar_title; ?></h5>                                    
                   </div> <!-- you may also like -->
-                  
-                  <div id="sidebar-title-image">
-                    <div class="manic-image-container">
-                      <img src="<?php echo $careers_details_page_sidebar_image[0]; ?>" alt="">
-                    </div>
-                  </div> <!-- sidebar-title-image -->
-                  
+
                   <div id="page-default-news-item-container" class="career-detail-page-version">
-                    <?php              
-                    //Create WordPress Query with 'orderby' set to 'rand' (Random)
-                    $the_query = new WP_Query( array ( 'orderby' => 'rand', 'posts_per_page' => '5' ) );
-                    // output the random post
-                    while ( $the_query->have_posts() ) : $the_query->the_post();
-                      $posttags = get_the_tags();
+                  <?php              
+                  //Create WordPress Query with 'orderby' set to 'rand' (Random)
+                  $row = 1;
+                  $the_query = new WP_Query( array ( 'orderby' => 'rand', 'posts_per_page' => '5' ) );
+                  // output the random post
+                  while ( $the_query->have_posts() ) : $the_query->the_post();
+                    $posttags = get_the_tags();
+
+                    if(isset($posttags) && !empty($posttags)) {
                       foreach ($posttags as $key => $posttag) {
                         $tag_names[] = $posttag->name;  
                       }
+                    } else {
+                      $tag_names = [];
+                    }
 
-                      if(in_array("Main News Index", $tag_names)):
-                    ?>
-                    <div class="page-default-news-item">
-                      <div class="item-column">
-                        <div class="item-title">
-                          <?php 
-                          $post_categories = get_the_category();
-                          foreach ($post_categories as $key => $value) {
-                            $post_category = $value;
-                          }
-                          ?>
-                          <h4><?php echo $post_category->name; ?></h4>
-                          
-                          <h5><a href="<?php the_permalink(); ?>" class="minimize-text" data-length="60" data-tablet-length="60" data-mobile-length="33"><?php the_title(); ?></a></h5>
-                        </div>      
-                      </div>                
-                    </div> <!-- page-default-news-item -->
-                    <?php endif; endwhile; ?>
+                    if(in_array("Main News Index", $tag_names)):
+                  ?>
+                    
+                    <?php if($row == 1): ?>
+                      <div id="sidebar-title-image">                
+                        <div class="manic-image-container">
+                          <?php if(!empty(get_the_post_thumbnail_url())): ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                          <?php else: ?>
+                            <?php 
+                              $thumbnail_url = get_post_meta( $post->ID, 'single_post_page_post_video_poster', true );
+                              if(empty($thumbnail_url)) {
+                                $single_post_page_post_content_image_entries = get_post_meta($post->ID, 'single_post_page_post_content_image', true);
+                                $thumbnail_url = (isset($single_post_page_post_content_image_entries) && !empty($single_post_page_post_content_image_entries)) ? $single_post_page_post_content_image_entries[0]['single_post_page_post_content_image'] : "";
+                              }
+                            ?>
+                            <div class="manic-image-container">
+                              <img src="" data-image-desktop="<?php echo $thumbnail_url; ?>" data-image-tablet="<?php echo $thumbnail_url; ?>" data-image-mobile="<?php echo $thumbnail_url; ?>" alt="">
+                            </div>
+                          <?php endif; ?>
+                        </div>
+                      </div> <!-- sidebar-title-image -->
+                      <div class="page-default-news-item">
+                        <div class="item-column">
+                          <div class="item-title">
+                            <div class="row">
+                              <div class="col-xs-12">
+                                <?php 
+                                $post_categories = get_the_category();
+                                // foreach ($post_categories as $key => $value) {
+                                //   $post_category = $value;
+                                // }
+                                ?>
+                                <h4><?php echo (isset($post_categories) && !empty($post_categories)) ? $post_categories[0]->name : ""; ?></h4>
+                              </div>
+                              <!-- <div class="col-xs-5">
+                                <h4 class="item-date"><?php //echo get_the_date('d M Y'); ?></h4>
+                              </div> -->
+                            </div>
+                            <h5><a href="<?php the_permalink(); ?>" class="hover-sync minimize-text" data-length="60" data-tablet-length="60" data-mobile-length="33"><?php the_title(); ?></a></h5>
+                          </div>      
+                        </div>                
+                      </div> <!-- page-default-news-item -->
+                    <?php else: ?>
+                      <div class="page-default-news-item not">
+                        <div class="item-column">
+                          <div class="item-title">
+                            <div class="row">
+                              <div class="col-xs-12">
+                                <?php 
+                                $post_categories = get_the_category();
+                                // foreach ($post_categories as $key => $value) {
+                                //   $post_category = $value;
+                                // }
+                                ?>
+                                <h4><?php echo (isset($post_categories) && !empty($post_categories)) ? $post_categories[0]->name : ""; ?></h4>
+                              </div>
+                              <!-- <div class="col-xs-5">
+                                <h4 class="item-date"><?php //echo get_the_date('d M Y'); ?></h4>
+                              </div> -->
+                            </div>
+                            <h5><a href="<?php the_permalink(); ?>" class="hover-sync minimize-text" data-length="60" data-tablet-length="60" data-mobile-length="33"><?php the_title(); ?></a></h5>
+                          </div>      
+                        </div>                
+                      </div> <!-- page-default-news-item -->
+                    <?php endif; ?>
 
-                  </div> <!-- page-default-news-item-container -->
+                    
+
+                  <?php
+                      ++$row;
+                    endif;
+                  endwhile;
+
+                  // Reset Post Data
+                  wp_reset_postdata();
+                  ?>                
+
+                </div> <!-- page-default-news-item-container -->                                  
 
                 </div> <!-- page-article-sidebar-container -->
               </div> <!-- page-article-sidebar-fixed-container -->

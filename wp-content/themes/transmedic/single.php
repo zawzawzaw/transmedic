@@ -26,6 +26,14 @@
                 <h2><?php the_title(); ?></h2>                
               </div>
             </div>
+
+            <div id="page-article-custom-container">
+              <?php if(have_posts()) : ?>
+                <?php while(have_posts()) : the_post(); ?>
+                  <?php the_content(); ?>
+                <?php endwhile; ?>
+              <?php endif; ?>
+            </div>
             
             <?php 
             $single_post_page_post_video = get_post_meta( $post->ID, 'single_post_page_post_video', true );

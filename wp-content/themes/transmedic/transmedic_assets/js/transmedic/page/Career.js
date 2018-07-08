@@ -55,6 +55,7 @@ transmedic.page.Career.DEFAULT = {
 transmedic.page.Career.prototype.init = function() {
   transmedic.page.Career.superClass_.init.call(this);
 
+  this.create_quote_slider();
   this.create_pinned_scene();
   this.create_pinned_mobile_scene();
 
@@ -68,7 +69,19 @@ transmedic.page.Career.prototype.init = function() {
 //   |  __/|  _ < | |  \ V / ___ \| | | |___
 //   |_|   |_| \_\___|  \_/_/   \_\_| |_____|
 //
-
+transmedic.page.Career.prototype.create_quote_slider = function() {
+  $("#quote-slider").slick({
+    'speed': 350,
+    'dots': true,
+    'arrows': false,
+    'infinite': true,
+    'slidesToShow': 1,
+    'slidesToScroll': 1,
+    'pauseOnHover': false,
+    'autoplay': true,
+    'autoplaySpeed': 4000
+  });
+};
 transmedic.page.Career.prototype.create_jobs_list_item = function() {
   var arr = $('.job-list-item');
   var job_list_item_el = null;

@@ -88,7 +88,7 @@ $current_slug = get_post( $post )->post_name;
                     </div>
 
                     <div class="page-contact-offices-content-item-address">
-                      <p style="white-space: pre;"><?php echo $ptype_locations_address; ?></p>
+                      <p><?php echo $ptype_locations_address; ?></p>
                     </div>
                     
                     <div class="page-contact-offices-content-item-more-contact">

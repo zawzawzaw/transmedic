@@ -183,7 +183,8 @@ transmedic.page.Home.prototype.create_odometer = function(){
     item = arr[i];
 
     temp_odometer = new Odometer({
-      'el': item
+      'el': item,
+      format: 'd'
     });
   }
 

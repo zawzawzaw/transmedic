@@ -43,7 +43,7 @@ $current_slug = get_post( $post )->post_name;
 
                 <div id="page-default-banner-copy" class="subtitle-version">
                   <h2><?php echo $banner_H2; ?></h2>
-                  <h5><?php echo $banner_caption ?></h5>
+                  <p><?php echo $banner_caption ?></p>
                 </div> <!-- page-home-banner-copy -->
 
               </div>
@@ -52,76 +52,76 @@ $current_slug = get_post( $post )->post_name;
         </div> <!-- page-home-banner-copy-container -->
       </article>
       
-      <article id="page-careers-section">
+      <article id="page-careers-section" class="page-careers-section">
         <div class="container-fluid has-breakpoint">
-          <?php
-            $careers_page_content_entries = get_post_meta( $post->ID, 'careers_page_content', true ); 
-
-            $i = 0;
-
-            foreach ( (array) $careers_page_content_entries as $key => $entry ):              
-              $careers_page_sec_title = $entry['careers_page_sec_title'];
-              $careers_page_sec_text = $entry['careers_page_sec_text'];
-              $careers_page_sec_quote = $entry['careers_page_sec_quote'];
-              $careers_page_sec_author = $entry['careers_page_sec_author'];
-              $careers_page_sec_author_position = $entry['careers_page_sec_author_position'];
-              $careers_page_sec_article_link = $entry['careers_page_sec_article_link'];
+          <?php        
+              $careers_page_sec_title = get_post_meta( $post->ID, 'careers_page_sec_title', true );
+              $careers_page_sec_text = get_post_meta( $post->ID, 'careers_page_sec_text', true );
+              $careers_page_sec_text_2 = get_post_meta( $post->ID, 'careers_page_sec_text_2', true );                                          
             ?>
-              <?php if( $i !== 0 && $i % 2 && $i != count($careers_page_content_entries) ): ?>
-                <div class="row">            
-                  <div class="col-md-6 align-col hidden-xs hidden-sm">
-                    <span class="quote">“<?php echo $careers_page_sec_quote; ?>”</span>
-                    <span class="author"><?php echo $careers_page_sec_author; ?></span>
-                    <span class="author-position"><?php echo $careers_page_sec_author_position; ?></span>
-                    <div class="cta-container">
-                      <a href="<?php echo home_url() . $careers_page_sec_article_link; ?>" class="read-more-cta">read her story</a>
-                    </div>
-                  </div><!--
-                  --><div class="col-md-6 align-col">
-                    <div class="text-container">
-                      <h3><?php echo $careers_page_sec_title; ?></h3>
-                      <?php echo $careers_page_sec_text; ?>
-                    </div>
-                  </div><!--
-                  --><div class="col-md-6 align-col visible-xs visible-sm">
-                    <div class="quote-container last-version">
-                      <span class="quote">“<?php echo $careers_page_sec_quote; ?>”</span>
-                      <span class="author"><?php echo $careers_page_sec_author; ?></span>
-                      <span class="author-position"><?php echo $careers_page_sec_author_position; ?></span>
-                      <div class="cta-container">
-                        <a href="<?php echo home_url() . $careers_page_sec_article_link; ?>" class="read-more-cta">read her story</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <?php else: ?>
                 <div class="row">
                   <div class="col-md-6 align-col">
                     <div class="text-container">
                       <h3><?php echo $careers_page_sec_title; ?></h3>
-                      <?php echo $careers_page_sec_text; ?>
+                      <h5><?php echo $careers_page_sec_text; ?></h5>
                     </div>
                   </div><!--
                   --><div class="col-md-6 align-col">
-                    <div class="quote-container">
-                      <span class="quote">“<?php echo $careers_page_sec_quote; ?>”</span>
-                      <span class="author"><?php echo $careers_page_sec_author; ?></span>
-                      <span class="author-position"><?php echo $careers_page_sec_author_position; ?></span>
-                      <div class="cta-container">
-                        <a href="<?php echo home_url() . $careers_page_sec_article_link; ?>" class="read-more-cta">read his story</a>
-                      </div>
-                    </div>
+                    <p><?php echo $careers_page_sec_text_2; ?></p>
                   </div>
                 </div>
-              <?php endif; ?>
-              <?php $i++; ?>
-            <?php endforeach; ?>          
+                              
 
         </div>
       </article> <!-- page-careers-section -->
 
+      <article id="page-careers-section-02" class="page-careers-section">
+        <div class="container-fluid has-breakpoint">
+          <div class="row">            
+            <div class="col-md-6 align-col">
+              <?php
+                $careers_page_section_2_quotes = get_post_meta( $post->ID, 'careers_page_section_2_quotes', true ); 
+
+                $careers_page_sec_2_title = get_post_meta( $post->ID, 'careers_page_sec_2_title', true );
+                $careers_page_sec_2_text = get_post_meta( $post->ID, 'careers_page_sec_2_text', true );
+              ?>
+              <div id="quote-slider" class="quote-container transmedic-slick-slider">
+                <?php
+                  foreach ( (array) $careers_page_section_2_quotes as $key => $entry ):
+                    $quote = $entry[careers_page_sec_2_quote];          
+                    $author = $entry['careers_page_sec_2_author'];                              
+                    $author_position = $entry['careers_page_sec_2_author_position'];          
+                    $article_link = $entry['careers_page_sec_2_article_link'];                          
+                    $gender = $entry['careers_page_sec_2_author_gender'];          
+                ?>
+                <div class="quote-slider-item">
+                  <span class="quote">“<?php echo $quote; ?>”</span>
+                  <span class="author"><?php echo $author; ?></span>
+                  <span class="author-position"><?php echo $author_position; ?></span>
+                  <div class="cta-container">
+
+                    <a href="<?php echo home_url() . $article_link; ?>" class="read-more-cta">read <?php if($gender=="male"): ?> his <?php else: ?> her <?php endif; ?> story</a>
+                  </div>
+                </div>
+                <?php 
+                  endforeach; 
+                ?>                
+              </div>                    
+            </div><!--
+            --><div class="col-md-6 align-col">
+              <div class="text-container">
+                <h3><?php echo $careers_page_sec_2_title; ?></h3>
+                <?php echo $careers_page_sec_2_text; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <?php
       $careers_page_extra_sec_image = wp_get_attachment_image_src( get_post_meta( $post->ID, 'careers_page_extra_sec_image_id', true ), 'full' );
+      $careers_page_extra_sec_image_tablet = wp_get_attachment_image_src( get_post_meta( $post->ID, 'careers_page_extra_sec_image_tablet_id', true ), 'full' );
+      $careers_page_extra_sec_image_mobile = wp_get_attachment_image_src( get_post_meta( $post->ID, 'careers_page_extra_sec_image_mobile_id', true ), 'full' );
       $careers_page_extra_sec_title = get_post_meta( $post->ID, 'careers_page_extra_sec_title', true );
       $careers_page_extra_sec_text = get_post_meta( $post->ID, 'careers_page_extra_sec_text', true );
       ?>
@@ -133,8 +133,8 @@ $current_slug = get_post( $post )->post_name;
               <div class="manic-image-container">
                 <img src="" 
                   data-image-desktop="<?php echo $careers_page_extra_sec_image[0]; ?>"
-                  data-image-tablet="<?php echo $careers_page_extra_sec_image[0]; ?>"
-                  data-image-mobile="images_cms/careers/careers-section-01-mobile.jpg" alt="">
+                  data-image-tablet="<?php echo $careers_page_extra_sec_image_tablet[0]; ?>"
+                  data-image-mobile="<?php echo $careers_page_extra_sec_image_mobile[0]; ?>" alt="">
               </div>
 
               <div id="page-careers-extra-image-caption">
@@ -183,9 +183,10 @@ $current_slug = get_post( $post )->post_name;
                   <div id="page-careers-job-filters-pin-container">
                     <div id="page-careers-job-filters-container" class="hidden-xs hidden-sm">
                       <ul>
-                      <?php foreach( $reversed_terms as $term ) :  ?>
+                      <?php foreach( $reversed_terms as $term ) :
+                        $term_name = str_replace(' ', '-', $term->name); ?>
                         <li>
-                          <h4><a href="#<?php echo strtolower($term->name); ?>" class="active-tab"><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></a><h4>
+                          <h4><a href="#<?php echo strtolower($term_name); ?>" class="active-tab"><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></a><h4>
                         </li>
                       <?php endforeach; ?>             
                       </ul>
@@ -202,13 +203,14 @@ $current_slug = get_post( $post )->post_name;
                       <div id="page-careers-job-filters-container-mobile" class="visible-xs visible-sm">
                         <div class="manic-dropdown">
                           <select name="location_filter" id="location_filter">
-                            <?php $i = 0; ?>
-                            <?php foreach( $reversed_terms as $term ) :  ?>
-                              <?php if($i==0): ?>
-                                <option value=""><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></option>  
-                              <?php endif; ?>
-                                <option value="#<?php echo strtolower($term->name); ?>"><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></option>  
-                              <?php $i++; ?>
+                            <?php //$i = 0; ?>
+                            <?php foreach( $reversed_terms as $term ) :
+                              $term_name = str_replace(' ', '-', $term->name); ?>
+                              <?php //if($i==0): ?>
+                                <!-- <option value=""><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></option>   -->
+                              <?php //endif; ?>
+                                <option value="#<?php echo strtolower($term_name); ?>"><?php echo $term->name; ?> <span class="job-count">(<?php echo $term->count; ?>)</span></option>  
+                              <?php //$i++; ?>
                             <?php endforeach; ?>
                           </select>
                         </div>
@@ -222,8 +224,10 @@ $current_slug = get_post( $post )->post_name;
                   <div class="seperator-line"></div>
                   
                   <?php $i = 0; ?>
-                  <?php foreach( $reversed_terms as $term ) :  ?>
-                    <div class="location-tab <?php if($i==0): ?>active-tab<?php endif; ?>" id="<?php echo strtolower($term->name); ?>-positions">
+                  <?php foreach( $reversed_terms as $term ) :
+                    $term_name = str_replace(' ', '-', $term->name); ?>
+
+                    <div class="location-tab <?php if($i==0): ?>active-tab<?php endif; ?>" id="<?php echo strtolower($term_name); ?>-positions">
                       <div class="job-list-item-container">
                         <?php
                         $args = array(

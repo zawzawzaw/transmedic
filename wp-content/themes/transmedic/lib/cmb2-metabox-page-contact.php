@@ -1,6 +1,6 @@
 <?php
 add_action( 'cmb2_admin_init', 'contact_page_register_our_offices_meta_box' );
-add_action( 'cmb2_admin_init', 'contact_page_register_enquiries_meta_box' );
+// add_action( 'cmb2_admin_init', 'contact_page_register_enquiries_meta_box' );
 
 /**
  * Define the metabox and field configurations.

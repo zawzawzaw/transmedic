@@ -26,7 +26,7 @@
           <div class="col-md-12">
 
             <div id="page-plain-content-title">
-              <h1>Oops! 404 Error</h1>
+              <h1>Oops!</h1>
             </div>
             <div id="page-plain-content">
               <div class="default-copy">

@@ -43,9 +43,58 @@ transmedic.component.HeaderMobile = function(options, element) {
       this.open_menu();
     } else {
       this.close_menu();
+
+      // yay ugly as fuck! i know
+
+      $("#header-search-mobile").show();
+      $("#header-menu-mobile").show();
+      $("#header-menu-cloud").hide();
+
+      $(".sub-mobile-menu").slideUp();
+      $(".login").removeClass("open");
+
+      history.replaceState(null, null, ".");
     }
 
   }.bind(this));
+
+  $(".login").find("a").click(function(e){
+    e.preventDefault();
+    $(".sub-mobile-menu").slideToggle();
+    $(this).parent().toggleClass("open");
+  });
+
+  $(".cloud").click(function(e){
+
+    e.preventDefault();
+
+    $("#header-search-mobile").hide();
+    $("#header-menu-mobile").hide();
+    $("#header-menu-cloud").show();
+
+    if(history.pushState) {
+        history.pushState(null, null, "#cloud");
+    }
+
+  });
+
+  $(window).on('hashchange', function(){
+    var hash = location.hash.substring(1);                
+    if(hash=='cloud') {
+      $("#header-search-mobile").hide();
+      $("#header-menu-mobile").hide();
+      $("#header-menu-cloud").show();
+    } else {
+      $("#header-search-mobile").show();
+      $("#header-menu-mobile").show();
+      $("#header-menu-cloud").hide();
+    }
+  }).trigger('hashchange'); // bind event to the same selector as event-listener
+
+  // $(window).hashchange( function(){
+  //     var hash = location.hash.substring(1);                
+  //     console.log(hash);
+  // });
 
 
   this.create_nav();

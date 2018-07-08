@@ -32,16 +32,6 @@ $current_slug = get_post( $post )->post_name;
     <div class="header-desktop-spacer"></div>
     <div class="header-mobile-spacer"></div>
 
-
-    <!--
-       ____    _    _   _ _   _ _____ ____
-      | __ )  / \  | \ | | \ | | ____|  _ \
-      |  _ \ / _ \ |  \| |  \| |  _| | |_) |
-      | |_) / ___ \| |\  | |\  | |___|  _ <
-      |____/_/   \_\_| \_|_| \_|_____|_| \_\
-
-    -->
-
     <article id="page-default-banner-section">
       <div id="page-default-banner-image">
         <div class="manic-image-container" data-vertical-align="top">
@@ -67,18 +57,6 @@ $current_slug = get_post( $post )->post_name;
 
     </article> <!-- page-default-banner-section -->
 
-
-
-
-
-    <!--
-      __        ___   _    _  _____  __        _______   ____   ___
-      \ \      / / | | |  / \|_   _| \ \      / / ____| |  _ \ / _ \
-       \ \ /\ / /| |_| | / _ \ | |    \ \ /\ / /|  _|   | | | | | | |
-        \ V  V / |  _  |/ ___ \| |     \ V  V / | |___  | |_| | |_| |
-         \_/\_/  |_| |_/_/   \_\_|      \_/\_/  |_____| |____/ \___/
-
-    -->
 
     <?php 
     $page_home_wwd_sec_title = get_post_meta($post->ID, 'home_page_wwd_sec_title', true);            
@@ -111,6 +89,7 @@ $current_slug = get_post( $post )->post_name;
                     $img_tablet_url = $entry['home_page_wwd_sec_image_tablet'];                       
                     $img_mobile_url = $entry['home_page_wwd_sec_image_mobile'];                       
                     $img_title = $entry['home_page_wwd_sec_image_title'];
+                    $img_link = $entry['home_page_wwd_sec_image_link'];
 
                     if($img_title=="Support & Maintenance") {
                       $img_title = "Post-Sales Support";
@@ -131,7 +110,7 @@ $current_slug = get_post( $post )->post_name;
                             </div>
                           </a>
                           <div class="item-copy">
-                            <h5><a href="<?php echo get_permalink( get_page_by_path( 'about' ) ); ?>#<?php echo strtolower(explode(' ',trim($img_title))[0]); ?>" class="hover-sync"><?php echo $entry['home_page_wwd_sec_image_title'] ?></a></h5>
+                            <h5><a href="<?php echo home_url().$img_link; ?>" class="hover-sync"><?php echo $entry['home_page_wwd_sec_image_title'] ?></a></h5>
                             <p><?php echo $entry['home_page_wwd_sec_image_text'] ?></p>
                           </div>
                         </div> <!-- page-home-whatwedo-item -->
@@ -151,18 +130,6 @@ $current_slug = get_post( $post )->post_name;
       </div>
     </article> <!-- page-home-whatwedo-section -->
 
-
-
-
-
-    <!--
-       _        _  _____ _____ ____ _____
-      | |      / \|_   _| ____/ ___|_   _|
-      | |     / _ \ | | |  _| \___ \ | |
-      | |___ / ___ \| | | |___ ___) || |
-      |_____/_/   \_\_| |_____|____/ |_|
-
-    -->
 
     <article id="page-home-latest-section">
       <div class="container-fluid has-breakpoint">
@@ -208,8 +175,8 @@ $current_slug = get_post( $post )->post_name;
                   <div class="col-md-8 v-align-col">
                     <div class="manic-image-container">
                       <img src="" data-image-desktop="<?php echo $img_url; ?>"
-                                  data-image-tablet="<?php echo $img_tablet_url; ?>"
-                                  data-image-mobile="<?php echo $img_mobile_url; ?>" alt="">
+                                  data-image-tablet="<?php echo $img_url_tablet; ?>"
+                                  data-image-mobile="<?php echo $img_url_mobile; ?>" alt="">
                     </div>
                   </div><!--
                   --><div class="col-md-4 v-align-col">
@@ -234,18 +201,6 @@ $current_slug = get_post( $post )->post_name;
       </div>
     </article> <!-- page-home-latest-section -->
 
-
-
-
-
-    <!--
-       ____  ____      _    _   _ ____
-      | __ )|  _ \    / \  | \ | |  _ \
-      |  _ \| |_) |  / _ \ |  \| | | | |
-      | |_) |  _ <  / ___ \| |\  | |_| |
-      |____/|_| \_\/_/   \_\_| \_|____/
-
-    -->
     <?php
     $home_page_brand_sec_title_mobile = get_post_meta($post->ID, 'home_page_brand_sec_title_mobile', true);            
     $home_page_b_sec_title = get_post_meta($post->ID, 'home_page_b_sec_title', true);            
@@ -307,20 +262,6 @@ $current_slug = get_post( $post )->post_name;
 
       </div>
     </article> <!-- page-home-brand-section -->
-
-
-
-
-
-    <!--
-       __  __    _    ____
-      |  \/  |  / \  |  _ \
-      | |\/| | / _ \ | |_) |
-      | |  | |/ ___ \|  __/
-      |_|  |_/_/   \_\_|
-
-    -->
-
 
     <article id="page-home-map-section">
       
@@ -386,9 +327,9 @@ $current_slug = get_post( $post )->post_name;
 
                       while ($section_query->have_posts()) : $section_query->the_post();                    
 
-                        if ($i !== 0 && $i % 2 == 0 && $i != count($section_query->post_count)) {
-                          echo "</ul><ul>";
-                        }
+                        // if ($i !== 0 && $i % 2 == 0 && $i != count($section_query->post_count)) {
+                        //   echo "</ul><ul>";
+                        // }
 
                         $location_title = get_the_title();                          
                     ?>
@@ -414,20 +355,6 @@ $current_slug = get_post( $post )->post_name;
 
     </article> <!-- page-home-map-section -->
 
-
-
-
-
-    <!--
-       _   _ _______        ______
-      | \ | | ____\ \      / / ___|
-      |  \| |  _|  \ \ /\ / /\___ \
-      | |\  | |___  \ V  V /  ___) |
-      |_| \_|_____|  \_/\_/  |____/
-
-    -->
-
-
     <article id="page-home-news-section">
       <div class="container-fluid has-breakpoint">
 
@@ -446,7 +373,7 @@ $current_slug = get_post( $post )->post_name;
             <div id="page-default-news-item-container">
               <div class="row">
                 <?php 
-                  $section_query = new WP_Query('post_type=post&tag=home-featured&orderby=menu_order&order=ASC');
+                  $section_query = new WP_Query('post_type=post&tag=home-featured&orderby=publish_date&order=DESC');
                   $i = 0;
 
                   while ($section_query->have_posts()) : $section_query->the_post();
@@ -454,6 +381,8 @@ $current_slug = get_post( $post )->post_name;
                     $post_title = get_the_title();
                     $post_categories = get_the_category();
                     $i++;
+
+                    if($i<=3):
                 ?>
                     
 
@@ -483,7 +412,8 @@ $current_slug = get_post( $post )->post_name;
                   </div> <!-- item-column -->
                 </div>
 
-                <?php                                 
+                <?php        
+                    endif;                         
                   endwhile;
                   wp_reset_query();
                 ?>  
@@ -496,10 +426,6 @@ $current_slug = get_post( $post )->post_name;
 
       </div>
     </article>
-
-
-
-
 
   </div> <!-- #page-wrapper-content -->
 </div> <!-- #page-wrapper -->

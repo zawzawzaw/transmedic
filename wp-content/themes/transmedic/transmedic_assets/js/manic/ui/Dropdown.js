@@ -98,7 +98,12 @@ manic.ui.Dropdown = function(options, element) {
     }
 
     //console.log('value: ' + value);
-    //console.log('label: ' + label);
+    console.log('label: ' + label);
+
+    label = $('<textarea/>').html(label).text();
+
+    console.log('label: ' + label);
+
 
     if (value == '') {
       this.initial_label = label;

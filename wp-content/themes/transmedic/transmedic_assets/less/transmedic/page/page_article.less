@@ -3,6 +3,7 @@
 #page-article-section {
   background-color: @light-pink-2;
   padding-top: 50px;
+  min-height: 1200px;
 
   @media all and (max-width: 991px) {
     padding-top: @section-padding-mobile;
@@ -19,6 +20,23 @@
   }
 }
 
+#page-article-custom-container {
+  .wp-caption {
+    width: auto!important;    
+  }
+  .wp-caption-text {
+    .source-sans-pro-light!important;
+    font-size: 14px!important;
+    line-height: 20px!important;
+  }
+  img {
+    max-width: 100%!important;
+    height: auto!important;
+  }
+  p {
+    .body-font!important;    
+  }
+}
 
 .default-image-desc {
   margin-top: 20px;
@@ -101,6 +119,13 @@
   }
   p + p{
     padding-top: 25px;  
+  }
+
+  a {
+    color: @dark-green;
+    &:hover {
+      color: @light-grey-2;
+    }
   }
 
   ul {
@@ -252,6 +277,13 @@
 
 #page-article-key-points-container {
   margin-top: 65px;
+
+  p {
+    padding-bottom: 25px;
+    &:last-child {
+      padding-bottom: 0px;
+    }
+  }
 
   ul {
     padding-top: 15px;
@@ -541,7 +573,8 @@ body.actual-mobile-version{
       li {
 
         &:first-child{
-          display: none;
+          display: block;
+          margin-bottom: 5px;
         }
 
         margin-right: 25px;
@@ -710,8 +743,12 @@ body.actual-mobile-version{
     .item-column {
       padding-left: 0px;
       padding-right: 0px;
-      min-height: 120px;
+      // min-height: 120px;
       position: relative;
+
+      margin-bottom: 35px;
+      padding-bottom: 35px;
+
       &:after {
         content: "";
         border-bottom: 1px solid @border-grey;
@@ -723,7 +760,7 @@ body.actual-mobile-version{
 
     .page-default-news-item {
       .item-title {
-        margin-bottom: 25px;
+        margin-bottom: 0px;
         h5 {
           padding-top: 0px;          
           a {

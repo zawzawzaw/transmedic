@@ -20,7 +20,7 @@
           <div class="row">
             <div class="col-md-12">
 
-              <div id="page-news-featured-section-content">
+              <div id="page-news-featured-section-content" class="transmedic-slick-slider">
 
                 <?php while ($section_query->have_posts()) : $section_query->the_post(); ?>
                 <?php 
@@ -30,7 +30,7 @@
                 // }
                 ?>                      
 
-                <div class="row">
+                <div class="page-news-featured-item row">
                   <div class="col-md-5">
 
                     <div class="carousel-caption-container">
@@ -106,10 +106,12 @@
             <div id="page-news-filter-list-mobile" class="visible-xs visible-sm">                  
               <div class="manic-dropdown">
                 <select name="news_filter" id="news_filter">
-                  <option value="">All Categories</option>
                   <option value="all">All Categories</option>  
                   <?php foreach( $categories as $category ) : ?>
-                    <option value="<?php echo strtolower($category->name); ?>"><?php echo $category->name; ?></option>  
+                    <?php if($category->name!="Monitoring Device" && $category->name!="Robot assisted surgery" && $category->name!="Solution for epilepsy"): ?>
+                    <?php $arr = explode(' ',trim($category->name)); ?>
+                    <option value="<?php echo strtolower($arr[0]); ?>"><?php echo html_entity_decode($category->name); ?></option>  
+                    <?php endif; ?>                    
                   <?php endforeach; ?>
                 </select>
               </div>

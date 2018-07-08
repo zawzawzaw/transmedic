@@ -25,16 +25,7 @@ $current_slug = get_post( $post )->post_name;
 
 
       <div class="header-desktop-spacer"></div>
-      <div class="header-mobile-spacer"></div>
-      
-      <!-- 
-          ____  ___    _   ___   ____________
-         / __ )/   |  / | / / | / / ____/ __ \
-        / __  / /| | /  |/ /  |/ / __/ / /_/ /
-       / /_/ / ___ |/ /|  / /|  / /___/ _, _/
-      /_____/_/  |_/_/ |_/_/ |_/_____/_/ |_|
-
-      -->
+      <div class="header-mobile-spacer"></div>    
 
       <article id="page-default-banner-section" class="about-version">
 
@@ -105,16 +96,6 @@ $current_slug = get_post( $post )->post_name;
         </div> <!-- page-home-banner-copy-container -->
 
       </article>
-      
-
-      <!-- 
-       _       ____  _____  ______   _       ________   ____  ____
-      | |     / / / / /   |/_  __/  | |     / / ____/  / __ \/ __ \
-      | | /| / / /_/ / /| | / /     | | /| / / __/    / / / / / / /
-      | |/ |/ / __  / ___ |/ /      | |/ |/ / /___   / /_/ / /_/ /
-      |__/|__/_/ /_/_/  |_/_/       |__/|__/_____/  /_____/\____/
-
-      -->
 
       <?php 
       $about_page_wwd_sec_title = get_post_meta($post->ID, 'about_page_wwd_sec_title', true);            
@@ -218,21 +199,12 @@ $current_slug = get_post( $post )->post_name;
 
       </article>
 
-
-      <!-- 
-          _______  ____________  ___
-         / ____/ |/ /_  __/ __ \/   |
-        / __/  |   / / / / /_/ / /| |
-       / /___ /   | / / / _, _/ ___ |
-      /_____//_/|_|/_/ /_/ |_/_/  |_|
-
-       -->
-
       <?php 
       $about_page_careers_sec_title = get_post_meta($post->ID, 'about_page_careers_sec_title', true);            
       $about_page_careers_sec_text = get_post_meta($post->ID, 'about_page_careers_sec_text', true);            
       ?>
-
+      
+      <?php if(!empty($about_page_careers_sec_title) && !empty($about_page_careers_sec_text)): ?>
       <article id="page-about-extra-section">
         <div class="container-fluid has-breakpoint">
           <div class="row">
@@ -245,6 +217,7 @@ $current_slug = get_post( $post )->post_name;
           </div>
         </div>
       </article>
+      <?php endif; ?>
 
     </div> <!-- #page-wrapper-content -->
   </div> <!-- #page-wrapper -->

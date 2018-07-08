@@ -1,29 +1,14 @@
-  <!-- INSERT GOOGLE ANALYTICS HERE -->
-
-
-  <!-- INSERT FONTS HERE -->
-
   <!-- Google Font -->
   <!-- Source Sans Pro Light, Regular, Semibold -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="preload">
 
 
   <?php $is_debug = false; ?>
 
   <?php if ($is_debug == true): ?>
 
-    <!--
-       ____  _______     _______ _     ___  ____  __  __ _____ _   _ _____   __  __  ___  ____  _____
-      |  _ \| ____\ \   / / ____| |   / _ \|  _ \|  \/  | ____| \ | |_   _| |  \/  |/ _ \|  _ \| ____|
-      | | | |  _|  \ \ / /|  _| | |  | | | | |_) | |\/| |  _| |  \| | | |   | |\/| | | | | | | |  _|
-      | |_| | |___  \ V / | |___| |__| |_| |  __/| |  | | |___| |\  | | |   | |  | | |_| | |_| | |___
-      |____/|_____|  \_/  |_____|_____\___/|_|   |_|  |_|_____|_| \_| |_|   |_|  |_|\___/|____/|_____|
-
-    -->
-
-
     <!-- INSERT CSS HERE -->
-    <link rel="stylesheet" type="text/css" href="<?php echo CSS; ?>/style.css">
+    <link href="<?php echo CSS; ?>/style.css" rel="preload">
 
     <!-- INSERT JS HERE -->
     <script type="text/javascript" src="<?php echo JS; ?>/manic-polyfill.js"></script>
@@ -59,21 +44,12 @@
       
     </script>
 
-
-    
-
   <?php else: ?>
 
-    <!--
-        ___  ____ _____ ___ __  __ ___ __________ ____    __  __  ___  ____  _____
-       / _ \|  _ \_   _|_ _|  \/  |_ _|__  / ____|  _ \  |  \/  |/ _ \|  _ \| ____|
-      | | | | |_) || |  | || |\/| || |  / /|  _| | | | | | |\/| | | | | | | |  _|
-      | |_| |  __/ | |  | || |  | || | / /_| |___| |_| | | |  | | |_| | |_| | |___
-       \___/|_|    |_| |___|_|  |_|___/____|_____|____/  |_|  |_|\___/|____/|_____|
-
-    -->
-
-    <script type="text/javascript" src="<?php echo JS; ?>/minified/head.load.min.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo JS; ?>/minified/head.load.min.js"></script> -->
+    <script type="text/javascript">
+      <?php require_once( __DIR__ . '/../transmedic_assets/js/minified/head.load.min.js'); ?>
+    </script>
     <script type="text/javascript">
 
       var PAGE_LIBRARY        = "<?php echo JS; ?>/minified/libraries-home.min.js";

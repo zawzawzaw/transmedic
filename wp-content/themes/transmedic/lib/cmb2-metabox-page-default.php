@@ -61,7 +61,8 @@ function page_register_meta_box() {
 		'type'       => 'wysiwyg',
 		'options' => array(		   
 	    'textarea_rows' => get_option('default_post_edit_rows', 5), // rows="..."		    
-		)
+		),
+		'show_on_cb' => 'banner_headline_only_show_for_specific_page'
 		// 'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
 		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
 		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
@@ -110,6 +111,20 @@ function banner_image_only_show_for_specific_page( $field ) {
 	$post_id =	$post->ID;
 
 	if($post_id == 82 || $post_id == 84 || $post_id == 2)
+		return 1;
+	else
+		return 0;
+}
+
+function banner_headline_only_show_for_specific_page( $field ) {
+	// Returns true if current user's ID is 1, else false
+	// return 1 === get_current_user_id();
+	// Use $field->object_id if you need
+	// the current object (post, user, etc) ID.
+	global $post;
+	$post_id =	$post->ID;
+
+	if($post_id == 2 || $post_id == 82 || $post_id == 11)
 		return 1;
 	else
 		return 0;

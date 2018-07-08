@@ -21,7 +21,7 @@
     h2 {
       .clanot-medium;
       display: block;      
-      padding-bottom: 35px;
+      padding-bottom: 30px;
     }
     h5 {
       // padding-left: 40px;
@@ -55,13 +55,42 @@
   }
 }
 
-#page-careers-section {
-  padding: 70px 0px 100px 0px;
-  background: @light-pink-2;
+.page-careers-section {
+  padding: 70px 0px 60px 0px;
+  background: @white;
+
+  &#page-careers-section-02 {
+    padding: 70px 0px 100px 0px;
+    background: @light-pink-2;
+
+    @media all and (max-width: 991px) {
+      padding-top: 0px;
+      padding-bottom: 50px;
+    }
+  }
+  
+  #quote-slider {
+    .slick-dots {      
+      bottom: 4px;
+      right: 0px;
+      width: 50%;
+      text-align: right;
+
+      @media all and (max-width: 991px) {
+        text-align: center;
+        width: 100%;
+        padding-top: 25px;
+      }
+    }  
+  }
   
   .text-container {
     h3 {
       padding-bottom: 15px;
+    }
+    h5 {
+      font-size: 20px;
+      line-height: 30px;
     }
     
     p {
@@ -141,6 +170,12 @@
     .text-container {
       h3 {
         padding-bottom: 0px;
+      }
+      h5 {
+        font-size: 14px;
+        line-height: 20px;
+        padding-top: 9px;
+        padding-bottom: 9px;
       }
       p {
         padding-bottom: 0px;
@@ -426,6 +461,7 @@ body.actual-mobile-version{
 .location-tab {
   padding-bottom: 40px;
   display: none;
+  min-height: 250px;
   &.active-tab {
     display: block;
 

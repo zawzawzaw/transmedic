@@ -84,6 +84,13 @@ function home_page_register_what_we_do_meta_box() {
     'type' => 'textarea',
   ) );
 
+  $cmb->add_group_field( $group_field_id, array(
+    'name' => __( 'Section Image Link', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id'   => $prefix . 'wwd_sec_image_link',
+    'type' => 'text',
+  ) );
+
   // Add other metaboxes as needed
 
 }

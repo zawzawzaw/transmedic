@@ -56,7 +56,7 @@ function register_locations_meta_box() {
     'name' => __( 'Address', 'cmb2' ),
     'desc' => __( 'Address', 'cmb2' ),
     'id'   => $prefix . 'address',
-    'type' => 'textarea',
+    'type' => 'wysiwyg',
   ) );
 
   $cmb->add_field( array(

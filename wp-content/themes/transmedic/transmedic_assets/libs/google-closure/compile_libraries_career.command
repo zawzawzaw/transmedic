@@ -11,5 +11,6 @@ java -jar "compiler.jar" \
   --js=../scrollmagic/scrollmagic/minified/ScrollMagic.min.js \
   --js=../scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js \
   --js=../scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js \
+  --js=../slick-carousel/slick/slick.min.js \
   --compilation_level WHITESPACE_ONLY \
   --js_output_file=../../js/minified/libraries-career.min.js

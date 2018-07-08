@@ -39,7 +39,7 @@
   <link rel="shortcut icon" href="<?php echo THEMEROOT; ?>/transmedic_assets/images/icons/favicon-final.png?v=2" type="image/x-icon" />
 
   <title>Transmedic</title>
-  <meta name="description" content="Leading medical equipment specialists in Southeast Asia.">
+  <!-- <meta name="description" content="Leading medical equipment specialists in Southeast Asia."> -->
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui"/>
   
@@ -89,29 +89,10 @@
 
   <!-- only the home page has the class home-expand-header-version by default -->
 
-  <!--
-     ____  ____  _____ _     ___    _    ____  _____ ____
-    |  _ \|  _ \| ____| |   / _ \  / \  |  _ \| ____|  _ \
-    | |_) | |_) |  _| | |  | | | |/ _ \ | | | |  _| | |_) |
-    |  __/|  _ <| |___| |__| |_| / ___ \| |_| | |___|  _ <
-    |_|   |_| \_\_____|_____\___/_/   \_\____/|_____|_| \_\
-
-  -->
-
   <div id="page-preloader">
     <div id="page-preloader-bg"></div>
     <div id="page-preloader-center"></div>
   </div>
-
-
-  <!--
-     ____  _____ ____  _  _______ ___  ____    _   _ _____    _    ____  _____ ____
-    |  _ \| ____/ ___|| |/ /_   _/ _ \|  _ \  | | | | ____|  / \  |  _ \| ____|  _ \
-    | | | |  _| \___ \| ' /  | || | | | |_) | | |_| |  _|   / _ \ | | | |  _| | |_) |
-    | |_| | |___ ___) | . \  | || |_| |  __/  |  _  | |___ / ___ \| |_| | |___|  _ <
-    |____/|_____|____/|_|\_\ |_| \___/|_|     |_| |_|_____/_/   \_\____/|_____|_| \_\
-
-  -->
 
 
   <header id="header-desktop">
@@ -123,15 +104,6 @@
         <!-- <a id="header-desktop-logo-expanded" href="index.php" title="Transmedic - Advancing Medical Technologies"></a> -->
       </div>
 
-      <!--
-         __  __ _____ _   _ _   _
-        |  \/  | ____| \ | | | | |
-        | |\/| |  _| |  \| | | | |
-        | |  | | |___| |\  | |_| |
-        |_|  |_|_____|_| \_|\___/
-
-      -->
-
       <div id="header-desktop-menu">
         <nav>
           <?php
@@ -139,23 +111,15 @@
               'echo' => true,
               'container' => false,
               'theme_location'  => 'main-menu',
-              'menu_class'      => 'main-menu'
+              'menu_class'      => 'main-menu',
+              'walker' => new Microdot_Walker_Nav_Menu()
             );
 
 
             wp_nav_menu($defaults);
-          ?>
+          ?>          
         </nav>
       </div> <!-- header-desktop-menu -->
-
-      <!--
-         ____  _____    _    ____   ____ _   _
-        / ___|| ____|  / \  |  _ \ / ___| | | |
-        \___ \|  _|   / _ \ | |_) | |   | |_| |
-         ___) | |___ / ___ \|  _ <| |___|  _  |
-        |____/|_____/_/   \_\_| \_\\____|_| |_|
-
-      -->
 
       <div id="header-desktop-search-container" class="expand-version">
         <div class="search-grey-bg"></div>
@@ -168,21 +132,7 @@
 
       </div> <!-- header-desktop-search-container -->
     </div>
-
-
-    
-    
   </header> <!-- header-desktop -->
-
-
-  <!--
-     __  __  ___  ____ ___ _     _____   _   _ _____    _    ____  _____ ____
-    |  \/  |/ _ \| __ )_ _| |   | ____| | | | | ____|  / \  |  _ \| ____|  _ \
-    | |\/| | | | |  _ \| || |   |  _|   | |_| |  _|   / _ \ | | | |  _| | |_) |
-    | |  | | |_| | |_) | || |___| |___  |  _  | |___ / ___ \| |_| | |___|  _ <
-    |_|  |_|\___/|____/___|_____|_____| |_| |_|_____/_/   \_\____/|_____|_| \_\
-
-  -->
 
 
   <header id="header-mobile">
@@ -210,8 +160,8 @@
     <div class="header-mobile-spacer"></div>
 
     <div id="header-search-mobile">
-      <form id="header-search-mobile-form" action="search.php" method="GET">
-        <input type="text" name="search-param">
+      <form id="header-search-mobile-form" class="searchform" action="<?php echo home_url(); ?>" role="search" method="GET">
+        <input type="text" name="s" id="s">
         <input type="submit" value="">
       </form>
     </div>
@@ -231,8 +181,54 @@
 
 
               wp_nav_menu($defaults);
-            ?>            
+            ?>
+            <div class="sub-menu-bg"></div>
+            <ul class="sub-mobile-menu">
+              <?php 
+              $menu_items = wp_get_nav_menu_items( 'Mobile Menu' );
+              foreach ($menu_items as $key => $value) { ?>
+                <?php if($value->classes[0]=="staff-login-menu"): ?>
+                  <li><a href="<?php echo $value->url; ?>" target="_blank" class="<?php echo join(' ', $value->classes); ?>"><?php echo $value->title; ?></a></li>
+                <?php endif; ?>
+              <?php }
+              ?>
+            </ul>
+            <!-- <ul class="sub-mobile-menu">
+              <li><a href="#">E-Portal</a></li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#" class="cloud">Cloud</a></li>
+            </ul> -->       
           </nav>
+        </div>
+
+        <div id="header-menu-cloud">
+          <h5>Cloud Access</h5>
+          <p>Please select your country:</p>
+
+          <ul>
+            <?php 
+            $menu_items = wp_get_nav_menu_items( 'Mobile Menu' );
+            // print_r($menu_items);            
+            foreach ($menu_items as $key => $value) { ?>
+              <?php if($value->classes[0]=="cloud-menu"): ?>
+                <?php
+                if($value->title=="Singapore") $flag = 'sg';
+                elseif($value->title=="Hong Kong") $flag = 'hk';
+                elseif($value->title=="Malaysia") $flag = 'my';
+                elseif($value->title=="Indonesia") $flag = 'id';
+                elseif($value->title=="Thailand") $flag = 'th';
+                else $flag = 'sg';
+                ?>
+                <li><a href="<?php echo $value->url; ?>" target="_blank"><div class="iti-flag <?php echo $flag; ?>"></div><?php echo $value->title; ?></a></li>
+              <?php endif; ?>
+            <?php }
+            ?>
+            <!-- <li><a href="#"><div class="iti-flag sg"></div>Singapore</a></li>
+            <li><a href="#"><div class="iti-flag hk"></div>Hong Kong</a></li>
+            <li><a href="#"><div class="iti-flag my"></div>Malaysia</a></li>
+            <li><a href="#"><div class="iti-flag id"></div>Indonesia</a></li>
+            <li><a href="#"><div class="iti-flag th"></div>Thailand</a></li> -->
+          </ul>
         </div>
 
       </div>

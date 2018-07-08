@@ -67,7 +67,7 @@ function register_brands_meta_box() {
 
   $cmb->add_group_field( $group_field_id, array(
     'name'       => __( 'Brands Logo', 'cmb2' ),
-    'desc'       => __( '', 'cmb2' ),
+    'desc'       => __( 'Recommended file size: 5kb', 'cmb2' ),
     'id'         => $prefix . 'logo',
     'type'       => 'file',   
   ) );

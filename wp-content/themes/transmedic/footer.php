@@ -1,12 +1,3 @@
-  <!--
-     _____ ___   ___ _____ _____ ____
-    |  ___/ _ \ / _ \_   _| ____|  _ \
-    | |_ | | | | | | || | |  _| | |_) |
-    |  _|| |_| | |_| || | | |___|  _ <
-    |_|   \___/ \___/ |_| |_____|_| \_\
-
-  -->
-
   <footer id="footer-desktop">
     <div class="container-fluid has-breakpoint">
       
@@ -27,6 +18,10 @@
               <li><a href="javascript:void(0);">Terms of Use</a></li>
               <li><a href="javascript:void(0);">Privacy Policy</a></li>
             </ul> -->
+            <ul>
+              <li><p>Staff Login:</p></li>
+            </ul>
+
             <?php
               $defaults = array(
                 'echo' => true,
@@ -38,6 +33,27 @@
 
               wp_nav_menu($defaults);
             ?>
+            <div id="cloud-country-select-container">
+              
+                <select name="cloud-country" id="cloud-country">
+                  <option value="Please select" selected>Please select</option>
+                  <?php 
+                  $menu_items = wp_get_nav_menu_items( 'Footer Menu' );
+                  // print_r($menu_items);
+                  foreach ($menu_items as $key => $value) { ?>
+                    <?php if($value->classes[0]=="cloud-menu"): ?>
+                      <option value="<?php echo $value->url; ?>"><?php echo $value->title; ?></option>
+                    <?php endif; ?>
+                  <?php }
+                  ?>
+                  <!-- <option value="http://www.google.com">Singapore</option>
+                  <option value="http://www.yahoo.com">Hong Kong</option>
+                  <option value="http://www.msn.com">Malaysia</option>
+                  <option value="http://www.facebook.com">Indonesia</option>
+                  <option value="http://www.twitter.com">Thailand</option> -->
+                </select>
+              
+            </div>
           </div> <!-- footer-legal -->
 
         </div>

@@ -51,21 +51,21 @@ function careers_details_page_content_meta_box() {
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => esc_html__( 'Story Section Image', 'cmb2' ),
-    'desc' => esc_html__( '', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 835 × 460 (60 KB)', 'cmb2' ),
     'id'   => $prefix . 'story_sec_image',
     'type' => 'file',
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => esc_html__( 'Story Section Image Tablet', 'cmb2' ),
-    'desc' => esc_html__( '', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 1152 x 707 (35 KB)', 'cmb2' ),
     'id'   => $prefix . 'story_sec_image_tablet',
     'type' => 'file',
   ) );
 
   $cmb->add_group_field( $group_field_id, array(
     'name' => esc_html__( 'Story Section Image Mobile', 'cmb2' ),
-    'desc' => esc_html__( '', 'cmb2' ),
+    'desc' => esc_html__( 'Recommended dimensions 640 x 390 (35 KB)', 'cmb2' ),
     'id'   => $prefix . 'story_sec_image_mobile',
     'type' => 'file',
   ) );
@@ -77,17 +77,17 @@ function careers_details_page_content_meta_box() {
     'type' => 'wysiwyg',
   ) );
 
-  $cmb->add_field( array(
-    'name' => __( 'Sidebar Title', 'cmb2' ),
-    'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sidebar_title',
-    'type' => 'text'    
-  ) );
+  // $cmb->add_field( array(
+  //   'name' => __( 'Sidebar Title', 'cmb2' ),
+  //   'desc' => __( '', 'cmb2' ),
+  //   'id'   => $prefix . 'sidebar_title',
+  //   'type' => 'text'    
+  // ) );
 
-  $cmb->add_field( array(
-    'name' => __( 'Sidebar Image', 'cmb2' ),
-    'desc' => __( '', 'cmb2' ),
-    'id'   => $prefix . 'sidebar_image',
-    'type' => 'file'    
-  ) );
+  // $cmb->add_field( array(
+  //   'name' => __( 'Sidebar Image', 'cmb2' ),
+  //   'desc' => __( '', 'cmb2' ),
+  //   'id'   => $prefix . 'sidebar_image',
+  //   'type' => 'file'    
+  // ) );
 }

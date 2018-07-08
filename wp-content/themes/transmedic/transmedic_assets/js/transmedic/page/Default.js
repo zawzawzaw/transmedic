@@ -85,6 +85,12 @@ transmedic.page.Default = function(options, element) {
     this.is_page_min_height_mobile = true;
   }
 
+  $("#cloud-country").change(function(e){
+    e.preventDefault();
+    if($(this).val()!=="Please select")
+      window.location.href = $(this).val();
+  });
+
 
 
   // console.log('transmedic.page.Default: init');

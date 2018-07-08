@@ -193,8 +193,22 @@ body.mobile-menu-open-version{
 #header-menu-mobile{
   padding-top: 10px;
 
+  .sub-menu-bg {
+    background: #fbfbfb;
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: -20px;
+    right: -20px;
+  }
+
   nav{
     ul{
+
+      &.sub-mobile-menu {
+        display: none;
+      }
+
       li{
         display: block;
 
@@ -202,10 +216,85 @@ body.mobile-menu-open-version{
         // padding-bottom: 8px;
         padding-bottom: 6px;
 
-        border-bottom: 1px solid @border-grey;
+        position: relative;
 
-        &:last-child{
-          border-bottom: none;
+        // border-bottom: 1px solid @border-grey;
+
+        // &:last-child{
+        //   border-bottom: none;
+        // }
+
+        &.staff-login-menu, &.cloud-menu {
+          display: none;
+        }
+
+        &.login {
+          
+          &:before {
+            content: "";
+            display: block;
+            height: 100%;
+            background: #fbfbfb;
+            position: absolute;
+            top: 0;
+            left: -30px;
+            right: -30px;
+          }          
+          
+          a {
+            color: @dark-green!important;
+            position: relative;
+            &:after {
+              .fa;
+              font-size: 12px;
+              line-height: 14px;                    // 
+              text-align: center;
+              display: block;
+              content: "\f078";
+              .transition-in(0.3s);
+
+              position: absolute;
+              top: 9px;
+              right: 20%;
+            }            
+          }
+
+          &:after {
+            display: none;
+          }
+
+          &.open {
+            &:after {
+              // boder
+              display: block;
+            }
+            a {
+              &:after {
+                // arrow
+                .rotation(180deg);
+              }
+            }       
+          }
+        }
+
+        &:after {
+          content: "";
+          margin-left: -30px;
+          margin-right: -30px;
+          border-bottom: 1px solid #d7d7d7;
+
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        &:last-child {           
+          &:after {
+            // boder
+            display: none;
+          }           
         }
 
 
@@ -224,11 +313,66 @@ body.mobile-menu-open-version{
 
         }
       }
-    }
+    }    
   }
 }
 
+#header-menu-cloud {
+  padding-top: 30px;
+  display: none;
+  h5 {
+    .clanot-book;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+  ul {
+    margin-top: 40px;
+    li {
+      display: inline-block;
+      width: 49%;
+      margin-bottom: 30px;
+      a {
+        .clanot-medium;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        position: relative;
+        padding-left: 30px;
+      }
+    }
+  }
 
+  .iti-flag {
+    width: 20px;
+    height: 14px;
+    box-shadow: 0px 0px 1px 0px #888;
+    background-image: url("../images/icons/flags@2x.png");
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    background-position: 20px 0;
+    background-size: 5630px 15px;
+    position: absolute;
+    left: 0;
+    top: -1px;
+
+    &.sg {
+      background-position: -4449px 0px; 
+    }
+    &.my {
+      background-position: -3578px 0px; 
+    }
+    &.hk {
+      background-position: -2171px 0px;
+    }
+    &.th {
+      background-position: -4911px 0px;
+    }
+    &.id {
+      background-position: -2325px 0px;
+    }
+  }
+}
 
 //    ____  _____    _    ____ _   _
 //   / ___|| ____|  / \  / ___| | | |
